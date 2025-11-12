@@ -7,7 +7,7 @@ birthdays = {
     "Eve": "1988/07/25"
 }
 
-print("👋 Welcome to the Birthday Look-up System!")
+print(" Welcome to the Birthday Look-up System!")
 print("---")
 
 # Exercise 3: Add Your Own Birthday
@@ -17,7 +17,7 @@ new_birthday = input(f"Enter {new_name}'s birthday (YYYY/MM/DD): ").strip()
 
 # Add the new data to the dictionary
 birthdays[new_name] = new_birthday
-print(f"✅ {new_name}'s birthday ({new_birthday}) has been added!")
+print(f"{new_name}'s birthday ({new_birthday}) has been added!")
 print("---")
 
 # Exercise 2: Print out all names in the dictionary
@@ -33,10 +33,10 @@ person_name = input("3. Enter a person's name to find their birthday: ").strip()
 if person_name in birthdays:
     # Exercise 1 & 3: Name found, print the birthday
     birthday = birthdays[person_name]
-    print(f"🎉 **{person_name}'s** birthday is: **{birthday}**")
+    print(f" **{person_name}'s** birthday is: **{birthday}**")
 else:
     # Exercise 2: Name not found, print an error message
-    print(f"❌ Sorry, we don’t have the birthday information for **{person_name}**.")
+    print(f" Sorry, we don’t have the birthday information for **{person_name}**.")
     items_prices = {
     "banana": 4,
     "apple": 2,
@@ -75,5 +75,5 @@ for item, details in items_stock.items():
 
 print("---")
 print(f"### Part 2: Total Cost of Stock")
-print(f"🛒 The total cost to buy everything in stock is: **${total_cost:.2f}**")
+print(f" The total cost to buy everything in stock is: **${total_cost:.2f}**")
 # Calculation: (4*10) + (2*5) + (1.5*24) + (3*1) = 40 + 10 + 36 + 3 = 89
