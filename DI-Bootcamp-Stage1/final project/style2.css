@@ -1,0 +1,371 @@
+/* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Body styling */
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Main container for centering content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Navigation menu */
+        header ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        /* Navigation items */
+        header li {
+            margin: 0 15px;
+        }
+        
+        /* Navigation links */
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        /* Hover effect for navigation links */
+        header a:hover {
+            color: #e6b325;
+        }
+        
+        /* Hero Section - Main banner area */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            /* Background image with dark overlay */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        /* Profile image in hero section */
+        .hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #e6b325;
+            margin-bottom: 20px;
+        }
+        
+        /* Main heading in hero section */
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        /* Subtitle in hero section */
+        .hero p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #e6b325;
+        }
+        
+        /* Section Styles - Common styling for all sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Section headings */
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            position: relative;
+        }
+        
+        /* Decorative line under section headings */
+        section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: #e6b325;
+            margin: 10px auto;
+        }
+        
+        /* Biography Section */
+        #Biography {
+            background-color: #fff;
+        }
+        
+        /* Biography content layout */
+        #Biography > div {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        /* Biography image */
+        #Biography img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Biography text container */
+        #Biography div:last-child {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Biography paragraph text */
+        #Biography p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Filmography Section */
+        #Filmography {
+            background-color: #f9f9f9;
+        }
+        
+        /* Film cards container */
+        .film-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Individual film card */
+        .film-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        /* Hover effect for film cards */
+        .film-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Film card image */
+        .film-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Film card content */
+        .film-card-content {
+            padding: 20px;
+        }
+        
+        /* Film card list styling */
+        .film-card ul {
+            list-style: none;
+        }
+        
+        /* Film card list items */
+        .film-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        /* Custom bullet points for film card lists */
+        .film-card li::before {
+            content: '•';
+            color: #e6b325;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Awards Section */
+        #Awards {
+            background-color: #fff;
+        }
+        
+        /* Awards cards container */
+        .awards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Individual award card */
+        .award-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        /* Hover effect for award cards */
+        .award-card:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Award card image */
+        .award-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Award card content */
+        .award-card-content {
+            padding: 20px;
+        }
+        
+        /* Award card list styling */
+        .award-card ul {
+            list-style: none;
+        }
+        
+        /* Award card list items */
+        .award-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        /* Custom bullet points for award card lists */
+        .award-card li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+        }
+        
+        /* More Info Section */
+        #More-info {
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Social media section */
+        .social-media {
+            margin-top: 30px;
+        }
+        
+        /* Social media icons list */
+        .social-media ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        /* Social media list items */
+        .social-media li {
+            width: 60px;
+            height: 60px;
+        }
+        
+        /* Social media links */
+        .social-media a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        /* Hover effect for social media icons */
+        .social-media a:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Facebook hover effect */
+        .social-media .fa-facebook:hover {
+            background-color: #1877F2;
+            box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);
+        }
+        
+        /* Twitter hover effect */
+        .social-media .fa-twitter:hover {
+            background-color: #1DA1F2;
+            box-shadow: 0 10px 20px rgba(29, 161, 242, 0.4);
+        }
+        
+        /* Instagram hover effect */
+        .social-media .fa-instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.4);
+        }
+        
+        /* Responsive design for mobile devices */
+        @media (max-width: 768px) {
+            /* Adjust hero section for mobile */
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            /* Stack biography content vertically on mobile */
+            #Biography > div {
+                flex-direction: column;
+            }
+            
+            /* Adjust section padding for mobile */
+            section {
+                padding: 50px 0;
+            }
+            
+            /* Adjust section headings for mobile */
+            section h2 {
+                font-size: 2rem;
+            }
+            
+            /* Stack social media icons vertically on mobile */
+            .social-media ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-media li {
+                margin-bottom: 15px;
+            }
+        }

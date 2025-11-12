@@ -1,0 +1,35 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+div
+{
+    background-color:red;
+    
+    margin:10px;
+    font-weight:bold;
+    font-size:52px;
+    color: white;
+    text-align: center;
+}
+p{
+    background-color:green;
+    font-size:18px;
+    color:white;
+    padding-right:10px;
+    margin:10px;
+  padding:10px;
+  
+}
+button{
+    background-color: yellow;
+        font-size:18px;
+        color:black;
+        padding:5px;
+        border-radius:5px;
+        margin:5px 40px;
+        cursor:pointer;
+        
+}
