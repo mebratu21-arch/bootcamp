@@ -1,4 +1,4 @@
-"""class Cat:
+class Cat:
     def __init__(self, cat_name, cat_age):
         self.name = cat_name
         self.age = cat_age
@@ -74,9 +74,7 @@ stairway.sing_me_a_song()
 
 
 #4
-# ===============================
-# 
-# ===============================
+
 
 class Zoo:
     def __init__(self, zoo_name):
@@ -129,9 +127,8 @@ class Zoo:
             print(f"{letter}: {animals}")
 
 
-# ===============================
 # Example Usage
-# ===============================
+
 
 # Step 2: Create a Zoo instance
 brooklyn_safari = Zoo("Brooklyn Safari")
