@@ -57,7 +57,7 @@ dog1.bark()
 dog1.jump()
 
 dog2.bark()
-dog2.jump()"""
+dog2.jump()
 
 #3
 class Song():
