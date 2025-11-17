@@ -41,6 +41,7 @@ class Farm:
         for animal, count in sorted(self.animals.items()):
             # Use f-string with alignment specifier
             info += f"{animal:<{max_length}} : {count}\n"
+            
 
         info += "\n    E-I-E-I-0!"
         return info
@@ -98,10 +99,11 @@ farm2.add_animal('cow', 1)
 print(farm2.get_info())
 print(farm2.get_short_info())
 
+
 print("\n=== Edge Case Test ===")
 single_animal_farm = Farm("Tiny Farm")
 single_animal_farm.add_animal('chicken')
 print(single_animal_farm.get_short_info())
-
+print("")
 empty_farm = Farm("Empty Farm")
 print(empty_farm.get_short_info())
