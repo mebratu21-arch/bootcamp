@@ -86,7 +86,7 @@ class Pagination:
         start_idx = (self.current_page - 1) * self.page_size + 1
         end_idx = min(self.current_page * self.page_size, total_items)
         return f"Showing items {start_idx}-{end_idx} of {total_items} (Page {self.current_page} of {self.total_pages})"
-
+  
 
 # Test function to demonstrate all features
 def test_pagination():
