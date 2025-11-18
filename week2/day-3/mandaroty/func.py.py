@@ -1,6 +1,6 @@
 """
 func.py - Module for Exercise 2
-Contains function to sum two numbers
+Function to sum two numbers and print the result
 """
 
 def sum_numbers(a, b):
@@ -44,8 +44,9 @@ def sum_numbers_with_validation(a, b):
     except (ValueError, TypeError):
         raise TypeError("Both arguments must be numbers")
 
+# Test function when run directly
 if __name__ == "__main__":
-    # Test the function when run directly
     print("Testing func.py directly:")
     sum_numbers(5, 3)
     sum_numbers(10.5, 2.5)
+    print("func.py tests completed successfully!")
