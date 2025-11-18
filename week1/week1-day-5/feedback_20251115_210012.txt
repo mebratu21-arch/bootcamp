@@ -1,0 +1,11 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-5/dailly-challenge.py
+suggestions for improvement:
+- Consider adding input validation to handle edge cases like empty strings or strings with non-alphanumeric characters in Challenge 1.
+- The code is well-structured and easy to follow, but additional comments could be added to the demo sections to clarify the purpose of each demonstration.
+- The `longest_word` function could be made more concise by using a list comprehension or the `max` function with a `key` argument, but the current implementation is perfectly acceptable.
+Brief justification:
+- correctness: The code accurately implements both challenges as described in the Chapter Content/Questions. Challenge 1 sorts comma-separated words alphabetically, and Challenge 2 finds the longest word in a sentence. The test cases in the code match the expected outputs provided in the instructions.
+- readability: The code is well-organized and easy to read, with descriptive variable names and clear comments. The use of functions to separate the two challenges enhances readability.
+- performance: The code's performance is efficient for the given tasks. The sorting and longest word finding algorithms are standard and do not introduce unnecessary overhead.
+- security: The code does not have any apparent security vulnerabilities. Input is taken using the `input()` function, but there is no execution of user-provided input that could lead to code injection or other security risks.
+
