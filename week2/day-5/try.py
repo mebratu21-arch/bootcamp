@@ -40,3 +40,7 @@ class Bank:
         print("you are current acount is")     
         print(f"the owner is {self.owner}")
         print(f"the balance  is {self.balance}")   
+        
+        
+b = Bank()
+b.create()        
