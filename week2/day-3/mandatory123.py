@@ -8,7 +8,7 @@ import random
 from datetime import datetime, date, timedelta
 
 print("=" * 70)
-print("🌟 COMPLETE SOLUTION - ALL EXERCISES (1-7) 🌟")
+print(" COMPLETE SOLUTION - ALL EXERCISES (1-7) ")
 print("=" * 70)
 
 # =============================================================================
@@ -82,7 +82,7 @@ try:
     result = c1 + c3
     print(f"    Result: {result}")
 except TypeError as e:
-    print(f"    ✅ Correctly raised TypeError: {e}")
+    print(f"     Correctly raised TypeError: {e}")
 
 # =============================================================================
 # EXERCISE 2: Import Functionality (Simulated within same file)
@@ -278,7 +278,7 @@ def generate_fake_users(num_users=5):
         return users
         
     except ImportError:
-        print("❌ Faker module not installed. Please run: pip install faker")
+        print("Faker module not installed. Please run: pip install faker")
         print("For now, here's a simulation of what would be generated:")
         # Simulate data for demonstration
         simulated_users = [
@@ -322,14 +322,21 @@ if users:
 # =============================================================================
 
 print("\n" + "="*70)
-print("🎉 ALL 7 EXERCISES COMPLETED SUCCESSFULLY! 🎉")
+print(" ALL 7 EXERCISES COMPLETED SUCCESSFULLY! ")
 print("="*70)
 print("\nSUMMARY OF IMPLEMENTED EXERCISES:")
 print(" Exercise 1: Currency class with all dunder methods")
 print(" Exercise 2: Module import functionality (simulated)")
+<<<<<<< HEAD
 print(" E Exercise 4: Current date display with datetime module")
 print("✅ Exercise 5: Time calculation until January 1st")
 print("✅ Exercise 6: Birthday to minutes conversion")
+=======
+print(" Exercise 3: Random string generation with string module")
+print(" Exercise 4: Current date display with datetime module")
+print(" Exercise 5: Time calculation until January 1st")
+print("Exercise 6: Birthday to minutes conversion")
+>>>>>>> 7080561c298f56840cf5fc6409af9fb612d758ca
 print(" Exercise 7: Fake user data with Faker module")
 
 print("\n" + "="*70)
