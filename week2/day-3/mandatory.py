@@ -314,7 +314,7 @@ if users:
     print("\nFormatted Table View:")
     display_users_table(users)
     
-    print(f"\n✅ Successfully generated {len(users)} fake users")
+    print(f"\n Successfully generated {len(users)} fake users")
     print(f"Data structure: {type(users)} (list of {len(users)} dictionaries)")
 
 # =============================================================================
@@ -325,13 +325,12 @@ print("\n" + "="*70)
 print("🎉 ALL 7 EXERCISES COMPLETED SUCCESSFULLY! 🎉")
 print("="*70)
 print("\nSUMMARY OF IMPLEMENTED EXERCISES:")
-print("✅ Exercise 1: Currency class with all dunder methods")
-print("✅ Exercise 2: Module import functionality (simulated)")
-print("✅ Exercise 3: Random string generation with string module")
-print("✅ Exercise 4: Current date display with datetime module")
+print(" Exercise 1: Currency class with all dunder methods")
+print(" Exercise 2: Module import functionality (simulated)")
+print(" E Exercise 4: Current date display with datetime module")
 print("✅ Exercise 5: Time calculation until January 1st")
 print("✅ Exercise 6: Birthday to minutes conversion")
-print("✅ Exercise 7: Fake user data with Faker module")
+print(" Exercise 7: Fake user data with Faker module")
 
 print("\n" + "="*70)
 print("Note: For Exercise 7, install Faker with: pip install faker")
