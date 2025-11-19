@@ -1,0 +1,26 @@
+{
+    "regular_items": [
+        {
+            "name": "Margherita Pizza",
+            "price": "12,99"
+        },
+        {
+            "name": "Caesar Salad",
+            "price": "8,50"
+        },
+        {
+            "name": "Chocolate Cake",
+            "price": "6,75"
+        }
+    ],
+    "valentines_items": [
+        {
+            "name": "Velvet Embrace of Eternal Love",
+            "price": "25,14"
+        },
+        {
+            "name": "Very Elegant Evening Entree",
+            "price": "32,14"
+        }
+    ]
+}

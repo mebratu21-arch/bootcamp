@@ -1,0 +1,17 @@
+{
+    "regular_items": [
+        {
+            "name": "Margherita Pizza",
+            "price": "12,99"
+        },
+        {
+            "name": "Caesar Salad",
+            "price": "8,50"
+        },
+        {
+            "name": "Chocolate Cake",
+            "price": "6,75"
+        }
+    ],
+    "valentines_items": []
+}
