@@ -16,10 +16,10 @@ def get_words_from_file(file_path):
             words = content.split()
             return words
     except FileNotFoundError:
-        print(f"❌ Error: File '{file_path}' not found.")
+        print(f" Error: File '{file_path}' not found.")
         return []
     except Exception as e:
-        print(f"❌ Error reading file: {e}")
+        print(f" Error reading file: {e}")
         return []
 
 def get_random_sentence(length, file_path="word_list.txt"):
@@ -66,13 +66,13 @@ def create_sample_word_list():
     try:
         with open("word_list.txt", "w") as file:
             file.write("\n".join(sample_words))
-        print("✅ Sample word list created: 'word_list.txt'")
+        print(" Sample word list created: 'word_list.txt'")
     except Exception as e:
-        print(f"❌ Error creating sample word list: {e}")
+        print(f" Error creating sample word list: {e}")
 
 def main():
     """Main function to handle user interaction"""
-    print("🎲 RANDOM SENTENCE GENERATOR")
+    print("RANDOM SENTENCE GENERATOR")
     print("=" * 40)
     print("This program generates random sentences from a word list.")
     print("You can specify the length of the sentence (2-20 words).")
@@ -93,7 +93,7 @@ def main():
             
             # Validate input
             if not user_input:
-                print("❌ Please enter a number.")
+                print(" Please enter a number.")
                 continue
                 
             length = int(user_input)
@@ -101,19 +101,19 @@ def main():
             if 2 <= length <= 20:
                 # Generate and display random sentence
                 sentence = get_random_sentence(length)
-                print(f"\n🎯 Your random sentence ({length} words):")
+                print(f"\n Your random sentence ({length} words):")
                 print(f"\"{sentence}\"")
                 break
             else:
-                print("❌ Please enter a number between 2 and 20.")
+                print(" Please enter a number between 2 and 20.")
                 
         except ValueError:
-            print("❌ Invalid input. Please enter a valid number.")
+            print(" Invalid input. Please enter a valid number.")
         except KeyboardInterrupt:
-            print("\n\n👋 Program interrupted by user. Goodbye!")
+            print("\n\n Program interrupted by user. Goodbye!")
             break
         except Exception as e:
-            print(f"❌ An unexpected error occurred: {e}")
+            print(f" An unexpected error occurred: {e}")
             break
     
     # Ask if user wants to generate another sentence
@@ -124,12 +124,12 @@ def main():
                 main()  # Restart the program
                 break
             elif another in ['n', 'no']:
-                print("👋 Thank you for using the Random Sentence Generator!")
+                print(" Thank you for using the Random Sentence Generator!")
                 break
             else:
-                print("❌ Please enter 'y' for yes or 'n' for no.")
+                print(" Please enter 'y' for yes or 'n' for no.")
         except KeyboardInterrupt:
-            print("\n👋 Goodbye!")
+            print("\n Goodbye!")
             break
 
 # Additional utility functions for enhanced functionality
@@ -144,7 +144,7 @@ def generate_multiple_sentences(num_sentences, length_range=(3, 8)):
 
 def display_multiple_sentences(sentences):
     """Display multiple sentences in a formatted way"""
-    print(f"\n📝 GENERATED {len(sentences)} RANDOM SENTENCES:")
+    print(f"\n GENERATED {len(sentences)} RANDOM SENTENCES:")
     print("=" * 60)
     for num, length, sentence in sentences:
         print(f"{num:2d}. ({length} words): {sentence}")
