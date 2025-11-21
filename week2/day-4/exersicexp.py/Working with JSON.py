@@ -28,17 +28,17 @@ def exercise_2():
     # Step 1: Load the JSON string
     try:
         data = json.loads(sampleJson)
-        print("✅ JSON string successfully parsed")
+        print(" JSON string successfully parsed")
     except json.JSONDecodeError as e:
-        print(f"❌ Error parsing JSON: {e}")
+        print(f" Error parsing JSON: {e}")
         return
     
     # Step 2: Access the nested "salary" key
     try:
         salary = data["company"]["employee"]["payable"]["salary"]
-        print(f"💰 Salary: {salary}")
+        print(f" Salary: {salary}")
     except KeyError as e:
-        print(f"❌ Error accessing salary key: {e}")
+        print(f" Error accessing salary key: {e}")
         return
     
     # Step 3: Add the "birth_date" key
@@ -46,9 +46,9 @@ def exercise_2():
         # Using a sample birth date (you can change this)
         birth_date = "1990-05-15"  # Format: YYYY-MM-DD
         data["company"]["employee"]["birth_date"] = birth_date
-        print(f"🎂 Added birth date: {birth_date}")
+        print(f"Added birth date: {birth_date}")
     except KeyError as e:
-        print(f"❌ Error adding birth date: {e}")
+        print(f" Error adding birth date: {e}")
         return
     
     # Step 4: Save the JSON to a file
@@ -56,13 +56,13 @@ def exercise_2():
         output_filename = "modified_employee_data.json"
         with open(output_filename, 'w') as file:
             json.dump(data, file, indent=4)
-        print(f"💾 Modified JSON saved to: {output_filename}")
+        print(f" Modified JSON saved to: {output_filename}")
     except Exception as e:
-        print(f"❌ Error saving to file: {e}")
+        print(f" Error saving to file: {e}")
         return
     
     # Display the modified JSON structure
-    print("\n📊 MODIFIED JSON STRUCTURE:")
+    print("\n MODIFIED JSON STRUCTURE:")
     print(json.dumps(data, indent=2))
     
     # Additional: Verify the file was saved correctly
@@ -70,9 +70,9 @@ def exercise_2():
         with open(output_filename, 'r') as file:
             saved_data = json.load(file)
             saved_birth_date = saved_data["company"]["employee"]["birth_date"]
-            print(f"✅ Verification: Birth date in saved file is '{saved_birth_date}'")
+            print(f" Verification: Birth date in saved file is '{saved_birth_date}'")
     except Exception as e:
-        print(f"❌ Error verifying saved file: {e}")
+        print(f" Error verifying saved file: {e}")
 
 def enhanced_json_exercise():
     """
@@ -123,7 +123,7 @@ def enhanced_json_exercise():
     try:
         # Parse JSON
         company_data = json.loads(complex_json)
-        print("✅ Complex JSON parsed successfully")
+        print(" Complex JSON parsed successfully")
         
         # Access various nested values
         company_name = company_data["company"]["name"]
@@ -131,10 +131,10 @@ def enhanced_json_exercise():
         first_employee_name = company_data["company"]["employees"][0]["name"]
         first_employee_salary = company_data["company"]["employees"][0]["salary"]
         
-        print(f"🏢 Company: {company_name}")
-        print(f"👨‍💼 Engineering Manager: {engineering_manager}")
-        print(f"👩‍💼 First Employee: {first_employee_name}")
-        print(f"💰 First Employee Salary: ${first_employee_salary:,}")
+        print(f" Company: {company_name}")
+        print(f" Engineering Manager: {engineering_manager}")
+        print(f" First Employee: {first_employee_name}")
+        print(f" First Employee Salary: ${first_employee_salary:,}")
         
         # Add new information
         current_year = datetime.now().year
@@ -147,18 +147,18 @@ def enhanced_json_exercise():
         # Save enhanced data
         with open("enhanced_company_data.json", 'w') as file:
             json.dump(company_data, file, indent=2)
-        print("💾 Enhanced company data saved to 'enhanced_company_data.json'")
+        print(" Enhanced company data saved to 'enhanced_company_data.json'")
         
         # Display summary
-        print(f"\n📈 Company has been operating for {company_data['company']['years_operating']} years")
-        print(f"📊 Total employees: {len(company_data['company']['employees'])}")
+        print(f"\n Company has been operating for {company_data['company']['years_operating']} years")
+        print(f" Total employees: {len(company_data['company']['employees'])}")
         
     except json.JSONDecodeError as e:
-        print(f"❌ JSON parsing error: {e}")
+        print(f" JSON parsing error: {e}")
     except KeyError as e:
-        print(f"❌ Missing key: {e}")
+        print(f" Missing key: {e}")
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
 
 def json_file_operations():
     """
@@ -194,7 +194,7 @@ def json_file_operations():
     # Write to file
     with open("students_data.json", 'w') as file:
         json.dump(sample_data, file, indent=4)
-    print("✅ Sample student data written to 'students_data.json'")
+    print(" Sample student data written to 'students_data.json'")
     
     # Read and modify
     with open("students_data.json", 'r') as file:
@@ -216,11 +216,11 @@ def json_file_operations():
     # Save updated data
     with open("updated_students_data.json", 'w') as file:
         json.dump(loaded_data, file, indent=4)
-    print("✅ Updated student data saved to 'updated_students_data.json'")
+    print(" Updated student data saved to 'updated_students_data.json'")
     
     # Display summary
-    print(f"📚 School: {loaded_data['school']['name']}")
-    print(f"👥 Total students: {loaded_data['school']['total_students']}")
+    print(f" School: {loaded_data['school']['name']}")
+    print(f" Total students: {loaded_data['school']['total_students']}")
     for student in loaded_data['students']:
         birth_date = student.get('birth_date', 'Not specified')
         print(f"   - {student['name']} (Birth: {birth_date})")
