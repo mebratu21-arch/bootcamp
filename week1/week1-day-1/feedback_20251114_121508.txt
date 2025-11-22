@@ -1,0 +1,7 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-1/dailychallenge.py
+Brief justification:
+- correctness: The code accurately implements all the requirements of the chapter content, including checking the string length, printing the first and last characters, building the string character by character, and shuffling the string as a bonus. Each step is correctly executed based on the user's input. The output matches the problem description.
+- readability: The code is well-structured and easy to understand. The comments clearly explain each step, making the code's logic transparent.
+- performance: The code's performance is efficient for the given task. It uses simple string operations and a for loop, which are appropriate for the size of the string being processed (10 characters).
+- security: The code does not involve any external inputs or operations that could pose a security risk. It only manipulates strings provided by the user.
+
