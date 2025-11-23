@@ -24,19 +24,3 @@ for (let i = 1; i <= 6; i++) {
   console.log(line);
 }
 
-// ============================================
-// EXPLANATION
-// ============================================
-console.log("\n" + "=".repeat(40));
-console.log("EXPLANATION:");
-console.log("=".repeat(40));
-console.log(`
-Solution 1 (One loop):
-- We build up a 'pattern' string by adding "* " in each iteration
-- The pattern accumulates: "*" → "* *" → "* * *", etc.
-
-Solution 2 (Nested loops):
-- Outer loop (i): Controls how many rows (1 to 6)
-- Inner loop (j): Prints stars for each row (1 to i stars)
-- Each row starts fresh with an empty string
-`);
