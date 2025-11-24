@@ -1,30 +1,22 @@
-// words_in_star.js
-
 /**
- * Function to frame words in asterisks
+ * Frame an array of words in a border of asterisks
  * @param {string[]} words - Array of words to frame
+ * @returns {string[]} - Array of framed lines
  */
 function frameWords(words) {
-    if (!words || words.length === 0) {
-        console.log("No words to display.");
-        return;
-    }
+    if (!words || words.length === 0) return ["No words to display."];
 
-    // Find the length of the longest word
     const maxLength = Math.max(...words.map(w => w.length));
-
-    // Create top border
     const border = '*'.repeat(maxLength + 4);
-    console.log(border);
 
-    // Print each word in the frame
+    const framed = [border];
     words.forEach(word => {
         const padding = ' '.repeat(maxLength - word.length);
-        console.log(`* ${word}${padding} *`);
+        framed.push(`* ${word}${padding} *`);
     });
+    framed.push(border);
 
-    // Create bottom border
-    console.log(border);
+    return framed;
 }
 
 /**
@@ -38,7 +30,6 @@ function runWordsInStar() {
         return;
     }
 
-    // Split input into array, trim whitespace, and remove empty entries
     const words = input.split(',')
                        .map(word => word.trim())
                        .filter(word => word.length > 0);
@@ -48,8 +39,11 @@ function runWordsInStar() {
         return;
     }
 
-    // Call the framing function
-    frameWords(words);
+    // Get framed lines
+    const framedLines = frameWords(words);
+
+    // Print each line
+    framedLines.forEach(line => console.log(line));
 }
 
 // Run the program
