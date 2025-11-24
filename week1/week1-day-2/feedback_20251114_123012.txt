@@ -1,0 +1,10 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-2/daily-Challenge-1.py
+suggestions for improvement:
+- Consider adding input validation to ensure that the user enters integers for the 'number' and 'length' inputs in Challenge 1.
+- While the code is readable, adding comments within the loops could enhance understanding, especially for beginners.
+Brief justification:
+- correctness: The code perfectly implements the two challenges as described in the prompt. Challenge 1 generates a list of multiples based on user input, and Challenge 2 removes consecutive duplicate letters from a user-provided string. All examples provided in the prompt produce the expected outputs. Therefore, the correctness is 100%.
+- readability: The code is well-structured and uses descriptive variable names (e.g., 'multiples', 'result', 'prev_char'). The use of f-strings makes the output clear and easy to understand. Readability is high. However, adding a few more comments within the loops could further improve understanding for newcomers. Therefore the score is 90%.
+- performance: The code's performance is efficient for the given tasks. The list comprehension for generating multiples in Challenge 1 is concise and fast. The loop for removing consecutive duplicates in Challenge 2 iterates through the string only once, resulting in linear time complexity. Therefore the score is 95%.
+- security: The code uses `input()` to gather user input. The only potential vulnerability is if a user enters non-integer values in Challenge 1, causing a `ValueError`. While there is no explicit validation, Python handles this gracefully and exits. It's good practice to add input validation to handle unexpected input. Therefore, the score is 95%.
+

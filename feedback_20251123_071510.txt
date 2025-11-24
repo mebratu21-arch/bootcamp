@@ -1,0 +1,12 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/deck_and_card/deck_of_cards.py
+suggestions for improvement:
+- The code implements a deck of cards, which is entirely unrelated to the Rock Paper Scissors game described in the prompt.
+- The prompt specifies creating classes, methods, using random number generation, user input and validation, data structures (dictionaries), and implementing game logic for Rock Paper Scissors. The provided code does none of these things.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/deck_and_card/oop_concepts.py
+suggestions for improvement:
+- The submitted code is completely unrelated to the rock-paper-scissors game detailed in the chapter content. It's a quiz on OOP concepts, not an implementation of the specified game.
+- The code doesn't address any of the explicit instructions such as creating game.py or rock-paper-scissors.py, implementing the Game class, or defining the required methods.
+Correctness: 0.0%
+-----
