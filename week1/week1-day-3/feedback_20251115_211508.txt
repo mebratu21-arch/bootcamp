@@ -1,0 +1,10 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-3/daillychallenge1.py
+suggestions for improvement:
+- Consider wrapping the `create_index_dictionary` call in a `if __name__ == '__main__':` block.
+- For better reusability, avoid printing the dictionary directly within the function. Instead, return the dictionary and let the caller handle the printing.
+Brief justification:
+- correctness: The code directly and accurately solves both challenges as described in the Chapter Content/Questions. The first function creates the index dictionary as requested, and the second correctly identifies and sorts affordable items based on the provided constraints.
+- readability: The code is well-structured and easy to understand. Variable names are descriptive, and the logic is straightforward. Minor improvements could be made by encapsulating the dictionary creation in a main block.
+- performance: The code's performance is efficient for the given problem sizes. The use of `setdefault` in the first function and direct iteration in the second function contribute to good performance.
+- security: The code does not have any significant security concerns. It handles user input in a basic manner, and there are no apparent vulnerabilities.
+
