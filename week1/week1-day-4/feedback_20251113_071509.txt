@@ -1,0 +1,12 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-4/daillyChallenge.py
+suggestions for improvement:
+- The initial data should match the example provided in the prompt (espresso: 7.0, latte: 12.0, cappuccino: 10.0).
+- The output format for showing the menu should be 'drink - price₪' rather than 'drink: $price'.
+- The option to 'Print Menu' (choice 5) is not a requirement of the prompt.
+- The main loop should use `show_options()` as defined in the prompt instead of printing the menu options directly. The numbering of the menu options also need to match.
+Brief justification:
+- correctness: The code implements the core functionality of the menu manager (add, update, delete, view), but it deviates from the problem description with regard to the initial data, menu format and menu options, and options text. Also `run_coffee_shop()` has not been implemented according to the prompt.
+- readability: The code is generally well-structured and easy to understand, with clear function names and comments.
+- performance: The code performs the tasks efficiently, with no obvious performance bottlenecks.
+- security: The code uses `float(input())` without proper error handling, which could lead to exceptions if the user enters non-numeric input. There aren't any other major security concerns.
+
