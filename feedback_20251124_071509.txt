@@ -1,0 +1,11 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-1/daillychallene/notBad.js
+suggestions for improvement:
+- The code is well-structured and easy to follow. Good job with the test cases!
+- The alternative regex implementation is a great addition and demonstrates another approach to solving the problem.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-1/daillychallene/Stars.js
+suggestions for improvement:
+- The provided code does not address the problem described in the chapter content/questions. The chapter content requires manipulating strings to replace a specific substring, while the provided code prints a pattern of asterisks.
+Correctness: 0%
+-----
