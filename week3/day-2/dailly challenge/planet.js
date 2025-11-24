@@ -1,122 +1,63 @@
-// Array of planets with their properties including moons
+// Array of planets with moons
 const planets = [
-    {
-        name: "Mercury",
-        color: "gray",
-        moons: 0
-    },
-    {
-        name: "Venus",
-        color: "orange",
-        moons: 0
-    },
-    {
-        name: "Earth",
-        color: "blue",
-        moons: [
-            { name: "Moon", size: 30 }
-        ]
-    },
-    {
-        name: "Mars",
-        color: "red",
-        moons: [
-            { name: "Phobos", size: 20 },
-            { name: "Deimos", size: 15 }
-        ]
-    },
-    {
-        name: "Jupiter",
-        color: "brown",
-        moons: [
-            { name: "Io", size: 25 },
-            { name: "Europa", size: 22 },
-            { name: "Ganymede", size: 28 },
-            { name: "Callisto", size: 26 }
-        ]
-    },
-    {
-        name: "Saturn",
-        color: "gold",
-        moons: [
-            { name: "Titan", size: 27 },
-            { name: "Rhea", size: 20 },
-            { name: "Iapetus", size: 18 },
-            { name: "Dione", size: 17 }
-        ]
-    },
-    {
-        name: "Uranus",
-        color: "lightblue",
-        moons: [
-            { name: "Titania", size: 24 },
-            { name: "Oberon", size: 22 },
-            { name: "Umbriel", size: 19 },
-            { name: "Ariel", size: 20 }
-        ]
-    },
-    {
-        name: "Neptune",
-        color: "darkblue",
-        moons: [
-            { name: "Triton", size: 26 },
-            { name: "Proteus", size: 20 },
-            { name: "Nereid", size: 17 }
-        ]
-    }
+  { name: "Mercury", color: "gray", moons: [] },
+  { name: "Venus", color: "orange", moons: [] },
+  { name: "Earth", color: "blue", moons: [{ name: "Moon", size: 20 }] },
+  { name: "Mars", color: "red", moons: [{ name: "Phobos", size: 15 }, { name: "Deimos", size: 12 }] },
+  { name: "Jupiter", color: "brown", moons: [
+      { name: "Io", size: 18 }, { name: "Europa", size: 16 }, { name: "Ganymede", size: 20 }, { name: "Callisto", size: 18 }
+  ] },
+  { name: "Saturn", color: "gold", moons: [
+      { name: "Titan", size: 20 }, { name: "Rhea", size: 15 }, { name: "Iapetus", size: 12 }, { name: "Dione", size: 10 }
+  ] },
+  { name: "Uranus", color: "lightblue", moons: [
+      { name: "Titania", size: 16 }, { name: "Oberon", size: 15 }, { name: "Umbriel", size: 13 }, { name: "Ariel", size: 14 }
+  ] },
+  { name: "Neptune", color: "darkblue", moons: [
+      { name: "Triton", size: 18 }, { name: "Proteus", size: 14 }, { name: "Nereid", size: 12 }
+  ] }
 ];
 
-// Get the section where we'll add the planets
 const planetsSection = document.querySelector('.listPlanets');
 
-// Function to create a planet with its moons
-function createPlanet(planetData) {
-    // Create planet div
-    const planetDiv = document.createElement('div');
-    planetDiv.classList.add('planet');
-    planetDiv.style.backgroundColor = planetData.color;
-    
-    // Create planet name element
-    const planetName = document.createElement('span');
-    planetName.textContent = planetData.name;
-    planetName.style.color = 'white';
-    planetName.style.fontWeight = 'bold';
-    planetName.style.textShadow = '1px 1px 2px black';
-    planetDiv.appendChild(planetName);
-    
-    // Add the planet to the section
-    planetsSection.appendChild(planetDiv);
-    
-    // Create moons for this planet
-    if (planetData.moons && planetData.moons.length > 0) {
-        planetData.moons.forEach((moon, index) => {
-            createMoon(planetDiv, moon, index, planetData.moons.length);
-        });
-    }
+// Create planet and its moons
+function createPlanet(planet) {
+  const planetDiv = document.createElement('div');
+  planetDiv.classList.add('planet');
+  planetDiv.style.backgroundColor = planet.color;
+
+  const nameSpan = document.createElement('span');
+  nameSpan.textContent = planet.name;
+  nameSpan.style.color = 'white';
+  nameSpan.style.fontWeight = 'bold';
+  nameSpan.style.textShadow = '1px 1px 2px black';
+  planetDiv.appendChild(nameSpan);
+
+  planetsSection.appendChild(planetDiv);
+
+  // Create moons
+  planet.moons.forEach((moon, index) => createMoon(planetDiv, moon, index, planet.moons.length));
 }
 
-// Function to create a moon and position it around its planet
-function createMoon(planetDiv, moonData, moonIndex, totalMoons) {
-    const moonDiv = document.createElement('div');
-    moonDiv.classList.add('moon');
-    moonDiv.textContent = moonData.name;
-    moonDiv.style.width = `${moonData.size}px`;
-    moonDiv.style.height = `${moonData.size}px`;
-    
-    // Calculate position in a circular orbit
-    const angle = (moonIndex / totalMoons) * 2 * Math.PI;
-    const distance = 80; // Distance from planet center
-    const left = 50 + distance * Math.cos(angle) - moonData.size / 2;
-    const top = 50 + distance * Math.sin(angle) - moonData.size / 2;
-    
-    moonDiv.style.left = `${left}%`;
-    moonDiv.style.top = `${top}%`;
-    
-    // Add the moon to the planet
-    planetDiv.appendChild(moonDiv);
+// Create a moon and position it in a circular orbit
+function createMoon(planetDiv, moon, index, totalMoons) {
+  const moonDiv = document.createElement('div');
+  moonDiv.classList.add('moon');
+  moonDiv.textContent = moon.name;
+  moonDiv.style.width = `${moon.size}px`;
+  moonDiv.style.height = `${moon.size}px`;
+
+  const angle = (index / totalMoons) * 2 * Math.PI;
+  const distance = 80; // distance from planet center
+  const left = 50 + distance * Math.cos(angle) - moon.size / 2;
+  const top = 50 + distance * Math.sin(angle) - moon.size / 2;
+
+  moonDiv.style.position = 'absolute';
+  moonDiv.style.left = `${left}%`;
+  moonDiv.style.top = `${top}%`;
+
+  planetDiv.appendChild(moonDiv);
 }
 
-// Create all planets
-planets.forEach(planet => {
-    createPlanet(planet);
-});
+// Render all planets
+planets.forEach(createPlanet);
