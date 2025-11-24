@@ -1,0 +1,65 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/Deck of Cards Class.py
+suggestions for improvement:
+- No specific feedback.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/a.py
+suggestions for improvement:
+- The provided code is completely unrelated to the chapter content, which focuses on OOP concepts, data structures (lists), and random number generation. The code instead deals with file I/O and string manipulation.  Therefore, it fails to address any of the exercises presented in the chapter.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/anagram_checker.py
+suggestions for improvement:
+- The provided code implements an `AnagramChecker` class, which is entirely unrelated to the chapter content focusing on OOP concepts (classes, methods), data structures (lists), and random number generation for creating a deck of cards.
+- The code does not address the exercises in the chapter, particularly creating a `Card` and `Deck` class with shuffle and deal methods.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/anagrams.py
+suggestions for improvement:
+- The code implements an anagram checker, which is not related to the chapter content on OOP, data structures (lists), and random number generation for creating a deck of cards.
+- The provided code should implement the 'Deck' and 'Card' classes as described in Exercise 2.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/game.py
+suggestions for improvement:
+- The code does not implement a Deck of Cards class or address any of the OOP concepts (classes, instances, encapsulation, abstraction, inheritance, multiple inheritance, polymorphism, method resolution order).
+- The code is a simple Rock Paper Scissors game and thus is entirely irrelevant to the instructions provided.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/word_list.txt
+suggestions for improvement:
+- The provided data is a list of words, which does not address the exercises outlined in the chapter content. The exercises require answering questions about OOP concepts and creating a Deck of Cards class.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/nameslist.txt
+suggestions for improvement:
+- Skipping file (too many comments or blank lines).
+Correctness: N/A%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/requests and time modules.py
+suggestions for improvement:
+- The provided code is completely unrelated to the chapter content, which focuses on OOP concepts, data structures (lists), and random number generation. The code instead measures the load time of websites.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/rock-paper-scissors.py
+suggestions for improvement:
+- The provided code implements a Rock Paper Scissors game, which is unrelated to the exercises in the chapter content (OOP concepts, Deck of Cards class, Data Structures (Lists), and Random Number Generation).
+- Consider focusing on the specific exercises provided in the chapter content to align the code with the learning objectives.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/vaccine management system.py
+suggestions for improvement:
+- The provided code implements a queuing system with prioritization based on age and priority status. It includes operations like adding people, finding them in the queue, swapping positions, retrieving individuals, filtering by blood type, and sorting by priority and age. However, this code is completely unrelated to the exercises specified in the chapter content which requires implementing a Deck of Cards class and answering questions about OOP concepts, data structures and random number generation.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/whether.py
+suggestions for improvement:
+- This code is completely unrelated to the chapter content which covers OOP concepts, classes, methods, data structures (lists), and random number generation for a deck of cards.
+- The provided code uses the `pyowm` library to fetch weather data and plot humidity forecasts, which has nothing to do with the requirements outlined in the chapter.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/word_list.txt
+suggestions for improvement:
+- The provided text is a list of words and does not address any of the exercises related to OOP concepts, creating a deck of cards, or using random number generation as specified in the Chapter Content/Questions. The submission should include code implementing the `Card` and `Deck` classes with the required methods.
+Correctness: 0.0%
+-----
