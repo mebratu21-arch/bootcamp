@@ -1,102 +1,94 @@
-/**
- * Utility Functions
- * Clean, safe, modern JavaScript implementations
- */
+// -----------------------------
+// XP GOLD – Exercise 1
+// -----------------------------
+// Convert an array to a sentence (without the last comma)
 
-// ----- 1. Check if a string is blank -----
-function isBlank(str) {
-    return !str || String(str).trim().length === 0;
+function arrayToSentence(arr) {
+  if (!Array.isArray(arr)) return "";
+  const last = arr.pop();
+  return `${arr.join(", ")} and ${last}`;
 }
 
-function isBlank2(str) {
-    return String(str).trim() === "";
+console.log(arrayToSentence(["apple", "banana", "mango"]));
+// Output: apple, banana and mango
+
+
+
+// -----------------------------
+// XP GOLD – Exercise 2
+// -----------------------------
+// Remove duplicate values from an array
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
 }
 
-// ----- 2. Abbreviate a full name -----
-function abbrevName(fullName) {
-    if (!fullName || typeof fullName !== "string") return "";
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+// Output: [1, 2, 3, 4, 5]
 
-    const names = fullName.trim().split(/\s+/);
-    if (names.length < 2) return fullName.trim();
 
-    return `${names[0]} ${names.at(-1)[0]}.`;
+
+// -----------------------------
+// XP GOLD – Exercise 3
+// -----------------------------
+// Find the longest word in a sentence
+
+function longestWord(sentence) {
+  const words = sentence.split(" ");
+  let longest = "";
+
+  for (let word of words) {
+    if (word.length > longest.length) longest = word;
+  }
+  return longest;
 }
 
-function abbrevName2(fullName) {
-    if (!fullName) return "";
-    const parts = fullName.trim().split(/\s+/);
-    return parts.length < 2
-        ? fullName.trim()
-        : `${parts[0]} ${parts[1][0]}.`;
-}
+console.log(longestWord("I love JavaScript so much"));
+// Output: JavaScript
 
-// ----- 3. Swap character cases -----
-function swapCase(str) {
-    return [...str]
-        .map(char =>
-            char === char.toUpperCase()
-                ? char.toLowerCase()
-                : char.toUpperCase()
-        )
-        .join('');
-}
 
-function swapCase2(str) {
-    let result = "";
-    for (let char of str) {
-        result += (char === char.toUpperCase())
-            ? char.toLowerCase()
-            : char.toUpperCase();
-    }
-    return result;
-}
 
-// ----- 4. Check if value appears in all subarrays -----
-function isOmnipresent(arr, value) {
-    return Array.isArray(arr) &&
-        arr.every(sub => Array.isArray(sub) && sub.includes(value));
-}
+// -----------------------------
+// XP GOLD – Exercise 4
+// -----------------------------
+// DOM – Change background color on click
 
-function isOmnipresent2(arr, value) {
-    if (!Array.isArray(arr)) return false;
-    for (let sub of arr) {
-        if (!Array.isArray(sub) || !sub.includes(value)) return false;
-    }
-    return true;
-}
+function changeColor() {
+  const box = document.getElementById("box");
+  if (!box) return;
 
-// ----- 5. Color diagonal cells in a table -----
-function colorDiagonalCells() {
-    const table = document.querySelector("table");
-    if (!table) {
-        console.warn("No <table> element found in the document.");
-        return;
-    }
-
-    [...table.rows].forEach((row, i) => {
-        const cell = row.cells[i];
-        if (cell) {
-            cell.style.background = "red";
-            cell.style.color = "white";
-            cell.style.fontWeight = "bold";
-        }
-    });
+  box.addEventListener("click", () => {
+    box.classList.toggle("active");
+  });
 }
 
 
-/**
- * Export for tests (Node.js environment).
- */
+
+// -----------------------------
+// XP GOLD – Exercise 5
+// -----------------------------
+// DOM – Add li items dynamically
+
+function addListItem(text) {
+  const ul = document.getElementById("list");
+  if (!ul) return;
+
+  const li = document.createElement("li");
+  li.textContent = text;
+  ul.appendChild(li);
+}
+
+
+
+// -----------------------------
+// EXPORT (ignore if not using Node.js)
+// -----------------------------
 if (typeof module !== "undefined") {
-    module.exports = {
-        isBlank,
-        isBlank2,
-        abbrevName,
-        abbrevName2,
-        swapCase,
-        swapCase2,
-        isOmnipresent,
-        isOmnipresent2,
-        colorDiagonalCells
-    };
+  module.exports = {
+    arrayToSentence,
+    removeDuplicates,
+    longestWord,
+    changeColor,
+    addListItem
+  };
 }
