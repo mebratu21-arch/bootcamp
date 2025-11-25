@@ -1,115 +1,169 @@
 /************************************************************
- *  EXERCISES XP NINJA
+ *  EXERCISES XP NINJA – FULL CORRECT SOLUTION
  ************************************************************/
 
-/* Exercise 1: Random Number & Even Numbers */
-function randomEvenNumbers() {
-    const rand = Math.floor(Math.random() * 100) + 1; // 1 to 100
-    console.log(`Random number: ${rand}`);
-    console.log(`Even numbers from 0 to ${rand}:`);
-    for (let i = 0; i <= rand; i += 2) {
-        console.log(i);
-    }
+/***********************
+ * Exercise 1: Random Number
+ ************************/
+
+// Get a random number between 1–100
+const randomNum = Math.floor(Math.random() * 100) + 1;
+console.log("Random number:", randomNum);
+
+// Console.log all even numbers from 0 → randomNum
+for (let i = 0; i <= randomNum; i++) {
+  if (i % 2 === 0) console.log(i);
 }
-// Test
-randomEvenNumbers();
 
 
-/* Exercise 2: Capitalized letters */
+/***********************
+ * Exercise 2: Capitalized Letters
+ ************************/
+/*
+Create a function that takes a lowercase string with no spaces.
+Return:
+  - Version with even indexes capitalized
+  - Version with odd indexes capitalized
+Example: "abcdef" → ["AbCdEf", "aBcDeF"]
+*/
+
 function capitalize(str) {
-    let evenCaps = '', oddCaps = '';
-    [...str].forEach((ch, i) => {
-        evenCaps += i % 2 === 0 ? ch.toUpperCase() : ch;
-        oddCaps += i % 2 === 1 ? ch.toUpperCase() : ch;
-    });
-    return [evenCaps, oddCaps];
+  let evenCap = "";
+  let oddCap = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 0) {
+      evenCap += str[i].toUpperCase();
+      oddCap += str[i].toLowerCase();
+    } else {
+      evenCap += str[i].toLowerCase();
+      oddCap += str[i].toUpperCase();
+    }
+  }
+
+  return [evenCap, oddCap];
 }
 
-// Test
-console.log(capitalize("abcdef")); // ['AbCdEf', 'aBcDeF']
+console.log(capitalize("abcdef")); // ["AbCdEf", "aBcDeF"]
 
 
-/* Exercise 3: Is palindrome? */
+/***********************
+ * Exercise 3: Is Palindrome?
+ ************************/
+
 function isPalindrome(str) {
-    const clean = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-    return clean === [...clean].reverse().join('');
+  const reversed = str.split("").reverse().join("");
+  return str === reversed;
 }
 
-// Test
 console.log(isPalindrome("madam")); // true
 console.log(isPalindrome("hello")); // false
 
 
-/* Exercise 4: Biggest Number in Array */
-function biggestNumberInArray(arr) {
-    const numbers = arr.filter(x => typeof x === 'number');
-    if (numbers.length === 0) return 0;
-    return Math.max(...numbers);
+/***********************
+ * Exercise 4: Biggest Number
+ ************************/
+
+function biggestNumberInArray(arrayNumber) {
+  if (arrayNumber.length === 0) return 0;
+
+  let biggest = -Infinity;
+
+  for (let item of arrayNumber) {
+    if (typeof item === "number" && item > biggest) {
+      biggest = item;
+    }
+  }
+
+  return biggest === -Infinity ? 0 : biggest;
 }
 
-// Test
-console.log(biggestNumberInArray([-1,0,3,100,99,2,99])); // 100
-console.log(biggestNumberInArray(['a', 3, 4, 2]));       // 4
-console.log(biggestNumberInArray([]));                    // 0
+// Tests
+console.log(biggestNumberInArray([-1, 0, 3, 100, 99, 2, 99]));  // 100
+console.log(biggestNumberInArray(["a", 3, 4, 2]));              // 4
+console.log(biggestNumberInArray([]));                          // 0
 
 
-/* Exercise 5: Unique Elements */
+/***********************
+ * Exercise 5: Unique Elements
+ ************************/
+
 function uniqueElements(arr) {
-    return [...new Set(arr)];
+  return [...new Set(arr)];
 }
 
-// Test
+// Tests
 console.log(uniqueElements([1,2,3,3,3,3,4,5])); // [1,2,3,4,5]
 
 
-/* Exercise 6: Calendar Generator */
+/***********************
+ * Exercise 6: Calendar
+ ************************/
+
 function createCalendar(year, month) {
-    const container = document.createElement('div'); // container for table
-    const table = document.createElement('table');
-    table.style.borderCollapse = 'collapse';
-    const weekdays = ['MO','TU','WE','TH','FR','SA','SU'];
+  // Month is 1-indexed (1 = January), but JS Date uses 0-indexed
+  month = month - 1;
 
-    // Header
-    const headerRow = document.createElement('tr');
-    weekdays.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        th.style.border = '1px solid black';
-        th.style.padding = '3px 5px';
-        headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
+  const container = document.createElement("table");
+  container.style.borderCollapse = "collapse";
+  container.style.textAlign = "center";
 
-    // Calculate first day and number of days
-    const firstDay = new Date(year, month-1, 1);
-    const lastDay = new Date(year, month, 0);
-    const daysInMonth = lastDay.getDate();
-    let startDay = firstDay.getDay(); // Sunday = 0
-    startDay = startDay === 0 ? 6 : startDay - 1; // Adjust: Monday = 0
-    let date = 1;
+  // Weekday header (Monday first)
+  const weekdays = ["MO","TU","WE","TH","FR","SA","SU"];
+  
+  let headerRow = document.createElement("tr");
+  weekdays.forEach(day => {
+    const th = document.createElement("th");
+    th.textContent = day;
+    th.style.border = "1px solid black";
+    th.style.padding = "5px";
+    headerRow.appendChild(th);
+  });
+  container.appendChild(headerRow);
 
-    // Fill table rows
-    for (let i = 0; i < 6; i++) {
-        const row = document.createElement('tr');
-        for (let j = 0; j < 7; j++) {
-            const cell = document.createElement('td');
-            cell.style.border = '1px solid black';
-            cell.style.padding = '3px 5px';
-            if (i===0 && j<startDay || date>daysInMonth) {
-                cell.textContent = '';
-            } else {
-                cell.textContent = date;
-                date++;
-            }
-            row.appendChild(cell);
-        }
-        table.appendChild(row);
-        if (date > daysInMonth) break;
+  // Get first day of month (JS: 0=Sunday, 1=Monday...)
+  let date = new Date(year, month, 1);
+  
+  let startDay = date.getDay(); 
+  // Convert JS Sunday=0 → our Monday=0
+  startDay = (startDay + 6) % 7;
+
+  let row = document.createElement("tr");
+
+  // Empty cells before day 1
+  for (let i = 0; i < startDay; i++) {
+    const td = document.createElement("td");
+    td.textContent = ".";
+    td.style.border = "1px solid black";
+    td.style.padding = "5px";
+    row.appendChild(td);
+  }
+
+  // Fill in days
+  while (date.getMonth() === month) {
+    const td = document.createElement("td");
+    td.textContent = date.getDate();
+    td.style.border = "1px solid black";
+    td.style.padding = "5px";
+    row.appendChild(td);
+
+    // If Sunday → start new row
+    if ((date.getDay() + 6) % 7 === 6) {
+      container.appendChild(row);
+      row = document.createElement("tr");
     }
 
-    container.appendChild(table);
-    document.body.appendChild(container);
+    date.setDate(date.getDate() + 1);
+  }
+
+  // Append last row if not complete
+  if (row.children.length > 0) {
+    container.appendChild(row);
+  }
+
+  // Append calendar to the document body
+  document.body.appendChild(container);
 }
 
-// Test (example: September 2012)
-createCalendar(2012, 9);
+// Example (run in HTML environment):
+// createCalendar(2012, 9);
