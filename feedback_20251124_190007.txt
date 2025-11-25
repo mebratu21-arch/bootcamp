@@ -1,0 +1,5 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/daily+challenge/star.js
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----

@@ -1,0 +1,18 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceNinja.js
+suggestions for improvement:
+- The code provided does not address any of the exercises outlined in the chapter content.
+- The utilities and exercises included (e.g., palindrome check, calendar generator) are not related to the learning objectives of variables, conditionals, loops, functions, and DOM selectors.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- The code uses modern JavaScript features, like template literals and destructuring, enhancing readability.
+- The code could benefit from more comments, especially in the DOM manipulation exercises, to clarify the purpose of each step.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXpGold.js
+suggestions for improvement:
+- The submitted code does not address any of the exercises or topics covered in the chapter content (Variables, Conditionals, Loops, Functions, DOM selectors).
+- The code consists of utility functions that are not related to the exercises provided.
+Correctness: 0%
+-----
