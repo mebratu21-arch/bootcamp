@@ -1,94 +1,63 @@
-// -----------------------------
-// XP GOLD – Exercise 1
-// -----------------------------
-// Convert an array to a sentence (without the last comma)
+/************************************************************
+ *  EXERCISES XP GOLD
+ ************************************************************/
 
-function arrayToSentence(arr) {
-  if (!Array.isArray(arr)) return "";
-  const last = arr.pop();
-  return `${arr.join(", ")} and ${last}`;
+/* Exercise 1: is_Blank */
+function isBlank(str) {
+    // Returns true if string is empty or contains only whitespace
+    return str.trim().length === 0;
 }
 
-console.log(arrayToSentence(["apple", "banana", "mango"]));
-// Output: apple, banana and mango
+// Test
+console.log(isBlank(''));     // true
+console.log(isBlank('abc'));  // false
 
 
-
-// -----------------------------
-// XP GOLD – Exercise 2
-// -----------------------------
-// Remove duplicate values from an array
-
-function removeDuplicates(arr) {
-  return [...new Set(arr)];
+/* Exercise 2: Abbrev_name */
+function abbrevName(name) {
+    const parts = name.split(' ');
+    if (parts.length < 2) return name;
+    return `${parts[0]} ${parts[1][0]}.`;
 }
 
-console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
-// Output: [1, 2, 3, 4, 5]
+// Test
+console.log(abbrevName("Robin Singh")); // "Robin S."
 
 
-
-// -----------------------------
-// XP GOLD – Exercise 3
-// -----------------------------
-// Find the longest word in a sentence
-
-function longestWord(sentence) {
-  const words = sentence.split(" ");
-  let longest = "";
-
-  for (let word of words) {
-    if (word.length > longest.length) longest = word;
-  }
-  return longest;
+/* Exercise 3: SwapCase */
+function swapCase(str) {
+    return [...str].map(ch => {
+        if (ch === ch.toUpperCase()) return ch.toLowerCase();
+        else return ch.toUpperCase();
+    }).join('');
 }
 
-console.log(longestWord("I love JavaScript so much"));
-// Output: JavaScript
+// Test
+console.log(swapCase('The Quick Brown Fox')); // 'tHE qUICK bROWN fOX'
 
 
-
-// -----------------------------
-// XP GOLD – Exercise 4
-// -----------------------------
-// DOM – Change background color on click
-
-function changeColor() {
-  const box = document.getElementById("box");
-  if (!box) return;
-
-  box.addEventListener("click", () => {
-    box.classList.toggle("active");
-  });
+/* Exercise 4: Omnipresent value */
+function isOmnipresent(arr, val) {
+    // Every subarray must include val
+    return arr.every(subArr => subArr.includes(val));
 }
 
+// Test
+console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 1)); // true
+console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6)); // false
 
 
-// -----------------------------
-// XP GOLD – Exercise 5
-// -----------------------------
-// DOM – Add li items dynamically
+/* Exercise 5: Red table diagonal */
+function colorDiagonal() {
+    const table = document.querySelector('table');
+    const rows = table.rows;
 
-function addListItem(text) {
-  const ul = document.getElementById("list");
-  if (!ul) return;
-
-  const li = document.createElement("li");
-  li.textContent = text;
-  ul.appendChild(li);
+    for (let i = 0; i < rows.length; i++) {
+        if (rows[i].cells[i]) {
+            rows[i].cells[i].style.backgroundColor = 'red';
+        }
+    }
 }
 
-
-
-// -----------------------------
-// EXPORT (ignore if not using Node.js)
-// -----------------------------
-if (typeof module !== "undefined") {
-  module.exports = {
-    arrayToSentence,
-    removeDuplicates,
-    longestWord,
-    changeColor,
-    addListItem
-  };
-}
+// Call after DOM loads
+window.onload = colorDiagonal;
