@@ -1,0 +1,20 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-3/mandaroty/exersice_one.py.py
+suggestions for improvement:
+- The provided code relates to Exercise 2. However, it needs to be accompanied by the `func.py` file to be complete. Without `func.py`, the code cannot be executed or assessed for full correctness.
+- Error handling using try-except blocks can be more specific to certain exceptions to improve robustness.
+Correctness: 50%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-3/mandaroty/func.py.py
+suggestions for improvement:
+- The code only provides an example of `func.py` for exercise 2 but lacks the Currency class implementation and other requested exercises.
+- To fully address the exercises, you need to implement the `Currency` class with the specified dunder methods and the random string generator, current date display, time until January 1st, birthday calculator, and faker module usage.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-3/mandaroty/main_exersice.py
+suggestions for improvement:
+- The code is well-structured and addresses all the exercises correctly.
+- The `test_currency_exercise` function can be improved by directly asserting the results instead of printing them for manual inspection, making it more of a unit test.
+- Consider adding input validation in `minutes_lived` function to ensure birthdate_str conforms to expectations.
+- The code could benefit from more detailed comments explaining the purpose of each section and function, although it is already reasonably well-documented.
+Correctness: 100%
+-----
