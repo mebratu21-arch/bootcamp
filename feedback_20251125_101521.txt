@@ -1,0 +1,17 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- Consider adding more comments to the DOM manipulation exercises to further clarify the code's purpose.
+- The use of `forEach` for DOM manipulation is fine, but for larger lists, traditional `for` loops might offer slightly better performance.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXpGold.js
+suggestions for improvement:
+- The provided code does not address any of the exercises described in the chapter content. It implements string manipulation functions and a DOM manipulation function to color the diagonal of a table, which are not related to the specified exercises on variables, conditionals, loops, functions, DOM selectors, shopping lists, change calculation, vacation costs, or user list manipulation.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceNinja.js
+suggestions for improvement:
+- The code does not address any of the exercises outlined in the chapter content.
+- The code includes function definitions for generating random even numbers, capitalizing letters in a string, checking for palindromes, finding the largest number in an array, identifying unique elements in an array, and creating a calendar. However, these tasks are unrelated to the provided exercises.
+Correctness: 0%
+-----
