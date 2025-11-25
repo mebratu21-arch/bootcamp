@@ -1,0 +1,15 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/exersice+xp/exersiceNinja.js
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/exersice+xp/exersiceXp.js
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/exersice+xp/exersiceXpGold.js
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----
