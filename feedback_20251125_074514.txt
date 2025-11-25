@@ -1,0 +1,18 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- Consider using template literals for better readability when constructing strings, especially in the `displayBooks` function.
+- For Exercise 5 (Users), instead of directly manipulating styles with JavaScript, consider adding/removing CSS classes.  This promotes separation of concerns (style vs. logic).
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXpGold.js
+suggestions for improvement:
+- The provided code does not address any of the exercises outlined in the chapter content. It includes functions for array manipulation and DOM manipulation, but these are not related to the specific instructions given in Exercises 1 through 7.
+- The code lacks any implementation of variables, conditionals, loops, functions directly related to finding numbers divisible by 23, shopping list calculations, change calculation, vacation cost calculations, user list manipulation, navbar manipulation, or book list rendering.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceNinja.js
+suggestions for improvement:
+- This code contains several unrelated exercises and doesn't address the specific instructions and exercises laid out in the chapter content.
+- The code doesn't include any of the exercises described in the chapter, so it cannot be considered a solution to the provided problems.
+Correctness: 0%
+-----

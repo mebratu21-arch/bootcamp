@@ -1,0 +1,12 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/deck_and_card/deck_of_cards.py
+suggestions for improvement:
+- Consider adding error handling for invalid suit or value inputs when creating a `Card` object, although not explicitly required, it's good practice.
+- The shuffle method could be made more robust by ensuring it always rebuilds the deck if cards are missing, rather than just printing a message.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/deck_and_card/oop_concepts.py
+suggestions for improvement:
+- The code only provides answers to the quiz questions. It needs to implement the Deck of Cards class as described in Exercise 2.
+- Include code for the Card and Deck classes with the specified methods (shuffle and deal).
+Correctness: 50%
+-----

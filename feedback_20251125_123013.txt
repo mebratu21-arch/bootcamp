@@ -1,0 +1,14 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- Consider using template literals for easier string concatenation in Exercise 7.
+- It's good practice to include comments briefly explaining what each section of code accomplishes.
+- The code could be slightly more readable by adding more spacing between code blocks.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceNinja.js
+suggestions for improvement:
+- The provided code does not address the exercises detailed in the chapter content.
+- The submission appears to be a collection of unrelated JavaScript exercises, and as such, bears no relation to the specified tasks in this chapter.
+- No attempt was made to solve problems 1 to 7.
+Correctness: 0%
+-----
