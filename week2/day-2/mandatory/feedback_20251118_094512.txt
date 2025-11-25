@@ -1,0 +1,10 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-2/mandatory/exersiceXp.py
+suggestions for improvement:
+- In Exercise 3, avoid including the detailed solutions (implementation specifics) within the instructions themselves (marked in review). The instructions should focus on the 'what' and not the 'how'.
+Correctness: 90%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-2/mandatory/exersicexp2.py
+suggestions for improvement:
+- Consider adding more descriptive comments to complex sections of the code to improve readability for other developers.
+Correctness: 100%
+-----
