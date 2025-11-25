@@ -1,44 +1,24 @@
 /************************************************************
- *  UTILITY HELPERS
- ************************************************************/
-
-// Get valid numeric input (used in vacation cost)
-function getValidNumber(message) {
-    let value;
-    do {
-        value = prompt(message);
-    } while (!value || isNaN(value) || Number(value) <= 0);
-    return Number(value);
-}
-
-// Trim and normalize input strings
-function normalize(str) {
-    return String(str).trim();
-}
-
-/************************************************************
- *  EXERCISE 1 — Numbers Divisible by X
+ * Exercise 1: Find numbers divisible by 23
  ************************************************************/
 function displayNumbersDivisible(divisor = 23) {
-    const numbers = [];
     let sum = 0;
-
+    let result = [];
     for (let i = 0; i <= 500; i++) {
         if (i % divisor === 0) {
-            numbers.push(i);
+            result.push(i);
             sum += i;
         }
     }
-
-    console.log(`Numbers divisible by ${divisor}: ${numbers.join(' ')}`);
-    console.log(`Sum: ${sum}`);
-
-    return { numbers, sum };
+    console.log(result.join(" "));
+    console.log("Sum:", sum);
 }
+// displayNumbersDivisible();       // default 23
+// displayNumbersDivisible(3);      // bonus example
 
 
 /************************************************************
- *  EXERCISE 2 — Shopping List
+ * Exercise 2: Shopping List
  ************************************************************/
 const stock = { 
     banana: 6, 
@@ -47,7 +27,6 @@ const stock = {
     orange: 32,
     blueberry: 1
 };
-
 const prices = {    
     banana: 4, 
     apple: 2, 
@@ -55,217 +34,166 @@ const prices = {
     orange: 1.5,
     blueberry: 10
 };
-
 const shoppingList = ["banana", "orange", "apple"];
 
 function myBill() {
     let total = 0;
-
     shoppingList.forEach(item => {
         if (stock[item] > 0) {
-            console.log(`Added ${item} — $${prices[item]}`);
             total += prices[item];
-            stock[item]--;
-        } else {
-            console.log(`${item} is out of stock.`);
+            stock[item]--; // bonus: decrease stock
         }
     });
-
-    console.log(`Total: $${total}`);
     return total;
 }
+// console.log("Total bill:", myBill());
 
 
 /************************************************************
- *  EXERCISE 3 — Enough Change?
+ * Exercise 3: What’s in my wallet?
  ************************************************************/
-function changeEnough(itemPrice, coins) {
-    const [q, d, n, p] = coins;
-    const total =
-        q * 0.25 +
-        d * 0.1 +
-        n * 0.05 +
-        p * 0.01;
-
-    console.log(`Price: $${itemPrice}`);
-    console.log(`Total change: $${total.toFixed(2)}`);
-
+function changeEnough(itemPrice, amountOfChange) {
+    const [quarters, dimes, nickels, pennies] = amountOfChange;
+    const total = quarters*0.25 + dimes*0.10 + nickels*0.05 + pennies*0.01;
     return total >= itemPrice;
 }
+// console.log(changeEnough(4.25, [25, 20, 5, 0])); // true
+// console.log(changeEnough(14.11, [2,100,0,0])); // false
+// console.log(changeEnough(0.75, [0,0,20,5]));   // true
 
 
 /************************************************************
- *  EXERCISE 4 — Vacation Cost
+ * Exercise 4: Vacation Costs
  ************************************************************/
 function hotelCost(nights) {
     return nights * 140;
 }
 
 function planeRideCost(destination) {
-    const d = destination.toLowerCase();
-    if (d === "london") return 183;
-    if (d === "paris") return 220;
+    destination = destination.toLowerCase();
+    if (destination === "london") return 183;
+    if (destination === "paris") return 220;
     return 300;
 }
 
 function rentalCarCost(days) {
     let cost = days * 40;
-    if (days > 10) cost *= 0.95; // 5% discount
+    if (days > 10) cost *= 0.95;
     return cost;
 }
 
 function totalVacationCost() {
-    const nights = getValidNumber("How many nights?");
-    const destination = normalize(prompt("Destination:"));
-    const days = getValidNumber("Car rental days:");
+    const nights = Number(prompt("How many nights at hotel?"));
+    const destination = prompt("Destination?");
+    const days = Number(prompt("Number of car rental days?"));
 
     const hotel = hotelCost(nights);
     const plane = planeRideCost(destination);
     const car = rentalCarCost(days);
 
-    const total = hotel + plane + car;
-
-    console.log(`
-Vacation to ${destination}
-Hotel: $${hotel}
-Plane: $${plane}
-Car: $${car}
-Total: $${total}
-    `);
-
-    return { hotel, plane, car, total };
+    console.log(`Hotel: $${hotel}, Plane: $${plane}, Car: $${car}`);
+    console.log("Total vacation cost:", hotel + plane + car);
 }
+// totalVacationCost(); // Uncomment to run
 
 
 /************************************************************
- *  EXERCISE 5 — Users + DOM Manipulation
+ * Exercise 5: Users
  ************************************************************/
-function manipulateUsers() {
-    const container = document.querySelector('#container');
-    if (!container) return;
+function manipulateUsersDOM() {
+    const container = document.getElementById("container");
+    console.log(container);
 
-    const lists = [...document.querySelectorAll('.list')];
+    const uls = document.querySelectorAll("ul.list");
 
-    // Change "Pete" → "Richard"
-    lists[0]?.children[1] && (lists[0].children[1].textContent = "Richard");
+    // Change Pete to Richard
+    uls.forEach(ul => {
+        ul.querySelectorAll("li").forEach(li => {
+            if (li.textContent === "Pete") li.textContent = "Richard";
+        });
+    });
 
-    // Remove second <li> from second <ul>
-    lists[1]?.children[1]?.remove();
+    // Delete second <li> of second <ul>
+    if (uls[1].children[1]) uls[1].removeChild(uls[1].children[1]);
 
-    // Change first <li> of each list to your name
-    lists.forEach(list => {
-        list.children[0].textContent = "Alex";
+    // Change first <li> of each <ul> to your name
+    uls.forEach(ul => {
+        if (ul.children[0]) ul.children[0].textContent = "YourName";
     });
 
     // Add classes
-    lists.forEach(list => list.classList.add("student_list"));
-    lists[0]?.classList.add("university", "attendance");
+    uls.forEach(ul => ul.classList.add("student_list"));
+    uls[0].classList.add("university", "attendance");
 
     // Style container
-    container.style.cssText = `
-        background: lightblue;
-        padding: 10px;
-    `;
+    container.style.backgroundColor = "lightblue";
+    container.style.padding = "10px";
 
-    // Hide "Dan"
+    // Hide li with text "Dan" & border for Richard
     document.querySelectorAll("li").forEach(li => {
-        if (li.textContent === "Dan") li.classList.add("hidden");
+        if (li.textContent === "Dan") li.style.display = "none";
+        if (li.textContent === "Richard") li.style.border = "1px solid black";
     });
 
-    // Border on "Richard"
-    document.querySelectorAll("li").forEach(li => {
-        if (li.textContent === "Richard") {
-            li.style.border = "2px solid red";
-            li.style.padding = "5px";
-        }
-    });
+    // Change font size of body
+    document.body.style.fontSize = "18px";
 
     // Bonus alert
     if (container.style.backgroundColor === "lightblue") {
-        const names = [...lists[0].querySelectorAll("li")].map(li => li.textContent);
-        alert(`Hello ${names.join(" and ")}`);
+        const users = Array.from(document.querySelectorAll("li"))
+                           .map(li => li.textContent)
+                           .filter(name => name !== "");
+        alert(`Hello ${users.join(" and ")}`);
     }
-
-    console.log("User DOM manipulation complete.");
 }
+// manipulateUsersDOM(); // Uncomment to run
 
 
 /************************************************************
- *  EXERCISE 6 — Navbar
+ * Exercise 6: Change the navbar
  ************************************************************/
-function manipulateNavbar() {
-    const nav = document.querySelector('#navBar');
-    if (!nav) return;
+function updateNavbar() {
+    const navBar = document.getElementById("navBar");
 
-    nav.id = "socialNetworkNavigation";
+    // Change id
+    navBar.setAttribute("id", "socialNetworkNavigation");
 
-    const ul = nav.querySelector('ul');
-
-    const li = document.createElement('li');
+    // Add new li
+    const ul = navBar.querySelector("ul");
+    const li = document.createElement("li");
     li.textContent = "Logout";
     ul.appendChild(li);
 
-    console.log(`First: ${ul.firstElementChild.textContent}`);
-    console.log(`Last: ${ul.lastElementChild.textContent}`);
+    // Log first and last li
+    console.log("First li:", ul.firstElementChild.textContent);
+    console.log("Last li:", ul.lastElementChild.textContent);
 }
+// updateNavbar(); // Uncomment to run
 
 
 /************************************************************
- *  EXERCISE 7 — Book List
+ * Exercise 7: My Book List
  ************************************************************/
-const allBooks = [
-    {
-        title: "The Hobbit",
-        author: "J.R.R. Tolkien",
-        image: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=100",
-        alreadyRead: true
-    },
-    {
-        title: "Harry Potter",
-        author: "J.K. Rowling",
-        image: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=100",
-        alreadyRead: false
-    },
-    {
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        image: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=100",
-        alreadyRead: true
-    }
-];
-
-function renderBooks() {
+function displayBooks() {
     const section = document.querySelector(".listBooks");
-    if (!section) return;
-
-    section.innerHTML = "";
+    const allBooks = [
+        { title: "Harry Potter", author: "J.K. Rowling", image: "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg", alreadyRead: true },
+        { title: "The Hobbit", author: "J.R.R. Tolkien", image: "https://images-na.ssl-images-amazon.com/images/I/91b0C2YNSrL.jpg", alreadyRead: false }
+    ];
 
     allBooks.forEach(book => {
         const div = document.createElement("div");
-        div.className = "book";
+        const p = document.createElement("p");
+        p.textContent = `${book.title} written by ${book.author}`;
+        if (book.alreadyRead) p.style.color = "red";
 
-        div.innerHTML = `
-            <img src="${book.image}" width="100" alt="book cover">
-            <div class="book-title" style="color:${book.alreadyRead ? "red" : "black"}">
-                ${book.title}
-            </div>
-            <div class="book-author" style="color:${book.alreadyRead ? "red" : "black"}">
-                by ${book.author}
-            </div>
-        `;
+        const img = document.createElement("img");
+        img.src = book.image;
+        img.style.width = "100px";
 
+        div.appendChild(p);
+        div.appendChild(img);
         section.appendChild(div);
     });
 }
-
-
-/************************************************************
- *  DOM READY — AUTO INITIALIZE
- ************************************************************/
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Ready — Initializing...");
-
-    document.querySelector('#container') && manipulateUsers();
-    document.querySelector('#navBar') && manipulateNavbar();
-    document.querySelector('.listBooks') && renderBooks();
-});
+// displayBooks(); // Uncomment to run
