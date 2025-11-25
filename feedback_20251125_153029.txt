@@ -1,0 +1,6 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/animation.js
+suggestions for improvement:
+- Consider adding more comments to improve readability, especially within the `myMove` function, to explain the purpose of each variable and step.
+- Use `const` where possible instead of `let` if the variable is not reassigned.
+Correctness: 100%
+-----
