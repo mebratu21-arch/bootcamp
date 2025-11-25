@@ -1,0 +1,11 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/daily-exersices/Tell-the-story.js
+suggestions for improvement:
+- Consider using more descriptive variable names (e.g., `adjective` instead of `adj`) for better readability.
+- You could refactor the story generation logic into a separate module or class if you anticipate more complex story templates in the future.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/daily-exersices/letters.js
+suggestions for improvement:
+- The code filters the input in a text box to only allow letters. This is completely unrelated to the Mad Libs exercise described in the chapter content, which requires getting values from multiple input fields, preventing default form submission, and creating a story using those values.
+Correctness: 0%
+-----
