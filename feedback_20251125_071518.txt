@@ -1,0 +1,12 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/dailyChallenge/planet.js
+suggestions for improvement:
+- Consider adding comments to explain the purpose of complex calculations, such as the moon positioning logic.
+- While using classes enhances organization, for a simpler exercise, plain functions might suffice, reducing the code's complexity.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/dailyChallenge/star.js
+suggestions for improvement:
+- The provided code is completely unrelated to the problem description which requires creating a solar system using DOM manipulation.
+- The code focuses on framing words with asterisks based on user input, which is not relevant to the task of creating planets and moons as described in the prompt.
+Correctness: 0%
+-----
