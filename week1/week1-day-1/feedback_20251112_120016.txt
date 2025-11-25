@@ -1,0 +1,9 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-1/exersicexp.py
+suggestions for improvement:
+- The submitted code is unrelated to the chapter content. The chapter content describes string manipulation, conditionals, and loops, while the submitted code covers basic printing, math operations, user input, and simple if/else statements in separate exercises. There is no string manipulation based on the provided requirements.
+Brief justification:
+- correctness: The code does not address the chapter's requirements at all. It performs unrelated exercises covering basic print statements, math, user input, and simple conditional statements. The core requirements of the chapter related to string manipulation are not present.
+- readability: N/A
+- performance: N/A
+- security: N/A
+
