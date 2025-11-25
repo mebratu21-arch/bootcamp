@@ -1,0 +1,23 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/anagram_checker.py
+suggestions for improvement:
+- Consider adding docstrings to each method to explain their purpose and parameters.
+- The `create_sample_word_list` function is helpful for testing but might be removed or made optional in a production environment.
+- For very large word lists, consider optimizing `get_anagrams` by pre-computing the sorted form of each word in the word list during initialization to avoid repeated sorting.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/anagrams.py
+suggestions for improvement:
+- Consider adding more comprehensive error handling, such as specific exceptions for file loading issues in AnagramChecker.
+- The UI could be enhanced with more informative messages or visual cues to guide the user.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/game.py
+suggestions for improvement:
+- The code implements a Rock-Paper-Scissors game, which is completely unrelated to the chapter's content about anagram checking, OOP, file I/O, and string manipulation.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/anagram_checker/word_list.txt
+suggestions for improvement:
+- The provided code is just a list of words, and it does not implement any of the functionalities described in the chapter content, such as creating the `AnagramChecker` class, implementing the methods `is_valid_word`, `is_anagram`, and `get_anagrams`, or creating the user interface in `anagrams.py`. The submission does not address the problem.
+Correctness: 0.0%
+-----
