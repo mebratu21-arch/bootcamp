@@ -1,107 +1,172 @@
 /************************************************************
- *  Exercise 1 : is_Blank
+ *  Exercise 1: Random Number & Even Numbers
  ************************************************************/
 
 /**
- * Checks if a string is blank (empty or only spaces)
- * @param {string} str 
- * @returns {boolean}
+ * Generates a random integer between 1 and 100
+ * Logs all even numbers from 0 up to the random number
  */
-function isBlank(str) {
-    return !str || str.trim().length === 0;
-}
+function runExercise1() {
+    const rand = Math.floor(Math.random() * 100) + 1;
+    console.log(`Random number: ${rand}`);
+    console.log(`Even numbers from 0 to ${rand}:`);
 
-console.log(isBlank(''));        // true
-console.log(isBlank('abc'));     // false
-
-
-
-/************************************************************
- *  Exercise 2 : Abbrev_name
- ************************************************************/
-
-/**
- * Converts full name into abbreviated format
- * @param {string} str - full name
- * @returns {string}
- */
-function abbrevName(str) {
-    const parts = str.split(" ");
-    if (parts.length < 2) return str;
-
-    return `${parts[0]} ${parts[1][0].toUpperCase()}.`;
-}
-
-console.log(abbrevName("Robin Singh"));  // "Robin S."
-
-
-
-/************************************************************
- *  Exercise 3 : SwapCase
- ************************************************************/
-
-/**
- * Swaps the case of every character in a string
- * @param {string} str 
- * @returns {string}
- */
-function swapCase(str) {
-    let result = "";
-
-    for (let ch of str) {
-        if (ch === ch.toUpperCase()) {
-            result += ch.toLowerCase();
-        } else {
-            result += ch.toUpperCase();
-        }
-    }
-
-    return result;
-}
-
-console.log(swapCase("The Quick Brown Fox"));
-// Output → "tHE qUICK bROWN fOX"
-
-
-
-/************************************************************
- *  Exercise 4 : Omnipresent value
- ************************************************************/
-
-/**
- * Checks if value exists in all subarrays
- * @param {Array[]} arr 
- * @param {*} value 
- * @returns {boolean}
- */
-function isOmnipresent(arr, value) {
-    return arr.every(subArr => subArr.includes(value));
-}
-
-console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 1)); // true
-console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6)); // false
-
-
-
-/************************************************************
- *  Exercise 5 : Red table diagonal
- ************************************************************/
-
-/**
- * Colors diagonal cells of a table red
- * (Assumes table is first element inside body)
- */
-function colorTableDiagonal() {
-    const table = document.body.querySelector("table");
-
-    for (let rowIndex = 0; rowIndex < table.rows.length; rowIndex++) {
-        let row = table.rows[rowIndex];
-        let cell = row.cells[rowIndex];  // diagonal cell
-        if (cell) {
-            cell.style.backgroundColor = "red";
-        }
+    for (let i = 0; i <= rand; i += 2) {
+        console.log(i);
     }
 }
 
-// Automatically run when page loads
-window.onload = colorTableDiagonal;
+// runExercise1(); // uncomment to test
+
+
+
+/************************************************************
+ *  Exercise 2: Capitalized letters at even/odd indexes
+ ************************************************************/
+
+/**
+ * Capitalizes letters in even and odd indexes separately
+ * @param {string} str - lowercase string with no spaces
+ * @returns {string[]} [evenCapitalized, oddCapitalized]
+ */
+function capitalizeIndexes(str) {
+    let even = "";
+    let odd = "";
+
+    [...str].forEach((char, i) => {
+        even += i % 2 === 0 ? char.toUpperCase() : char;
+        odd  += i % 2 === 1 ? char.toUpperCase() : char;
+    });
+
+    return [even, odd];
+}
+
+// console.log(capitalizeIndexes("abcdef")); // ["AbCdEf","aBcDeF"]
+
+
+
+/************************************************************
+ *  Exercise 3: Palindrome check
+ ************************************************************/
+
+/**
+ * Checks if a string is a palindrome
+ * @param {string} str
+ * @returns {boolean}
+ */
+function isPalindrome(str) {
+    const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    return cleaned === [...cleaned].reverse().join('');
+}
+
+// console.log(isPalindrome("madam")); // true
+// console.log(isPalindrome("hello")); // false
+
+
+
+/************************************************************
+ *  Exercise 4: Biggest number in array
+ ************************************************************/
+
+/**
+ * Returns the biggest number in an array
+ * Non-number elements are ignored
+ * @param {Array} arr 
+ * @returns {number}
+ */
+function biggestNumberInArray(arr) {
+    const numbers = arr.filter(x => typeof x === 'number');
+    return numbers.length > 0 ? Math.max(...numbers) : 0;
+}
+
+// console.log(biggestNumberInArray([-1,0,3,100, 99, 2, 99])); // 100
+// console.log(biggestNumberInArray(['a',3,4,2])); // 4
+// console.log(biggestNumberInArray([])); // 0
+
+
+
+/************************************************************
+ *  Exercise 5: Unique elements
+ ************************************************************/
+
+/**
+ * Returns a new array containing only unique elements
+ * @param {Array} arr 
+ * @returns {Array}
+ */
+function uniqueElements(arr) {
+    return [...new Set(arr)];
+}
+
+// console.log(uniqueElements([1,2,3,3,3,3,4,5])); // [1,2,3,4,5]
+
+
+
+/************************************************************
+ *  Exercise 6: Calendar generator (DOM)
+ ************************************************************/
+
+/**
+ * Creates a calendar table for given year and month
+ * @param {number} year 
+ * @param {number} month - 1=Jan, 12=Dec
+ */
+function createCalendar(year, month) {
+    // Remove previous table if any
+    let container = document.getElementById('calendar-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'calendar-container';
+        document.body.appendChild(container);
+    }
+    container.innerHTML = '';
+
+    const table = document.createElement('table');
+    table.style.borderCollapse = "collapse";
+
+    // Weekdays header
+    const weekdays = ['MO','TU','WE','TH','FR','SA','SU'];
+    const header = document.createElement('tr');
+    weekdays.forEach(day => {
+        const th = document.createElement('th');
+        th.textContent = day;
+        th.style.border = "1px solid black";
+        th.style.padding = "3px 5px";
+        header.appendChild(th);
+    });
+    table.appendChild(header);
+
+    // Days calculation
+    const firstDay = new Date(year, month-1, 1);
+    const lastDay = new Date(year, month, 0);
+    const daysInMonth = lastDay.getDate();
+
+    // Adjust start day: Monday=0, Sunday=6
+    let startDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        const row = document.createElement('tr');
+
+        for (let j = 0; j < 7; j++) {
+            const cell = document.createElement('td');
+            cell.style.border = "1px solid black";
+            cell.style.padding = "3px 5px";
+            if ((i===0 && j < startDay) || date > daysInMonth) {
+                cell.textContent = '';
+            } else {
+                cell.textContent = date;
+                date++;
+            }
+            row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+        if (date > daysInMonth) break;
+    }
+
+    container.appendChild(table);
+}
+
+// Example: createCalendar(2012, 9);
+// createCalendar(2012, 9); // Uncomment to test
