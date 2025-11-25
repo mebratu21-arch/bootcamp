@@ -1,0 +1,12 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-1/daillychallene/Stars.js
+suggestions for improvement:
+- Consider using template literals for string concatenation to potentially improve readability, although the current approach is perfectly acceptable.
+- The code is well-structured and easy to understand. There are no major areas for improvement.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-1/daillychallene/notBad.js
+suggestions for improvement:
+- The provided code addresses a completely different problem than the one presented in the Chapter Content/Questions. The chapter asks to recreate a pattern of asterisks using for loops, while the code provided attempts to replace 'not...bad' with 'good' in a sentence.
+- Remove the irrelevant parts of the code and focus on generating the asterisk pattern using both a single loop and nested loops as instructed in the chapter.
+Correctness: 0%
+-----
