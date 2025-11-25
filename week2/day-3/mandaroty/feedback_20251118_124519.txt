@@ -1,0 +1,20 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-3/mandaroty/exersice_one.py.py
+suggestions for improvement:
+- The code addresses Exercise 2, but it is dependent on the `func.py` file, which is not provided within the code submission itself, preventing a holistic assessment.
+- The correctness hinges on the content of `func.py`, which is unknown. Therefore, the submitted code's correctness is impossible to determine accurately.
+Correctness: 0.0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-3/mandaroty/func.py.py
+suggestions for improvement:
+- The provided code addresses only Exercise 2 partially and does not include solutions for Exercises 1, 3, 4, 5, 6 and 7.
+- For Exercise 2, while the module creation and function definition are correct, the instructions also required importing and calling the function from another file, `exercise_one.py`, which is not implemented.
+- To fully address Exercise 2, create `exercise_one.py`, import `sum_numbers` from `func.py`, and call it with some numbers.
+- Exercises 1 and 3-7 are completely missing. Implement the `Currency` class with dunder methods as described in Exercise 1.  Use the `string` and `random` modules for Exercise 3 to generate a random string. Use the `datetime` module for exercises 4, 5, and 6 to work with dates and times. Use the `faker` module for Exercise 7 to create fake user data.
+Correctness: 33.0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-3/mandaroty/main_exersice.py
+suggestions for improvement:
+- Exercise 2 is missing. While the other exercises are generally well-implemented, the absence of Exercise 2, which involves creating and importing modules, detracts from the completeness of the submission.
+- The program has some added functionality, like printing in a table format, although it was not specifically asked for, is well done.
+Correctness: 90%
+-----
