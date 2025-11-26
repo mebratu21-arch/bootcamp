@@ -1,0 +1,6 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- Consider using template literals for cleaner string concatenation, especially in Exercise 7.
+- The code is well-organized, but adding more comments within functions could enhance readability for others.
+Correctness: 100%
+-----

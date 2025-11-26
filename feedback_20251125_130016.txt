@@ -1,0 +1,19 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- Consider using template literals for better readability when constructing strings, especially in the book list exercise.
+- The use of forEach loops is generally fine, but for performance-critical sections, consider traditional for loops, although the difference is negligible in most practical scenarios.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXpGold.js
+suggestions for improvement:
+- The code does not address the specific exercises outlined in the instructions. It provides generic examples of JavaScript concepts rather than implementing the requested functionality for each exercise. For example, it does not implement the 'displayNumbersDivisible()' function as requested in exercise 1. The Shopping List example does not utilize the given objects and shopping list array.
+- The code mixes different exercises together in one file. It is better to keep each exercise in its separate file.
+- The DOM selector example requires an HTML file, but no HTML file is provided.
+Correctness: 20%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceNinja.js
+suggestions for improvement:
+- The provided code does not address any of the exercises outlined in the chapter content. It focuses on unrelated JavaScript exercises such as palindrome checks, finding the largest number in an array, and creating a calendar, which are not covered in the material.
+- Consider aligning your solutions with the topics covered in the chapter, such as variables, conditionals, loops, functions, and DOM selectors. Focus on the specific instructions provided for each exercise, such as finding numbers divisible by 23, managing a shopping list, handling change, calculating vacation costs, and manipulating DOM elements based on specific criteria.
+Correctness: 0%
+-----

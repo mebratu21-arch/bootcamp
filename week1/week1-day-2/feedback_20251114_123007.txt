@@ -1,0 +1,10 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week1/week1-day-2/exresice-xp.py
+suggestions for improvement:
+- Consider adding input validation for age in Exercise 9 to ensure non-negative integers.
+- For clarity, you could add comments to explain the purpose of each section in Exercise 9, especially the bonus part.
+Brief justification:
+- correctness: The code correctly implements all exercises according to the provided instructions, including set operations, tuple handling, list manipulations, loop usage, and conditional logic. The bonus part of Exercise 9 is also implemented correctly.
+- readability: The code is well-organized and easy to follow, with clear section headers and comments explaining each exercise. Variable names are descriptive, and the code is properly indented.
+- performance: The code is efficient for the given tasks, with appropriate use of built-in functions and data structures. The loops are optimized for the required iterations.
+- security: The code appears secure, with no obvious vulnerabilities. Input validation is present in Exercise 6, preventing non-string names. Further input validation could be added in other exercises where numerical input is expected.
+
