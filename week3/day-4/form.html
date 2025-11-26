@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All-In-One Form Project</title>
+
+<style>
+  /* ===== BASIC PAGE STYLE ===== */
+  body {
+    font-family: Arial;
+    background: #f0f0f0;
+    padding: 20px;
+  }
+
+  /* ===== FORM CONTAINER ===== */
+  .form-box {
+    width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  button {
+    width: 100%;
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: darkblue;
+  }
+
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+
+</style>
+
+</head>
+<body>
+
+<h2>All-In-One Form Project</h2>
+
+<div class="form-box">
+
+  <!-- ================================================
+       MAIN FORM
+       ================================================= -->
+  <form id="mainForm">
+
+    <!-- Username -->
+    <input 
+      type="text" 
+      id="username"
+      placeholder="Username"
+      required>
+
+    <p class="error" id="userError"></p>
+
+    <!-- Email -->
+    <input 
+      type="email" 
+      id="email"
+      placeholder="Email"
+      required>
+
+    <p class="error" id="emailError"></p>
+
+    <!-- Password -->
+    <input 
+      type="password" 
+      id="password"
+      placeholder="Password"
+      required>
+
+    <p class="error" id="passError"></p>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</div>
+
+<script>
+/* ============================================================
+   GETTING FORM ELEMENTS
+   ============================================================ */
+const form = document.getElementById("mainForm");
+
+// Inputs
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+// Error message fields
+const userError = document.getElementById("userError");
+const emailError = document.getElementById("emailError");
+const passError = document.getElementById("passError");
+
+/* ============================================================
+   VALIDATION FUNCTION
+   ============================================================ */
+function validateForm() {
+  
+  let isValid = true;  // assume valid, change if error found
+
+  // ---- Username Validation ----
+  if (username.value.trim() === "") {
+    userError.textContent = "Username is required";
+    isValid = false;
+  } else if (username.value.length < 3) {
+    userError.textContent = "Username must be at least 3 characters";
+    isValid = false;
+  } else {
+    userError.textContent = "";  // clear error
+  }
+
+  // ---- Email Validation ----
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // simple email regex
+
+  if (email.value.trim() === "") {
+    emailError.textContent = "Email is required";
+    isValid = false;
+  } else if (!emailPattern.test(email.value)) {
+    emailError.textContent = "Enter a valid email";
+    isValid = false;
+  } else {
+    emailError.textContent = "";
+  }
+
+  // ---- Password Validation ----
+  if (password.value.trim() === "") {
+    passError.textContent = "Password is required";
+    isValid = false;
+  } else if (password.value.length < 6) {
+    passError.textContent = "Password must be at least 6 characters long";
+    isValid = false;
+  } else {
+    passError.textContent = "";
+  }
+
+  return isValid; // return true if all OK
+}
+
+/* ============================================================
+   FORM SUBMIT LISTENER
+   ============================================================ */
+form.addEventListener("submit", function(event) {
+
+  // stop form before validation
+  event.preventDefault(); 
+
+  // run validation function
+  if (validateForm()) {
+
+    // --- If valid, collect data using FormData ---
+    const data = new FormData(form);
+
+    // Show result
+    alert(
+      "Form Submitted!\n\n" +
+      "Username: " + data.get("username") + "\n" +
+      "Email: " + data.get("email") + "\n" +
+      "Password: " + data.get("password")
+    );
+
+    // Clear form after success
+    form.reset();
+  }
+});
+</script>
+
+</body>
+</html>
