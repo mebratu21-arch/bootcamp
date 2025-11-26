@@ -2,7 +2,7 @@
 // EXERCISE 1 : Nested Functions
 // =====================================================
 
-// 🔮 Prediction:
+//  Prediction:
 // flat(4) → "____"
 // mountain(4) → "/''''\\"
 // flat(4) → "____"
@@ -66,7 +66,7 @@ console.log("Exercise 2 →", addToTen(3));
 
 const curriedSum1 = (a) => (b) => a + b;
 
-// 🔮 Prediction:
+// Prediction:
 // curriedSum1(30)(1) → 30 + 1 = 31
 
 console.log("Exercise 3 →", curriedSum1(30)(1));
@@ -82,7 +82,7 @@ const curriedSum2 = (a) => (b) => a + b;
 
 const add5 = curriedSum2(5);
 
-// 🔮 Prediction:
+//  Prediction:
 // add5(12) → 5 + 12 = 17
 
 console.log("Exercise 4 →", add5(12));
@@ -98,7 +98,7 @@ const compose = (f, g) => (a) => f(g(a));
 const add1 = (num) => num + 1;
 const add5b = (num) => num + 5;
 
-// 🔮 Prediction:
+//  Prediction:
 // compose(add1, add5b)(10)
 // Step 1 → add5b(10) = 15
 // Step 2 → add1(15) = 16
