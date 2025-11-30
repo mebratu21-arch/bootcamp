@@ -1,0 +1,17 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-4/exersiceXp/exersiceXp.js
+suggestions for improvement:
+- For Exercise 1, include the predictions in the comments within the code, as requested. Also, address what would happen if 'const' were used instead of 'let', as asked in the exercise.
+- In Exercise 7, the instruction was to add a div to the navbar within the HTML file. The current solution only logs a message to the console. Implement the DOM manipulation to add the div element to the navbar.
+Correctness: 95%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-4/exersiceXp/exersice-gold.js
+suggestions for improvement:
+- The submitted code appears to be solving exercises on nested functions, closures, currying and composing which are unrelated to the current chapter content. The current chapter content focuses on Javascript scope, ternary operators, template strings, and arrow functions.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-4/exersiceXp/exersice-xp-ninja.js
+suggestions for improvement:
+- The provided code has nothing to do with the content described in the Chapter. The content focuses on Javascript scope, ternary operators, template strings, and arrow functions. The code provided has to do with currying which is not mentioned anywhere in the chapter content.
+- The code should implement solutions for the exercise problems presented in the prompt instead.
+Correctness: 0%
+-----

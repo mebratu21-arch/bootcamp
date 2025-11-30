@@ -1,0 +1,6 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-4/exersiceXp/exersiceXp.js
+suggestions for improvement:
+- In exercise 1, add comments to the code with your predictions and explanations as requested in the instructions.
+- In exercise 7, the instructions ask to add the div to the Navbar in the HTML file, not only log to the console.
+Correctness: 95%
+-----

@@ -1,0 +1,11 @@
+URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-1/mandatory.py
+suggestions for improvement:
+- For exercise 1, consider creating the cat objects directly in the code instead of taking user input, as it might be more suitable for a learning exercise.
+- In the Dog class (Exercise 2), there's a typo: 'heigth' should be 'height'.
+- In exercise 4, the prompt in `get_groups` mentions no groups available. but it's not needed, if the animal list is empty from the start the sort animal method will return an empty dictionary, and there will be no groups to print, therefore you don't need the prompt
+Brief justification:
+- correctness: The code accurately addresses all exercises described in the chapter content. It correctly implements classes, object instantiation, methods, and attributes as demonstrated in the Cat, Dog, Song, and Zoo examples. The functionality for each exercise is complete and matches the instructions.
+- readability: The code is generally well-structured and easy to follow, with clear comments and meaningful variable names. However, minor inconsistencies like the typo in 'heigth' and could be improved.
+- performance: The code demonstrates acceptable performance for the given exercises. The algorithms used, such as sorting and grouping, are efficient for the expected input sizes.
+- security: The code does not pose any significant security risks. The input validation is basic but sufficient for the given exercises.
+
