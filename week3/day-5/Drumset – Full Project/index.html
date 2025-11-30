@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drumset</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Drumset</h1>
+  <p>Press the keys or click the buttons to play sounds</p>
+
+  <!-- Drum Buttons -->
+  <div class="drum-container">
+    <div class="drum" data-key="65">A</div>
+    <div class="drum" data-key="83">S</div>
+    <div class="drum" data-key="68">D</div>
+    <div class="drum" data-key="70">F</div>
+    <div class="drum" data-key="71">G</div>
+    <div class="drum" data-key="72">H</div>
+    <div class="drum" data-key="74">J</div>
+    <div class="drum" data-key="75">K</div>
+  </div>
+
+  <!-- Audio Elements -->
+  <!-- Match every key to sound via "data-key" -->
+  <audio data-key="65" src="sounds/kick.wav"></audio>
+  <audio data-key="83" src="sounds/snare.wav"></audio>
+  <audio data-key="68" src="sounds/hihat.wav"></audio>
+  <audio data-key="70" src="sounds/tom1.wav"></audio>
+  <audio data-key="71" src="sounds/tom2.wav"></audio>
+  <audio data-key="72" src="sounds/crash.wav"></audio>
+  <audio data-key="74" src="sounds/ride.wav"></audio>
+  <audio data-key="75" src="sounds/clap.wav"></audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
