@@ -1,0 +1,12 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/rock_and_scissors/game.py
+suggestions for improvement:
+- No specific feedback.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-5/rock_and_scissors/rock-paper-scissors.py
+suggestions for improvement:
+- The `print_results` function in `rock-paper-scissors.py` should use `.get()` to safely access the values in the `results` dictionary to prevent potential `KeyError` exceptions when displaying the results if a particular outcome (win, loss, or draw) hasn't occurred yet. It currently uses `.get()` in the function in `main` function, but not `print_results`.
+- There's some redundancy in printing the scores. The logic is duplicated in both the 'Show scores' option within the `main` function and the `print_results` function.  It would be better to call `print_results` in both places or refactor the score display logic into a helper function that both can use.
+- Error handling could be improved. For instance, the user's input for the main menu is validated, but the code assumes that `game.py` will always return a valid result string. Additional error handling or validation might be necessary, depending on how the `Game` class handles exceptions.
+Correctness: 75%
+-----

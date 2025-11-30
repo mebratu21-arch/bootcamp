@@ -1,0 +1,12 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/animation.js
+suggestions for improvement:
+- The submitted code addresses a different set of exercises related to timers and animations, which are not present in the provided chapter content. Therefore, the code is entirely irrelevant to the specified exercises.
+- The exercise is focused on DOM manipulation, event handlers and forms. The submission does not address these topics.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/exersice-xp.JS
+suggestions for improvement:
+- Consider adding more comments to explain complex logic, especially in the bonus sections of Exercise 1, to improve readability for other developers.
+- The code could benefit from more robust error handling, for example, checking if the paragraph element exists before attaching event listeners in Exercise 3.
+Correctness: 100%
+-----
