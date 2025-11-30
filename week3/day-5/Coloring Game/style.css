@@ -1,0 +1,28 @@
+/* --- General page style --- */
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f3f3f3;
+}
+
+/* --- Container for the drawing grid --- */
+#grid {
+  display: grid; /* CSS Grid to display square boxes */
+  margin: 20px auto;
+  width: 600px;
+  height: 600px;
+
+  /* 20 x 20 grid of squares */
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+
+  border: 3px solid #000;
+}
+
+/* --- Each blank square --- */
+.square {
+  background: white; /* start blank */
+  border: 1px solid #eee;
+  width: 100%;
+  height: 100%;
+}
