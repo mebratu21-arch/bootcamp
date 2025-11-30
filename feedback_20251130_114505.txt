@@ -1,0 +1,15 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-5/Coloring+Game/index.html
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-5/Coloring+Game/style.css
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-5/Coloring+Game/script.js
+suggestions for improvement:
+- Failed to download file - Status: 404
+Correctness: N/A%
+-----
