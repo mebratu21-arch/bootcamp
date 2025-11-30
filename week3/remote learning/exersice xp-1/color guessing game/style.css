@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.color-display {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border: 2px solid #333;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+.options button {
+    display: inline-block;
+    margin: 5px;
+}
