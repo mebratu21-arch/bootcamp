@@ -1,0 +1,23 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/animation.js
+suggestions for improvement:
+- The provided code is unrelated to the current exercise. It appears to be related to timer and animation exercises, while the current exercise focuses on DOM manipulation, event handling, and forms.
+- Focus on the specific requirements outlined in the current exercise, such as changing the article content, working with forms, and transforming sentences.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/exersice-gold.js
+suggestions for improvement:
+- The code doesn't relate to the exercises provided. The provided exercises covers manipulating the DOM, event handling, and forms. The submission implements tasks not found in the exercise, such as adding and removing items from a music genres select element, deleting colors from a color select element, and creating a shopping list.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/exersice-ninja.js
+suggestions for improvement:
+- The submitted code appears to be solutions for different exercises (tip calculator, email validation, geolocation) and doesn't directly address the exercises outlined in the provided chapter content, which focuses on DOM manipulation, event handling, and forms.
+- The code does not interact with the provided HTML snippets or fulfill the specific requirements of each exercise (e.g., changing article content, working with form elements, transforming a sentence, calculating sphere volume).
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-3/EXERSICE-XP/exersice-xp.JS
+suggestions for improvement:
+- Consider using template literals for string concatenation where appropriate to enhance readability.
+- For exercise 1 bonus 2, using CSS transitions could be more performant for fading effects than directly manipulating opacity with JavaScript.
+Correctness: 100%
+-----
