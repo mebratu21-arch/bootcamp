@@ -1,0 +1,18 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-4/exersicexp.py/Random Sentence Generator.py
+suggestions for improvement:
+- Consider handling edge cases like empty files or files with non-string data in `get_words_from_file` more gracefully.
+- The program could be slightly more efficient by pre-allocating the `selected_words` list in `get_random_sentence`.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-4/exersicexp.py/Working with JSON.py
+suggestions for improvement:
+- Consider adding comments to explain more complex logic, although the code is already quite readable.
+- The error handling is good, but you could add more specific exceptions for different types of file operations to provide more informative error messages.
+Correctness: 100%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week2/day-4/exersicexp.py/word_list.txt
+suggestions for improvement:
+- The provided code is just a list of words and doesn't address any of the exercises or topics outlined in the chapter content.  It doesn't involve file handling, random sentence generation, JSON manipulation, or any of the other tasks described.
+- The code needs to be replaced with actual Python code that implements the functionality described in the exercises.
+Correctness: 0%
+-----

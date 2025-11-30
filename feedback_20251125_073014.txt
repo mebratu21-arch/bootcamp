@@ -1,0 +1,16 @@
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXp.js
+suggestions for improvement:
+- In Exercise 5, the bonus condition `if (container.style.backgroundColor === "lightblue")` might not work as expected because `container.style.backgroundColor` returns the computed style, which might be in a different format (e.g., 'rgb(173, 216, 230)') instead of 'lightblue'. To fix this, you can directly compare with the string 'lightblue' or normalize it to a common format.
+- In Exercise 7, the images are all coming from the same url. Update the data to use real unique urls.
+Correctness: 95%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceXpGold.js
+suggestions for improvement:
+- The provided code does not address any of the exercises described in the chapter content/questions. It contains functions for string manipulation, array manipulation, and basic DOM manipulation, but none of these directly correspond to the specific requirements of Exercises 1 through 7.
+Correctness: 0%
+-----
+URL: URL: https://github.com/mebratu21-arch/bootcamp/blob/main/week3/day-2/ExersiceXp/exersiceNinja.js
+suggestions for improvement:
+- The code addresses problems that are completely unrelated to the provided chapter content. Therefore, it cannot be evaluated for correctness in this context.
+Correctness: 0%
+-----
