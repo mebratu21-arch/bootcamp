@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap');
+        
+/* Custom CSS for Game Aesthetics */
+body {
+    background-color: #f7f3e8;
+    font-family: 'Press Start 2P', cursive;
+    color: #333;
+    text-align: center;
+}
+
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fce8a6;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 8px solid #a0522d; /* Sienna border */
+}
+
+.title {
+    font-family: 'Bungee Spice', cursive;
+    font-size: 2.5rem;
+    text-shadow: 3px 3px 0 #a0522d;
+    margin-bottom: 20px;
+    color: #d32f2f; /* Red */
+}
+
+.scoreboard, .footer {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffe082;
+    border-radius: 8px;
+    border: 2px solid #a0522d;
+    font-size: 0.8rem;
+}
+
+/* --- Game Grid (The Lawn) --- */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+    background-color: #556b2f; /* Dark Olive Green for the lawn */
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.hole {
+    width: 100%;
+    padding-bottom: 100%; /* Makes it square */
+    position: relative;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="fill:black;font-size:30px;"><text y="50%">🔨</text></svg>') 15 15, auto;
+}
+
+.mole-hill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8b4513; /* SaddleBrown */
+    border-radius: 50%;
+    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.mole {
+    font-size: 5rem;
+    line-height: 1;
+    position: absolute;
+    bottom: -100%; /* Start off-screen (hidden) */
+    transition: bottom 0.2s ease-out;
+    pointer-events: none; /* Initially moles don't register clicks */
+}
+
+.mole-hill.up .mole {
+    bottom: 0; /* Mole pops up */
+    pointer-events: auto; /* Now they are clickable */
+}
+
+/* Whacked effect */
+.whacked {
+    animation: whack-fade 0.3s forwards;
+}
+
+@keyframes whack-fade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0.5; }
+}
+
+/* --- Buttons --- */
+.btn-game {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    box-shadow: 0 4px 0 #a0522d;
+    border: none;
+}
+.btn-game:hover {
+    background-color: #ef5350;
+}
+.btn-game:active {
+    box-shadow: 0 1px 0 #a0522d;
+    transform: translateY(3px);
+}
+
+/* --- Modal and High Score --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    background: #ffe082;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    border: 4px solid #a0522d;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+}
+.high-score-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+}
+.high-score-list li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #a0522d;
+    display: flex;
+    justify-content: space-between;
+}
+.high-score-list li:last-child {
+    border-bottom: none;
+}

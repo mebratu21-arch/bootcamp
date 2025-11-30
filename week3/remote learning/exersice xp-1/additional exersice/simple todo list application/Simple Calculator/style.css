@@ -1,0 +1,113 @@
+:root {
+    --color-bg-dark: #333333;
+    --color-text-light: #ffffff;
+    --color-memory: #4CAF50; /* Green */
+    --color-clear-all: #F44336; /* Red */
+    --color-operator: #FF9800; /* Orange */
+    --color-control: #666666; /* Dark Grey for +/- */
+    --color-number: #444444; /* Standard button grey */
+    --color-equal: #2196F3; /* Blue */
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.calculator-container {
+    background-color: var(--color-bg-dark);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    width: 300px;
+}
+
+/* --- Display --- */
+.calculator-display {
+    background-color: #1a1a1a;
+    color: var(--color-text-light);
+    font-size: 4em;
+    text-align: right;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* --- Keys Grid Layout --- */
+.calculator-keys {
+    display: grid;
+    /* 4 columns of equal width */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+}
+
+.calculator-keys button {
+    padding: 20px 0;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 8px;
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: background-color 0.1s;
+    user-select: none;
+}
+
+/* Default Number/Decimal Button Style */
+.calculator-keys button:not([data-action]) {
+    background-color: var(--color-number);
+}
+
+/* Button Hover Effect */
+.calculator-keys button:hover {
+    filter: brightness(1.2);
+}
+
+/* Specific Button Colors */
+.key-memory {
+    background-color: var(--color-memory);
+}
+
+.key-clear[data-action="clear-all"] { /* AC */
+    background-color: var(--color-clear-all);
+}
+
+.key-clear[data-action="clear"] { /* C */
+    background-color: var(--color-clear-all);
+}
+
+[data-action="negate"] { /* +/- */
+    background-color: var(--color-control);
+}
+
+.key-operator {
+    background-color: var(--color-operator);
+}
+
+.key-equal {
+    background-color: var(--color-equal);
+    /* Make the '=' span 2 columns */
+    grid-column: span 2;
+}
+
+.key-zero {
+    /* Make the '0' span 2 columns */
+    grid-column: span 2;
+}
+
+/* Adjusting the Zero and Decimal buttons to be in the last row */
+.calculator-keys button:nth-child(17) { /* '0' */
+    grid-column: span 2;
+}
+.calculator-keys button:nth-child(18) { /* '.' */
+    grid-column: span 1;
+}
+.calculator-keys button:nth-child(19) { /* '=' */
+    grid-column: span 1;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        p {
+            background: yellow;
+            color: red;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        #container {
+            min-height: 50px;
+            border: 2px dashed #ccc;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin: 10px 10px 10px 0;
+        }
+        
+        button:hover {
+            background-color: #da190b;
+        }
+        
+        .demo-button {
+            background-color: #2196F3;
+        }
+        
+        .demo-button:hover {
+            background-color: #0b7dda;
+        }
+        
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Timer Exercise</h1>
+    
+    <div class="info">
+        <strong>Instructions:</strong><br>
+        - Part I: Click "Part I" to see an alert after 2 seconds<br>
+        - Part II: Click "Part II" to add a paragraph after 2 seconds<br>
+        - Part III: Click "Part III" to add paragraphs every 2 seconds (stops at 5 paragraphs)
+    </div>
+    
+    <div>
+        <button class="demo-button" id="partOne">Run Part I</button>
+        <button class="demo-button" id="partTwo">Run Part II</button>
+        <button class="demo-button" id="partThree">Run Part III</button>
+    </div>
+    
+    <h2>Container:</h2>
+    <div id="container"></div>
+    
+    <button id="clear">Clear Interval</button>
+    <button class="demo-button" id="clearContainer">Clear Container</button>
+
+    <script>
+        // Get DOM elements
+        const container = document.getElementById('container');
+        const clearButton = document.getElementById('clear');
+        const clearContainerButton = document.getElementById('clearContainer');
+        
+        // Variable to store the interval ID
+        let intervalId = null;
+        
+        // PART I: setTimeout with alert
+        document.getElementById('partOne').addEventListener('click', function() {
+            console.log('Part I: Waiting 2 seconds...');
+            
+            setTimeout(function() {
+                alert('Hello World');
+            }, 2000);
+        });
+        
+        // PART II: setTimeout to add paragraph
+        document.getElementById('partTwo').addEventListener('click', function() {
+            console.log('Part II: Waiting 2 seconds...');
+            
+            setTimeout(function() {
+                const newParagraph = document.createElement('p');
+                newParagraph.textContent = 'Hello World';
+                container.appendChild(newParagraph);
+            }, 2000);
+        });
+        
+        // PART III: setInterval to add paragraphs every 2 seconds
+        document.getElementById('partThree').addEventListener('click', function() {
+            // Clear any existing interval first
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+            
+            console.log('Part III: Adding paragraphs every 2 seconds...');
+            
+            intervalId = setInterval(function() {
+                // Create and add new paragraph
+                const newParagraph = document.createElement('p');
+                newParagraph.textContent = 'Hello World';
+                container.appendChild(newParagraph);
+                
+                // Count paragraphs in container
+                const paragraphCount = container.getElementsByTagName('p').length;
+                console.log('Paragraphs count:', paragraphCount);
+                
+                // Stop interval when there are 5 paragraphs
+                if (paragraphCount >= 5) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                    console.log('Stopped: 5 paragraphs reached');
+                }
+            }, 2000);
+        });
+        
+        // Clear interval button
+        clearButton.addEventListener('click', function() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+                console.log('Interval cleared by button click');
+            } else {
+                console.log('No interval running');
+            }
+        });
+        
+        // Clear container button (helper for testing)
+        clearContainerButton.addEventListener('click', function() {
+            container.innerHTML = '';
+            console.log('Container cleared');
+        });
+    </script>
+</body>
+</html>

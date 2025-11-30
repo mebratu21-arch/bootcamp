@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole</title>
+    <!-- Tailwind CSS CDN for general utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="game-container">
+        <h1 class="title">WHACK-A-MOLE</h1>
+        <div class="flex justify-center items-center gap-4 mb-4 text-xs md:text-base scoreboard">
+            <p>Score: <span id="score-display">0</span></p>
+            <p>Time: <span id="time-display">30s</span></p>
+            <button id="start-button" class="btn-game">Start Game</button>
+        </div>
+
+        <!-- High Score List Display -->
+        <div class="scoreboard">
+            <p class="text-base mb-2">High Scores</p>
+            <div id="high-score-container" class="high-score-list-container">
+                <ul id="high-score-display" class="high-score-list">
+                    <!-- Scores will be injected here -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- The Game Grid -->
+        <div id="game-grid" class="game-grid">
+            <!-- 9 Holes will be generated here by JS -->
+        </div>
+
+        <p id="feedback-message" class="text-xs mt-4 text-red-600 font-bold hidden">Whack the mole to score!</p>
+    </div>
+
+    <!-- Modal for Game Over/High Score Entry -->
+    <div id="game-over-modal" class="modal-overlay">
+        <div class="modal-content text-center">
+            <h2 id="modal-title" class="text-xl mb-4 font-bold text-red-700">GAME OVER!</h2>
+            <p id="final-score-text" class="mb-4">Your score: 0</p>
+            
+            <div id="name-input-area" class="mb-4 hidden">
+                <p class="mb-2">🎉 New High Score! Enter your name:</p>
+                <input type="text" id="player-name-input" placeholder="Your Name" maxlength="15"
+                       class="p-2 border border-gray-400 rounded w-full text-center text-gray-800 font-sans">
+                <button id="submit-score-button" class="btn-game w-full mt-3">Submit Score</button>
+            </div>
+
+            <div id="modal-high-score-display">
+                <p class="text-base font-bold mt-4">Top 5 Scores:</p>
+                <ul id="modal-high-score-list" class="high-score-list mx-auto w-3/4">
+                    <!-- Scores will be injected here -->
+                </ul>
+            </div>
+            
+            <button id="modal-close-button" class="btn-game mt-6">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript module -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        #target {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            background: yellow;
+            border: 3px solid #333;
+            margin: 20px 0;
+        }
+        
+        #box {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+            cursor: grab;
+            border: 2px solid darkred;
+            left: 0;
+            top: 250px;
+        }
+        
+        #box:active {
+            cursor: grabbing;
+        }
+        
+        #box.inside-target {
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag & Drop Exercise</h1>
+    
+    <div class="info">
+        <strong>Instructions:</strong><br>
+        Click and drag the red box, then drop it into the yellow target area!
+    </div>
+    
+    <div id="target"></div>
+    <br>
+    <div id="box"></div>
+
+    <script>
+        const box = document.getElementById('box');
+        const target = document.getElementById('target');
+        
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+        
+        // Mouse down - start dragging
+        box.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            
+            // Calculate offset between mouse and box position
+            offsetX = e.clientX - box.offsetLeft;
+            offsetY = e.clientY - box.offsetTop;
+            
+            // Change cursor
+            box.style.cursor = 'grabbing';
+            box.style.opacity = '0.7';
+            
+            console.log('Started dragging');
+        });
+        
+        // Mouse move - dragging
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                // Calculate new position
+                let newX = e.clientX - offsetX;
+                let newY = e.clientY - offsetY;
+                
+                // Update box position
+                box.style.left = newX + 'px';
+                box.style.top = newY + 'px';
+            }
+        });
+        
+        // Mouse up - stop dragging and check if inside target
+        document.addEventListener('mouseup', function(e) {
+            if (isDragging) {
+                isDragging = false;
+                box.style.cursor = 'grab';
+                box.style.opacity = '1';
+                
+                // Get box and target positions
+                const boxRect = box.getBoundingClientRect();
+                const targetRect = target.getBoundingClientRect();
+                
+                // Check if box is inside target
+                const isInsideX = boxRect.left >= targetRect.left && 
+                                 boxRect.right <= targetRect.right;
+                const isInsideY = boxRect.top >= targetRect.top && 
+                                 boxRect.bottom <= targetRect.bottom;
+                
+                if (isInsideX && isInsideY) {
+                    // Box is fully inside target
+                    console.log('Box dropped inside target!');
+                    
+                    // Move box inside target container
+                    const relativeX = boxRect.left - targetRect.left;
+                    const relativeY = boxRect.top - targetRect.top;
+                    
+                    target.appendChild(box);
+                    box.style.left = relativeX + 'px';
+                    box.style.top = relativeY + 'px';
+                    box.classList.add('inside-target');
+                    
+                    alert('Success! Box is now inside the target!');
+                } else {
+                    console.log('Box dropped outside target');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
