@@ -1,52 +1,34 @@
-// Helper function to print to page
-function printToPage(message) {
-    const outputDiv = document.getElementById("output");
-    const p = document.createElement("p");
-    p.className = "output";
-    p.textContent = message;
-    outputDiv.appendChild(p);
-}
-
-// ================================
 // Step 1: Define the Video class
-// ================================
 class Video {
     constructor(title, uploader, time) {
-        this.title = title;
-        this.uploader = uploader;
-        this.time = time;
+        this.title = title;       // Video title
+        this.uploader = uploader; // Person who uploaded
+        this.time = time;         // Duration in seconds
     }
 
+    // Step 2: Method to display watch message
     watch() {
-        const message = `${this.uploader} watched all ${this.time} seconds of ${this.title}!`;
-        printToPage(message);
+        console.log(`${this.uploader} watched all ${this.time} seconds of ${this.title}!`);
     }
 }
 
-// ================================
-// Step 2: Create two individual videos
-// ================================
+// Step 3: Instantiate two Video objects and call watch()
 const video1 = new Video("Learn JavaScript", "Alice", 300);
-video1.watch();
+video1.watch(); // Alice watched all 300 seconds of Learn JavaScript!
 
-const video2 = new Video("CSS Flexbox Tutorial", "Bob", 600);
-video2.watch();
+const video2 = new Video("CSS Basics", "Bob", 180);
+video2.watch(); // Bob watched all 180 seconds of CSS Basics!
 
-// ================================
-// Step 3 (Bonus): Array of five videos
-// ================================
-const videoData = [
-    { title: "React Basics", uploader: "Charlie", time: 400 },
-    { title: "Node.js Crash Course", uploader: "Dana", time: 700 },
-    { title: "Python for Beginners", uploader: "Eve", time: 500 },
-    { title: "HTML5 Semantic Tags", uploader: "Frank", time: 200 },
-    { title: "Advanced JS Functions", uploader: "Grace", time: 350 }
+// Step 4: Bonus - Store data for 5 videos in an array
+const videosData = [
+    { title: "React Tutorial", uploader: "Carol", time: 600 },
+    { title: "Node.js Crash Course", uploader: "Dave", time: 400 },
+    { title: "HTML5 Guide", uploader: "Eve", time: 250 },
+    { title: "Python for Beginners", uploader: "Frank", time: 500 },
+    { title: "Django Basics", uploader: "Grace", time: 450 }
 ];
 
-const videoInstances = [];
+// Step 5: Loop through the array to create Video instances and call watch()
+const videoInstances = videosData.map(data => new Video(data.title, data.uploader, data.time));
 
-for (const data of videoData) {
-    const video = new Video(data.title, data.uploader, data.time);
-    video.watch();
-    videoInstances.push(video);
-}
+videoInstances.forEach(video => video.watch());
