@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Exercises – Forms + JSON</title>
+</head>
+<body>
+<h1>🌟 All Exercises in One Page</h1>
+
+<!-- ========== Exercise 1: GET FORM ========== -->
+<h2>Exercise 1 – GET Form</h2>
+
+<form method="GET" action="">
+    <label>Name:</label><br>
+    <input type="text" name="username" required><br><br>
+
+    <label>Message:</label><br>
+    <textarea name="message" rows="3" cols="30" required></textarea><br><br>
+
+    <input type="submit" value="Send (GET)">
+</form>
+
+<p><strong>Where does GET data appear?</strong>  
+✔ In the URL (query string).  
+✔ Example: ?username=Aman&message=Hello  
+</p>
+
+<hr>
+
+<!-- ========== Exercise 2: POST FORM ========== -->
+<h2>Exercise 2 – POST Form</h2>
+
+<form method="POST" action="">
+    <label>Name:</label><br>
+    <input type="text" name="username" required><br><br>
+
+    <label>Message:</label><br>
+    <textarea name="message" rows="3" cols="30" required></textarea><br><br>
+
+    <input type="submit" value="Send (POST)">
+</form>
+
+<p><strong>Where does POST data appear?</strong>  
+✔ NOT in the URL  
+✔ It appears in <em>Developer Tools → Network → Payload</em>  
+</p>
+
+<hr>
+
+<!-- ========== Exercise 3: JSON Mario ========== -->
+<h2>Exercise 3 – JSON Mario</h2>
+
+<button onclick="convertJSON()">Convert to JSON</button>
+<button onclick="prettyPrint()">Pretty Print JSON</button>
+
+<pre id="output"></pre>
+
+<script>
+// ============================
+// Exercise 3: Mario JSON Object
+// ============================
+const marioGame = {
+  detail: "An amazing game!",
+  characters: {
+    mario: {
+      description: "Small and jumpy. Likes princesses.",
+      height: 10,
+      weight: 3,
+      speed: 12
+    },
+    bowser: {
+      description: "Big and green. Hates princesses.",
+      height: 16,
+      weight: 6,
+      speed: 4
+    },
+    princessPeach: {
+      description: "Beautiful princess.",
+      height: 12,
+      weight: 2,
+      speed: 2
+    }
+  }
+};
+
+// Convert normal JS object → JSON string
+function convertJSON() {
+    const json = JSON.stringify(marioGame);
+    document.getElementById("output").textContent = json;
+
+    // Add breakpoint here for debugging
+    debugger;  
+}
+
+// Pretty JSON with indentation
+function prettyPrint() {
+    const pretty = JSON.stringify(marioGame, null, 2);
+    document.getElementById("output").textContent = pretty;
+
+    // Another breakpoint to inspect JSON
+    debugger;
+}
+</script>
+
+</body>
+</html>

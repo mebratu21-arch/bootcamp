@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Form Output</title>
+</head>
+<body>
+
+<form id="myForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="lastname" placeholder="Last name" required>
+    <button type="submit">Send</button>
+</form>
+
+<p id="output"></p>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // stop refresh
+
+        const name = document.getElementById("name").value;
+        const lastname = document.getElementById("lastname").value;
+
+        // Create a JS object
+        const obj = {
+            name: name,
+            lastname: lastname
+        };
+
+        // Convert to JSON string
+        const jsonString = JSON.stringify(obj);
+
+        // Append to DOM
+        document.getElementById("output").textContent = jsonString;
+    });
+</script>
+
+</body>
+</html>

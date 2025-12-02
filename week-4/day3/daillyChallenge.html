@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Challenges</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, button { margin: 5px 0; padding: 5px; }
+    .output { margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h2>1️⃣ Daily Challenge 1: makeAllCaps & sortWords</h2>
+<input type="text" id="wordsInput" placeholder="Enter words separated by comma">
+<button id="processWords">Process Words</button>
+<div id="wordsOutput" class="output"></div>
+
+<h2>2️⃣ Daily Challenge 2: Morse Code Translator</h2>
+<input type="text" id="morseInput" placeholder="Enter a word or sentence">
+<button id="translateMorse">Translate to Morse</button>
+<div id="morseOutput" class="output"></div>
+
+<script>
+// ---------- Challenge 1: makeAllCaps & sortWords ----------
+function makeAllCaps(words) {
+    return new Promise((resolve, reject) => {
+        if (words.every(word => typeof word === "string")) {
+            resolve(words.map(word => word.toUpperCase()));
+        } else {
+            reject("Error: Not all items are strings!");
+        }
+    });
+}
+
+function sortWords(words) {
+    return new Promise((resolve, reject) => {
+        if (words.length > 4) {
+            resolve(words.sort());
+        } else {
+            reject("Error: Array length must be greater than 4!");
+        }
+    });
+}
+
+document.getElementById("processWords").addEventListener("click", () => {
+    const input = document.getElementById("wordsInput").value;
+    const words = input.split(",").map(w => w.trim());
+
+    makeAllCaps(words)
+        .then(arr => sortWords(arr))
+        .then(result => {
+            document.getElementById("wordsOutput").textContent = "Result: " + result.join(", ");
+        })
+        .catch(error => {
+            document.getElementById("wordsOutput").textContent = error;
+        });
+});
+
+// ---------- Challenge 2: Morse Code Translator ----------
+const morse = `{
+  "0": "-----","1": ".----","2": "..---","3": "...--","4": "....-",
+  "5": ".....","6": "-....","7": "--...","8": "---..","9": "----.",
+  "a": ".-","b": "-...","c": "-.-.","d": "-..","e": ".",
+  "f": "..-.","g": "--.","h": "....","i": "..","j": ".---",
+  "k": "-.-","l": ".-..","m": "--","n": "-.","o": "---",
+  "p": ".--.","q": "--.-","r": ".-.","s": "...","t": "-",
+  "u": "..-","v": "...-","w": ".--","x": "-..-","y": "-.--",
+  "z": "--..",".": ".-.-.-",",": "--..--","?": "..--..",
+  "!": "-.-.--","-": "-....-","/": "-..-.","@": ".--.-.",
+  "(": "-.--."," )": "-.--.-"
+}`;
+
+function toJs() {
+    return new Promise((resolve, reject) => {
+        const morseJS = JSON.parse(morse);
+        if (Object.keys(morseJS).length === 0) reject("Error: Morse object empty!");
+        else resolve(morseJS);
+    });
+}
+
+function toMorse(morseJS, text) {
+    return new Promise((resolve, reject) => {
+        const translation = [];
+        for (let char of text.toLowerCase()) {
+            if (char === " ") translation.push(" ");
+            else if (morseJS[char]) translation.push(morseJS[char]);
+            else { reject(`Error: Character "${char}" not in Morse code!`); return; }
+        }
+        resolve(translation);
+    });
+}
+
+function joinWords(morseTranslation) {
+    const container = document.getElementById("morseOutput");
+    container.innerHTML = morseTranslation.join("<br>");
+}
+
+document.getElementById("translateMorse").addEventListener("click", () => {
+    const text = document.getElementById("morseInput").value;
+    toJs()
+        .then(morseJS => toMorse(morseJS, text))
+        .then(morseTranslation => joinWords(morseTranslation))
+        .catch(error => {
+            document.getElementById("morseOutput").textContent = error;
+        });
+});
+</script>
+
+</body>
+</html>

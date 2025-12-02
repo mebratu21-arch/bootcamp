@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form #3 – All in One</title>
+</head>
+<body>
+
+<h2>Exercise 1 – HTML Form #3 (All In One)</h2>
+
+<!-- The form submits to the same page -->
+<form method="GET" action="">
+    <label>First Name:</label><br>
+    <input type="text" name="firstname" required><br><br>
+
+    <label>Last Name:</label><br>
+    <input type="text" name="lastname" required><br><br>
+
+    <input type="submit" value="Send">
+</form>
+
+<hr>
+
+<h3>Submitted Data:</h3>
+<section id="output"></section>
+
+<script>
+// Read data from URL after form submission
+const params = new URLSearchParams(window.location.search);
+
+const firstname = params.get("firstname");
+const lastname = params.get("lastname");
+
+// If data exists, display it in the <section>
+if (firstname && lastname) {
+    document.getElementById("output").textContent =
+        `First Name: ${firstname}, Last Name: ${lastname}`;
+}
+</script>
+
+</body>
+</html>

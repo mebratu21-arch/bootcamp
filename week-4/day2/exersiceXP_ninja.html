@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quote Generator Game</title>
+    <style>
+        #quoteBox {
+            border: 1px solid black;
+            padding: 15px;
+            width: 400px;
+            min-height: 100px;
+            margin-bottom: 20px;
+        }
+        button { margin: 5px; }
+    </style>
+</head>
+<body>
+
+<h1>Random Quote Generator Game</h1>
+
+<!-- DISPLAYED QUOTE -->
+<section id="quoteBox"></section>
+
+<!-- RANDOM QUOTE BUTTON -->
+<button id="generateBtn">Generate Quote</button>
+
+<br><br>
+
+<!-- PART 2 : ADD NEW QUOTE -->
+<h3>Add a New Quote</h3>
+<form id="addQuoteForm">
+    <input type="text" id="newQuote" placeholder="Quote" required><br><br>
+    <input type="text" id="newAuthor" placeholder="Author" required><br><br>
+    <button type="submit">Add Quote</button>
+</form>
+
+<br>
+
+<!-- PART 2 : EXTRA BUTTONS -->
+<button id="countCharsSpaces">Characters (with spaces)</button>
+<button id="countCharsNoSpaces">Characters (no spaces)</button>
+<button id="countWords">Words</button>
+<button id="likeBtn">Like</button>
+
+<p id="extraInfo"></p>
+
+<hr>
+
+<!-- PART 3 : FILTER BY AUTHOR -->
+<h3>Filter Quotes By Author</h3>
+<form id="filterForm">
+    <input type="text" id="filterAuthor" placeholder="Author name" required>
+    <button type="submit">Filter</button>
+</form>
+
+<button id="prevBtn" style="display:none;">Previous</button>
+<button id="nextBtn" style="display:none;">Next</button>
+
+<section id="filterDisplay"></section>
+
+<script src="script.js"></script>
+</body>
+</html>
