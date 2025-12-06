@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise Times</title>
+</head>
+<body>
+    <h1>Sunrise Time for Two Cities</h1>
+
+    <!-- Form for entering latitude and longitude -->
+    <form id="sunriseForm">
+        <h3>City 1:</h3>
+        <label>Latitude: <input type="text" id="lat1" value="48.864716"></label><br>
+        <label>Longitude: <input type="text" id="lng1" value="2.349014"></label><br>
+
+        <h3>City 2:</h3>
+        <label>Latitude: <input type="text" id="lat2" value="40.730610"></label><br>
+        <label>Longitude: <input type="text" id="lng2" value="-73.935242"></label><br><br>
+
+        <button type="submit">Get Sunrise Times</button>
+    </form>
+
+    <!-- Div to display results -->
+    <div id="results"></div>
+
+    <script>
+        // Select the form and results div
+        const form = document.getElementById('sunriseForm');
+        const resultsDiv = document.getElementById('results');
+
+        // Listen for form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            // Get input values
+            const lat1 = document.getElementById('lat1').value;
+            const lng1 = document.getElementById('lng1').value;
+            const lat2 = document.getElementById('lat2').value;
+            const lng2 = document.getElementById('lng2').value;
+
+            // Build API URLs
+            const url1 = `https://api.sunrise-sunset.org/json?lat=${lat1}&lng=${lng1}&formatted=0`;
+            const url2 = `https://api.sunrise-sunset.org/json?lat=${lat2}&lng=${lng2}&formatted=0`;
+
+            // Fetch data for both cities
+            const fetch1 = fetch(url1).then(res => res.json());
+            const fetch2 = fetch(url2).then(res => res.json());
+
+            // Wait for both fetches using Promise.all
+            Promise.all([fetch1, fetch2])
+                .then(data => {
+                    // data[0] = city 1, data[1] = city 2
+                    const sunrise1 = new Date(data[0].results.sunrise)
+                        .toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
+                    const sunrise2 = new Date(data[1].results.sunrise)
+                        .toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
+
+                    // Display results
+                    resultsDiv.innerHTML = `
+                        <p>Sunrise in City 1: ${sunrise1}</p>
+                        <p>Sunrise in City 2: ${sunrise2}</p>
+                    `;
+                })
+                .catch(err => {
+                    // Handle any errors
+                    resultsDiv.innerHTML = `<p style="color:red">Error fetching data: ${err}</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

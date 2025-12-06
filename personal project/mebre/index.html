@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Todo List</h1>
+
+        <!-- Input box to add a new task -->
+        <div class="input-area">
+            <input id="todo-input" type="text" placeholder="Enter a task...">
+            <button id="add-btn">Add</button>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="filters">
+            <button data-filter="all" class="filter active-filter">All</button>
+            <button data-filter="active" class="filter">Active</button>
+            <button data-filter="completed" class="filter">Completed</button>
+        </div>
+
+        <!-- Where tasks will appear -->
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

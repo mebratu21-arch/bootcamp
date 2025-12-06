@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Weather App</title>
+
+    <style>
+        /* Center everything on the page */
+        body {
+            font-family: Arial;
+            background: #e0f7ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #aaa;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            background: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0b7dda;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Weather App</h2>
+
+    <!-- Input field for the city -->
+    <input type="text" id="cityInput" placeholder="Enter city name">
+
+    <!-- Button to get weather -->
+    <button onclick="getWeather()">Get Weather</button>
+
+    <!-- Where the weather will be shown -->
+    <div id="result"></div>
+</div>
+
+<script>
+    // This function runs when you click the button
+    async function getWeather() {
+
+        // Get city value from input
+        let city = document.getElementById("cityInput").value;
+
+        // Your API key from openweathermap.org
+        let apiKey = "PUT-YOUR-API-KEY-HERE";
+
+        // The API URL (°C = &units=metric)
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        try {
+            // Wait for the fetch request to get data
+            let response = await fetch(url);
+
+            // Convert data to JSON
+            let data = await response.json();
+
+            // If city not found
+            if (data.cod == "404") {
+                document.getElementById("result").innerHTML = "City not found ❌";
+                return;
+            }
+
+            // Show the weather
+            document.getElementById("result").innerHTML =
+                `<strong>${data.name}</strong><br>
+                 🌡️ Temperature: ${data.main.temp}°C<br>
+                 ☁️ Weather: ${data.weather[0].description}<br>
+                 💨 Wind: ${data.wind.speed} m/s`;
+        } 
+        catch (error) {
+            document.getElementById("result").innerHTML = "Error fetching data";
+        }
+    }
+</script>
+
+</body>
+</html>

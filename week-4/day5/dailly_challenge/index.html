@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Currency Converter</h1>
+        <p class="subtitle">Real-time exchange rates for 165+ world currencies</p>
+        
+        <div class="converter-box">
+            <div class="currency-row">
+                <span class="currency-label">From:</span>
+                <select id="fromCurrency" class="currency-select"></select>
+                <input type="number" id="fromAmount" class="amount-input" value="100" min="0" step="0.01">
+            </div>
+            
+            <button id="switchBtn" class="switch-btn" title="Switch currencies">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+            
+            <div class="currency-row">
+                <span class="currency-label">To:</span>
+                <select id="toCurrency" class="currency-select"></select>
+                <input type="number" id="toAmount" class="amount-input" readonly>
+            </div>
+        </div>
+        
+        <div class="loader" id="loader">
+            <i class="fas fa-circle-notch fa-spin"></i> Converting...
+        </div>
+        
+        <button id="convertBtn" class="action-btn">
+            <i class="fas fa-calculator"></i> Convert Currency
+        </button>
+        
+        <div class="result-box">
+            <div id="result">
+                <div class="result-amount">-</div>
+                <p class="result-text">Enter amount and click convert</p>
+            </div>
+        </div>
+        
+        <div class="error-message" id="errorMessage"></div>
+        
+        <p class="info-text">
+            <strong>Note:</strong> Some currencies like ARS, VES, or ZWL are highly volatile. Rates update hourly.<br>
+            Data provided by <a href="https://www.exchangerate-api.com" target="_blank">ExchangeRate-API</a>.
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

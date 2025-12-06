@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises Exercises 1–4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f8f8f8;
+    }
+    .exercise {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Promises Exercises 1–4 (All in One Page)</h1>
+
+<div class="exercise">
+  <h2>Exercise 1: Promise.all()</h2>
+  <pre id="output1">Loading...</pre>
+</div>
+
+<div class="exercise">
+  <h2>Exercise 2: Promise.race()</h2>
+  <pre id="output2">Loading...</pre>
+</div>
+
+<div class="exercise">
+  <h2>Exercise 3: Promise.any()</h2>
+  <pre id="output3">Loading...</pre>
+</div>
+
+<div class="exercise">
+  <h2>Exercise 4: Promise.allSettled()</h2>
+  <pre id="output4">Loading...</pre>
+</div>
+
+
+
+<script>
+// ------------------------------------------------------
+// EXERCISE 1 : Promise.all()
+// ------------------------------------------------------
+const promise1 = Promise.resolve(3);     // resolves immediately
+const promise2 = 42;                     // not a promise (auto resolved)
+const promise3 = new Promise((resolve) => {
+  setTimeout(() => resolve("Done after 2 seconds"), 2000);
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then((res) => {
+    document.getElementById("output1").textContent =
+      "All resolved: " + JSON.stringify(res, null, 2);
+  })
+  .catch((err) => {
+    document.getElementById("output1").textContent =
+      "Error: " + err;
+  });
+
+/*
+OUTPUT:
+[3, 42, "Done after 2 seconds"]
+Promise.all waits for ALL promises.
+If ONE fails → everything goes to catch().
+*/
+
+
+// ------------------------------------------------------
+// EXERCISE 2 : Promise.race()
+// ------------------------------------------------------
+const fast = new Promise((resolve) =>
+  setTimeout(() => resolve("Fast: 1 second"), 1000)
+);
+
+const slow = new Promise((resolve) =>
+  setTimeout(() => resolve("Slow: 3 seconds"), 3000)
+);
+
+Promise.race([fast, slow])
+  .then((res) => {
+    document.getElementById("output2").textContent =
+      "Winner: " + res;
+  });
+
+/*
+OUTPUT:
+"Fast: 1 second"
+Promise.race returns the FIRST promise to finish.
+*/
+
+
+// ------------------------------------------------------
+// EXERCISE 3 : Promise.any()
+// ------------------------------------------------------
+const pA = new Promise((resolve, reject) =>
+  setTimeout(() => reject("A failed"), 500)
+);
+const pB = new Promise((resolve) =>
+  setTimeout(() => resolve("B succeeded"), 1200)
+);
+const pC = new Promise((resolve) =>
+  setTimeout(() => resolve("C succeeded"), 1500)
+);
+
+Promise.any([pA, pB, pC])
+  .then((res) => {
+    document.getElementById("output3").textContent =
+      "First successful: " + res;
+  })
+  .catch((err) => {
+    document.getElementById("output3").textContent =
+      "All failed: " + err;
+  });
+
+/*
+OUTPUT:
+"B succeeded"
+Promise.any returns the FIRST successful promise.
+If all fail → AggregateError.
+*/
+
+
+// ------------------------------------------------------
+// EXERCISE 4 : Promise.allSettled()
+// ------------------------------------------------------
+const aa = Promise.resolve("Success A");
+const bb = Promise.reject("Fail B");
+const cc = new Promise((resolve) => setTimeout(() => resolve("Success C"), 1500));
+
+Promise.allSettled([aa, bb, cc])
+  .then((res) => {
+    document.getElementById("output4").textContent =
+      JSON.stringify(res, null, 2);
+  });
+
+/*
+OUTPUT:
+[
+  {status:"fulfilled", value:"Success A"},
+  {status:"rejected", reason:"Fail B"},
+  {status:"fulfilled", value:"Success C"}
+]
+Promise.allSettled NEVER fails. It always returns results for each promise.
+*/
+</script>
+
+</body>
+</html>
