@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Random Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Giphy Random API — Search GIF by Category</h2>
+        
+        <!-- Search form -->
+        <form id="gifForm" class="search-form">
+            <input type="text" id="searchInput" placeholder="Enter category (sun, cat, dog...)" required>
+            <button type="submit" class="search-btn">Get Random GIF</button>
+        </form>
+        
+        <div class="controls">
+            <button id="deleteAllBtn" class="delete-btn">DELETE ALL GIFS</button>
+        </div>
+        
+        <!-- All GIFs will appear here -->
+        <div id="gifContainer" class="gif-container"></div>
+        
+        <div class="instructions">
+            <h3>How to use:</h3>
+            <ul>
+                <li>Enter any category (e.g., "cat", "funny", "reaction")</li>
+                <li>Click "Get Random GIF" to fetch a random GIF</li>
+                <li>Delete individual GIFs with the DELETE button</li>
+                <li>Use "DELETE ALL GIFS" to clear everything</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
