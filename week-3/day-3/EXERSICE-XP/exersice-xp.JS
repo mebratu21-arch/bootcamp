@@ -1,5 +1,5 @@
 // =========================================================================
-// 🌟 Exercise 1: Change the article
+// Exercise 1: Change the article
 // =========================================================================
 (function() {
     console.log("--- Executing Exercise 1 JS ---");
@@ -45,7 +45,7 @@
         });
     }
 
-    // 🌟 BONUS 1: h1 font size random on hover
+    //  BONUS 1: h1 font size random on hover
     if (h1Element) {
         h1Element.addEventListener('mouseover', function() {
             const randomSize = Math.floor(Math.random() * 101); // 0 to 100
@@ -53,7 +53,7 @@
         });
     }
 
-    // 🌟 BONUS 2: 2nd paragraph fades out on hover
+    //  BONUS 2: 2nd paragraph fades out on hover
     const secondParagraph = article.querySelector('.paragraph-2'); 
     if (secondParagraph) {
         secondParagraph.addEventListener('mouseover', function() {
@@ -63,7 +63,7 @@
 })();
 
 // =========================================================================
-// 🌟 Exercise 2: Work with forms
+//  Exercise 2: Work with forms
 // =========================================================================
 (function() {
     console.log("\n--- Executing Exercise 2 JS ---");
@@ -108,7 +108,7 @@
 
 
 // =========================================================================
-// 🌟 Exercise 3: Transform the sentence
+//  Exercise 3: Transform the sentence
 // =========================================================================
 (function() {
     console.log("\n--- Executing Exercise 3 JS ---");
@@ -145,7 +145,7 @@
 
 
 // =========================================================================
-// 🌟 Exercice 4: Volume of a sphere
+//  Exercice 4: Volume of a sphere
 // =========================================================================
 (function() {
     console.log("\n--- Executing Exercise 4 JS ---");
