@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration Project</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      background: rgb(225, 103, 103);
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    fieldset {
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+
+    #preview {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgb(23, 210, 110);
+      border-radius: 10px;
+      width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>User Registration</h2>
+
+  <form id="registerForm" name="registerForm">
+
+    <fieldset name="personal">
+      <legend>Personal Info</legend>
+
+      <label>Name</label>
+      <input type="text" name="fullName">
+
+      <label>Gender</label>
+      <input type="radio" name="gender" value="Male"> Male
+      <input type="radio" name="gender" value="Female"> Female
+    </fieldset>
+
+    <fieldset name="profile">
+      <legend>Profile</legend>
+
+      <label>Country</label>
+      <select name="country" id="countrySelect"></select>
+
+      <label>Bio</label>
+      <textarea name="bio" rows="4"></textarea>
+    </fieldset>
+
+    <button type="submit">Create Profile</button>
+  </form>
+
+  <div id="preview"></div>
+
+<script>
+  // --------------------------
+  // 1. Dynamically add countries using new Option()
+  // --------------------------
+  const countrySelect = document.getElementById("countrySelect");
+
+  const countries = [
+    ["Ethiopia", "ET"],
+    ["USA", "US"],
+    ["Germany", "DE"],
+    ["Ethiopia", "ET"],
+    ["USA", "US"],
+    ["Germany", "DE"]
+  ];
+
+  countries.forEach(([name, code], index) => {
+    let option = new Option(name, code, index === 0, index === 0);
+    countrySelect.append(option);
+  });
+
+  // --------------------------
+  // 2. Handle form submission
+  // --------------------------
+  const form = document.forms.registerForm;
+  const preview = document.getElementById("preview");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // stop actual submission
+
+    // Use FormData
+    const data = new FormData(form);
+
+    const name = data.get("fullName");
+    const gender = data.get("gender");
+    const country = data.get("country");
+    const bio = data.get("bio");
+
+    // --------------------------
+    // 3. Display profile preview
+    // --------------------------
+    preview.innerHTML = `
+      <h3>Profile Preview</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Gender:</strong> ${gender}</p>
+      <p><strong>Country:</strong> ${country}</p>
+      <p><strong>Bio:</strong> ${bio}</p>
+    `;
+  });
+
+  // --------------------------
+  // 4. Element navigation examples
+  // --------------------------
+  console.log(form.elements.fullName.value);    // access element
+  console.log(form.elements.personal);          // fieldset as subform
+  console.log(form.elements.fullName.form);     // backreference
+</script>
+
+</body>
+</html>

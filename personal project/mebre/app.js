@@ -83,7 +83,7 @@ function addTask(text, completed) {
 
 // ==============================
 // INLINE EDIT FUNCTION
-// ==============================
+ // ==============================
 function editTask(li, span, editBtn) {
     // Create input and fill with old text
     const inputEdit = document.createElement("input");
