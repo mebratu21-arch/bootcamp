@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music Playlist</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-music"></i> My Music Playlist</h1>
+            <p>Create and manage your personal playlists</p>
+        </header>
+
+        <!-- Main App Area -->
+        <div class="app-wrapper">
+            <!-- Left Panel: Search & Results -->
+            <div class="left-panel">
+                <!-- Search Section -->
+                <div class="search-section">
+                    <input type="text" id="searchInput" placeholder="Search for songs, artists...">
+                    <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+                </div>
+
+                <!-- Search Results -->
+                <div class="results-section">
+                    <h2>Search Results <span id="resultsCount">(0)</span></h2>
+                    <div id="searchResults" class="results-list">
+                        <!-- Songs will be dynamically inserted here -->
+                        <p class="empty-msg">Search for songs to see results here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Playlist Manager -->
+            <div class="right-panel">
+                <!-- Playlist Creator -->
+                <div class="playlist-creator">
+                    <h2>Create New Playlist</h2>
+                    <div class="playlist-input">
+                        <input type="text" id="playlistName" placeholder="My Awesome Playlist">
+                        <button id="createPlaylistBtn"><i class="fas fa-plus"></i> Create</button>
+                    </div>
+                </div>
+
+                <!-- Current Playlist -->
+                <div class="current-playlist">
+                    <h2>Current Playlist: <span id="currentPlaylistName">None</span></h2>
+                    <div id="playlistSongs" class="playlist-songs">
+                        <!-- Playlist songs will appear here -->
+                        <p class="empty-msg">No songs in this playlist yet</p>
+                    </div>
+                    <div class="playlist-controls">
+                        <button id="savePlaylistBtn" class="save-btn" disabled>
+                            <i class="fas fa-save"></i> Save Playlist
+                        </button>
+                        <button id="clearPlaylistBtn" class="clear-btn" disabled>
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audio Player -->
+                <div class="audio-player">
+                    <h3>Now Playing</h3>
+                    <div class="player-controls">
+                        <button id="prevBtn"><i class="fas fa-step-backward"></i></button>
+                        <button id="playBtn"><i class="fas fa-play"></i></button>
+                        <button id="nextBtn"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                    <div class="track-info">
+                        <p id="nowPlaying">No track selected</p>
+                        <p id="trackArtist"></p>
+                    </div>
+                    <audio id="audioPlayer" controls style="display: none;"></audio>
+                </div>
+
+                <!-- Saved Playlists -->
+                <div class="saved-playlists">
+                    <h2>Saved Playlists</h2>
+                    <div id="savedPlaylistsList">
+                        <!-- Saved playlists will appear here -->
+                        <p class="empty-msg">No saved playlists yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

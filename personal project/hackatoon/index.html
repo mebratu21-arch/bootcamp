@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Country Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Global Country Explorer</h1>
+      <button id="toggleTheme"> Dark Mode</button>
+    </header>
+
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search countries...">
+      <select id="filterRegion">
+        <option value="">All Regions</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Americas">Americas</option>
+      </select>
+      <select id="sortOption">
+        <option value="">Sort By</option>
+        <option value="nameAsc">Name A → Z</option>
+        <option value="nameDesc">Name Z → A</option>
+        <option value="popAsc">Population ↑</option>
+        <option value="popDesc">Population ↓</option>
+      </select>
+    </div>
+
+    <div id="countriesContainer"></div>
+  </div>
+
+  <!-- Modal for country details -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
