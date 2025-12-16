@@ -1,6 +1,6 @@
 #  Global Country Explorer
 
-A modern, interactive web application that allows users to explore countries worldwide in real time. Built as a **Hackathon Project (MVP → Full App)** using **HTML, CSS, Vanilla JavaScript**, and the **REST Countries API**.
+A modern, interactive web application that allows users to explore countries worldwide in real time. Built as a **Hackathon Project ** using **HTML, CSS, Vanilla JavaScript**, and the **REST Countries API**.
 
 ---
 
@@ -145,4 +145,3 @@ GitHub: [https://github.com/mebratu21-arch](https://github.com/mebratu21-arch)
 
 ---
 
- If you like this project, consider giving it a star!
