@@ -4,9 +4,9 @@ A modern, interactive web application that allows users to explore countries wor
 
 ---
 
-##  Live Demo
 
-> **Repository:** [https://github.com/mebratu21-arch/bootcamp/tree/main/personal%20project/hackatoon](https://github.com/mebratu21-arch/bootcamp/tree/main/personal%20project/hackatoon)
+
+ **Repository:** [https://github.com/mebratu21-arch/bootcamp/tree/main/personal%20project/hackatoon](https://github.com/mebratu21-arch/bootcamp/tree/main/personal%20project/hackatoon)
 
 ---
 
@@ -68,6 +68,7 @@ global-country-explorer/
 │
 ├── README.md
 └── .gitignore
+
 ```
 
 ---
@@ -137,11 +138,11 @@ This project is open source and available under the **MIT License**.
 
 ---
 
-### 👨‍💻 Author
+###  Author
 
 ** Mebratu**
 GitHub: [https://github.com/mebratu21-arch](https://github.com/mebratu21-arch)
 
 ---
 
-⭐ If you like this project, consider giving it a star!
+ If you like this project, consider giving it a star!
