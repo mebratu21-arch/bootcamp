@@ -1,12 +1,11 @@
-# Global Country Explorer
+Global Country Explorer
 
-**Hackathon Project – MVP / Full App**  
+Hackathon Project – MVP / Full App**  
 
 A modern, interactive web application that allows users to explore countries worldwide in real-time, with search, filter, sort, and detailed information. Built with **HTML, CSS, JS**, and the **REST Countries API**.
 
----
 
- Features**
+ Features
 
 - **Real-time data:** Fetches all countries using the REST Countries API.
 - **Search:** Quickly find countries by name.
