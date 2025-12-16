@@ -16,7 +16,7 @@ INSERT INTO students (first_name, last_name, birth_date) VALUES
 ('Omer', 'Simpson', '1980-10-03');
 
 INSERT INTO students (first_name, last_name, birth_date) VALUES
-('YourFirstName', 'YourLastName', 'YYYY-MM-DD');
+('Mebratu', 'Mengstu', '1999/02/26');
 
 SELECT * FROM students;
 
