@@ -1,0 +1,6 @@
+{
+  "name": "exercise2-es6-modules",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js"
+}

@@ -1,0 +1,3 @@
+This is example text file content.
+It has multiple lines.
+We will read this file using Node.js.

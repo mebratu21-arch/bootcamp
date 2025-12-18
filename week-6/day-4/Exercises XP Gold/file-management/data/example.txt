@@ -1,0 +1,5 @@
+This is an example text file.
+It contains multiple lines of content.
+We will read this file using Node.js file system module.
+The file is located in the data directory.
+File size and creation time will be displayed.

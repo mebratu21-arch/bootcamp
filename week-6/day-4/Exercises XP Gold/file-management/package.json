@@ -1,0 +1,12 @@
+{
+  "name": "file-management",
+  "version": "1.0.0",
+  "description": "File management exercise",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": ["file", "path", "fs"],
+  "author": "",
+  "license": "ISC"
+}
