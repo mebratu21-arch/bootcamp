@@ -1,10 +1,9 @@
 // colorful-message.js
-const chalk = require('chalk');
+const chalk = require("chalk");
 
-function colorfulMessage() {
-    console.log(chalk.blue('This is a colorful message from Node.js!'));
-    console.log(chalk.red.bold('Red Bold Message'));
-    console.log(chalk.green.italic('Green Italic Message'));
+function showMessage() {
+  console.log(chalk.blue.bold("This is a colorful message!"));
+  console.log(chalk.green("Node.js makes coding fun!"));
 }
 
-module.exports = { colorfulMessage };
+module.exports = showMessage;

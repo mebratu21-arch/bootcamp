@@ -1,3 +1,2 @@
-const { timeUntilNewYear } = require('./date');
-
+const timeUntilNewYear = require("./date");
 console.log(timeUntilNewYear());

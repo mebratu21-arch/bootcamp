@@ -1,0 +1,9 @@
+mkdir quiz-game
+cd quiz-game
+npm init -y
+npm install express
+
+
+node server.js
+
+http://localhost:3000

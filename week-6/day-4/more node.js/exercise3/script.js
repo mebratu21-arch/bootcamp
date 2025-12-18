@@ -1,3 +1,2 @@
-const { nextHoliday } = require('./date');
-
+const nextHoliday = require("./date");
 console.log(nextHoliday());

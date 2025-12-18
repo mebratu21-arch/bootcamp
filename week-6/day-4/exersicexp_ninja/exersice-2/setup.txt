@@ -1,0 +1,4 @@
+mkdir weather-dashboard
+cd weather-dashboard
+npm init -y
+npm install axios chalk

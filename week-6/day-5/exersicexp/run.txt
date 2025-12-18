@@ -1,0 +1,9 @@
+cd blog-api
+node server.js
+
+cd book-api
+node app.js
+
+cd crud-api
+node app.js
+

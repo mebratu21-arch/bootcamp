@@ -1,0 +1,8 @@
+mkdir npm-beginner
+cd npm-beginner
+npm init -y
+npm install chalk
+
+
+
+node app.js

@@ -1,0 +1,4 @@
+mkdir math-app
+cd math-app
+npm init -y
+npm install lodash

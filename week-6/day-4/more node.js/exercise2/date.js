@@ -1,9 +1,12 @@
-function minutesLived(birthdate) {
-    const birth = new Date(birthdate);
-    const now = new Date();
-    const diff = now - birth; // in milliseconds
-    const minutes = Math.floor(diff / (1000 * 60));
-    return `You have lived ${minutes} minutes`;
+function minutesLived(birthdateStr) {
+  const birthdate = new Date(birthdateStr); // e.g. "1990-05-15"
+  const now = new Date();
+
+  const diffMs = now - birthdate;
+  const minutes = Math.floor(diffMs / (1000 * 60));
+
+  return `You have lived approximately ${minutes} minutes so far.`;
 }
 
-module.exports = { minutesLived };
+// Hardcoded example
+module.exports = () => minutesLived("1990-05-15");

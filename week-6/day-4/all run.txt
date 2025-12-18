@@ -1,0 +1,6 @@
+npm run challenge   # runs daily-challenge/challenge.js
+npm run ninja       # runs ninja-utility/index.js
+npm run weather     # runs weather-dashboard/index.js
+npm run date1       # runs date-exercises/exercise1/script.js
+npm run date2       # runs date-exercises/exercise2/script.js
+npm run date3       # runs date-exercises/exercise3/script.js

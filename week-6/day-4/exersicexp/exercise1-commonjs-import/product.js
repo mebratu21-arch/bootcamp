@@ -1,11 +1,9 @@
-// Array of product objects
+// products.js
 const products = [
-  { name: "Laptop", price: 999.99, category: "Electronics" },
-  { name: "Coffee Mug", price: 19.99, category: "Home" },
-  { name: "Running Shoes", price: 129.99, category: "Sports" },
-  { name: "Book", price: 14.99, category: "Education" },
-  { name: "Headphones", price: 199.99, category: "Electronics" }
+  { name: "Laptop", price: 1200, category: "Electronics" },
+  { name: "Phone", price: 800, category: "Electronics" },
+  { name: "Shoes", price: 100, category: "Fashion" },
+  { name: "Book", price: 20, category: "Education" }
 ];
 
-// Export using CommonJS syntax
-module.exports = products;
+module.exports = products; // CommonJS export

@@ -1,0 +1,3 @@
+cd exercise1 && node script.js
+cd exercise2 && node script.js
+cd exercise3 && node script.js

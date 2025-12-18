@@ -1,11 +1,6 @@
-// Array of person objects
-const people = [
-  { name: "Alice", age: 28, location: "New York" },
-  { name: "Bob", age: 35, location: "Los Angeles" },
-  { name: "Charlie", age: 22, location: "Chicago" },
-  { name: "Diana", age: 42, location: "Miami" },
-  { name: "Ethan", age: 31, location: "Seattle" }
+// data.js
+export const people = [
+  { name: "Alice", age: 25, location: "New York" },
+  { name: "Bob", age: 30, location: "London" },
+  { name: "Charlie", age: 35, location: "Paris" }
 ];
-
-// Export using ES6 module syntax
-export default people;

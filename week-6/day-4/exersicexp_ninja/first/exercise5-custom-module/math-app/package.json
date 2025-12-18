@@ -1,9 +1,0 @@
-{
-  "name": "math-app",
-  "version": "1.0.0",
-  "description": "Math operations with lodash",
-  "main": "app.js",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
-}

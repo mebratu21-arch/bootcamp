@@ -1,9 +1,0 @@
-{
-  "name": "npm-beginner",
-  "version": "1.0.0",
-  "description": "Using chalk package",
-  "main": "app.js",
-  "dependencies": {
-    "chalk": "^4.1.2"
-  }
-}

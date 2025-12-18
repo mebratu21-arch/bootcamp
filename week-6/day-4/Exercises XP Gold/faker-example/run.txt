@@ -1,0 +1,4 @@
+npm install @faker-js/faker
+
+
+npm install prompt-sync

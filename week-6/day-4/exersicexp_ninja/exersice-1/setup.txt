@@ -1,0 +1,5 @@
+mkdir ninja-utility
+cd ninja-utility
+npm init -y
+npm install axios chalk commander
+mkdir commands
