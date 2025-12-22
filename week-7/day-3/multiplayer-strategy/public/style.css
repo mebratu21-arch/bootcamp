@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background: #eee;
+  border: 1px solid #ccc;
+}
+
+.cell.player {
+  background: #007bff;
+}
+
+.cell.opponent {
+  background: #dc3545;
+}
+
+.cell.base {
+  border: 2px solid #000;
+}
+
+.cell.obstacle {
+  background: #555;
+}
+
+#controls button {
+  margin: 2px;
+}

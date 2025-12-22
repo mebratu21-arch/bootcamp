@@ -1,0 +1,13 @@
+{
+  "name": "multiplayer-strategy",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.19.0",
+    "uuid": "^9.0.0"
+  }
+}

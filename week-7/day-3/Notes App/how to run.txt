@@ -1,0 +1,23 @@
+Add a note
+node app add --title="Shopping" --body="Buy milk and eggs"
+
+List notes
+node app list
+
+Read a note
+node app read --title="Shopping"
+
+Remove a note
+node app remove --title="Shopping"
+
+Remove all notes
+node app remove --title="Shopping" --body="Buy milk and eggs"
+
+Update a note
+node app update --title="Shopping" --body="Buy milk and eggs"
+
+Search for a note
+node app search --title="Shopping"
+
+Exit the app
+node app exit

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <aside class="sidebar">
+      <h2>Room</h2>
+      <p id="room-name"></p>
+      <h3>Active Users</h3>
+      <ul id="users"></ul>
+    </aside>
+
+    <main class="chat-main">
+      <div id="messages" class="messages"></div>
+      <form id="chat-form" class="chat-form">
+        <input id="msg" type="text" placeholder="Type a message..." autocomplete="off" required>
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <audio id="notif-sound">
+    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=" type="audio/wav">
+  </audio>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

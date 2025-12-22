@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input type="text" id="name" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit" disabled>Register</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const inputs = form.querySelectorAll("input");
+    const button = form.querySelector("button");
+
+    inputs.forEach(input => {
+      input.addEventListener("input", () => {
+        button.disabled = [...inputs].some(i => !i.value.trim());
+      });
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = {
+        name: name.value,
+        lastName: lastName.value,
+        email: email.value,
+        username: username.value,
+        password: password.value
+      };
+
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      document.getElementById("message").innerText = result.message;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+input {
+  margin: 5px 0;
+  padding: 8px;
+}
+
+button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+}
