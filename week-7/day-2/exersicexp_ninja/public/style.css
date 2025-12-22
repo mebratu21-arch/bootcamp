@@ -1,0 +1,8 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+
+#quiz-container {
+    max-width: 400px;
+}
