@@ -1,23 +1,18 @@
-Add a note
-node app add --title="Shopping" --body="Buy milk and eggs"
+mkdir note-app
+cd note-app
+npm init -y
+npm install yargs lodash
 
-List notes
-node app list
 
-Read a note
-node app read --title="Shopping"
-
-Remove a note
-node app remove --title="Shopping"
-
-Remove all notes
-node app remove --title="Shopping" --body="Buy milk and eggs"
-
-Update a note
-node app update --title="Shopping" --body="Buy milk and eggs"
-
-Search for a note
-node app search --title="Shopping"
-
-Exit the app
-node app exit
+//
+npm install --save-dev jest
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+npm install --save-dev jest-codemods
+npx jest-codemods
+npm install --save-dev babel-preset-react
+npm install --save-dev babel-plugin-transform-class-properties
+npm install --save-dev babel-plugin-transform-object-rest-spread
+npm install --save-dev babel-plugin-proposal-class-properties
+npm install --save-dev babel-plugin-proposal-object-rest-spread
+npm install --save-dev babel-plugin-syntax-class-properties
+npm install --save-dev babel-plugin-syntax-object-rest-spread

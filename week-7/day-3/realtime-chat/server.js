@@ -1,75 +1,54 @@
-const express = require("express");
-const http = require("http");
-const { Server } = require("socket.io");
-const path = require("path");
+const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const users = {}; // socket.id -> { username, room }
+app.use(express.static('public'));
 
-app.use(express.static(path.join(__dirname, "public")));
+const users = {}; // store users by socket.id
+const rooms = {}; // store active users per room
 
-io.on("connection", (socket) => {
-  console.log("New connection", socket.id);
+io.on('connection', (socket) => {
+  console.log('New user connected:', socket.id);
 
-  socket.on("joinRoom", ({ username, room }) => {
-    users[socket.id] = { username, room };
+  // User joins a room
+  socket.on('joinRoom', ({ username, room }) => {
     socket.join(room);
+    users[socket.id] = { username, room };
 
-    // Welcome current user
-    socket.emit("message", {
-      username: "System",
-      text: `Welcome to room: ${room}`,
-      system: true
-    });
+    if (!rooms[room]) rooms[room] = [];
+    rooms[room].push(username);
 
-    // Broadcast that user joined
-    socket.to(room).emit("message", {
-      username: "System",
-      text: `${username} has joined the chat`,
-      system: true
-    });
+    // Notify room of new user
+    socket.to(room).emit('message', { user: 'system', text: `${username} has joined the room.` });
 
-    // Send updated user list
-    sendRoomUsers(room);
+    // Update active users
+    io.to(room).emit('activeUsers', rooms[room]);
   });
 
-  socket.on("chatMessage", (text) => {
-    const user = users[socket.id];
-    if (!user) return;
-    io.to(user.room).emit("message", {
-      username: user.username,
-      text,
-      system: false
-    });
-  });
-
-  socket.on("disconnect", () => {
+  // Listen for chat messages
+  socket.on('chatMessage', (msg) => {
     const user = users[socket.id];
     if (user) {
-      const { username, room } = user;
-      delete users[socket.id];
-
-      io.to(room).emit("message", {
-        username: "System",
-        text: `${username} has left the chat`,
-        system: true
-      });
-
-      sendRoomUsers(room);
+      io.to(user.room).emit('message', { user: user.username, text: msg });
     }
   });
 
-  function sendRoomUsers(room) {
-    const roomUsers = Object.values(users)
-      .filter((u) => u.room === room)
-      .map((u) => u.username);
-
-    io.to(room).emit("roomUsers", roomUsers);
-  }
+  // User disconnects
+  socket.on('disconnect', () => {
+    const user = users[socket.id];
+    if (user) {
+      const { username, room } = user;
+      rooms[room] = rooms[room].filter(u => u !== username);
+      socket.to(room).emit('message', { user: 'system', text: `${username} has left the room.` });
+      io.to(room).emit('activeUsers', rooms[room]);
+      delete users[socket.id];
+    }
+  });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

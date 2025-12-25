@@ -1,42 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Multiplayer Strategy Game</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Turn-Based Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Multiplayer Strategy Game</h1>
-
-  <section id="auth">
-    <h2>Register / Login</h2>
-    <input id="username" placeholder="Username">
-    <input id="password" type="password" placeholder="Password">
-    <button id="register-btn">Register</button>
-    <button id="login-btn">Login</button>
-    <p id="auth-status"></p>
-  </section>
-
-  <section id="game-setup">
-    <h2>Game Setup</h2>
-    <input id="opponent-id" placeholder="Opponent userId">
-    <button id="start-game-btn">Start Game</button>
-    <p id="game-id-display"></p>
-  </section>
-
-  <section id="board-section">
-    <h2>Board</h2>
-    <div id="board"></div>
-    <p id="turn-info"></p>
-    <p id="message"></p>
-    <div id="controls">
-      <button data-dir="up">Up</button>
-      <button data-dir="left">Left</button>
-      <button data-dir="right">Right</button>
-      <button data-dir="down">Down</button>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
+    <h1>Turn-Based Multiplayer Game</h1>
+    <div id="grid"></div>
+    <button onclick="move('up')">Up</button>
+    <button onclick="move('down')">Down</button>
+    <button onclick="move('left')">Left</button>
+    <button onclick="move('right')">Right</button>
+    <script src="app.js"></script>
 </body>
 </html>

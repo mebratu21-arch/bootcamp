@@ -1,0 +1,5 @@
+mkdir server
+cd server
+npm init -y
+npm install express bcrypt sqlite3
+npm install nodemon --save-dev

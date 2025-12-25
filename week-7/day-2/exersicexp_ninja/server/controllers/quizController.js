@@ -1,22 +1,29 @@
-const Quiz = require("../models/quizModel");
+const Question = require("../models/questionModel");
 
+// GET /api/questions/:id
 exports.getQuestion = async (req, res) => {
-  const id = req.params.id;
-  const data = await Quiz.getQuestion(id);
-
-  if (!data.question) {
-    return res.status(404).json({ message: "Question not found" });
+  try {
+    const question = await Question.getQuestionById(req.params.id);
+    if (!question) return res.status(404).json({ message: "Question not found" });
+    
+    // Do not send correct_answer_id to user
+    const { correct_answer_id, ...questionWithoutAnswer } = question;
+    res.json(questionWithoutAnswer);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
   }
-
-  res.json(data);
 };
 
-exports.checkAnswer = async (req, res) => {
-  const { questionId, selectedOption } = req.body;
+// POST /api/questions/:id/answer
+exports.submitAnswer = async (req, res) => {
+  try {
+    const { answer_id } = req.body;
+    const question = await Question.getQuestionById(req.params.id);
+    if (!question) return res.status(404).json({ message: "Question not found" });
 
-  const data = await Quiz.getQuestion(questionId);
-
-  const isCorrect = Number(selectedOption) === data.question.correct_answer;
-
-  res.json({ correct: isCorrect });
+    const isCorrect = question.correct_answer_id === answer_id;
+    res.json({ correct: isCorrect });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 };

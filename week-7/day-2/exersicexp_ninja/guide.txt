@@ -1,0 +1,4 @@
+mkdir quiz-game
+cd quiz-game
+npm init -y
+npm install express pg cors

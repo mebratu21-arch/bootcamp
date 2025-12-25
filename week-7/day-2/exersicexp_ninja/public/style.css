@@ -1,8 +1,81 @@
-body {
-    font-family: Arial;
-    padding: 20px;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Body Styling */
+body {
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Quiz Container */
 #quiz-container {
-    max-width: 400px;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+/* Question Styling */
+#question {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Options List */
+#options {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* Option Items */
+#options li {
+  background-color: #f1f1f1;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Option Hover Effect */
+#options li:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Next Button */
+#next {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Next Button Hover */
+#next:hover {
+  background-color: #0b7dda;
+}
+
+/* Score Text */
+#score {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #ff5722;
 }

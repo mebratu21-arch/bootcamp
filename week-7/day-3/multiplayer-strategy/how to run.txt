@@ -1,6 +1,7 @@
-cd multiplayer-strategy
-npm install
-npm start
+mkdir turn-based-game
+cd turn-based-game
+npm init -y
+npm install express body-parser cors
 
 
 http://localhost:3000

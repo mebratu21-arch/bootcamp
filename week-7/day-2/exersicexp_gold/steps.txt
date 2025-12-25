@@ -1,26 +1,4 @@
-Create a todo
-
-POST http://localhost:3000/api/todos
-Content-Type: application/json
-
-{
-  "title": "Learn Express"
-}
-
-Get all todos
-GET http://localhost:3000/api/todos
-
-Get one todo
-GET http://localhost:3000/api/todos/1
-
-Update a todo
-PUT http://localhost:3000/api/todos/1
-Content-Type: application/json
-
-{
-  "title": "Learn Express deeply",
-  "completed": true
-}
-
-Delete a todo
-DELETE http://localhost:3000/api/todos/1
+mkdir todo-api
+cd todo-api
+npm init -y
+npm install express pg

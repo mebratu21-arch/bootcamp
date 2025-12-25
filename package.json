@@ -1,16 +1,24 @@
 {
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.6",
+    "body-parser": "^2.2.1",
+    "express": "^5.2.1",
     "knex": "^3.1.0",
     "mssql": "^12.2.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.16.0",
     "oracledb": "^6.10.0",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "socket.io": "^4.8.2"
   },
   "name": "bootcamp",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

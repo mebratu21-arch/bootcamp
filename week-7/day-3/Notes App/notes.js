@@ -1,67 +1,69 @@
-const fs = require("fs");
+const fs = require('fs');
+const _ = require('lodash');
 
-const loadNotes = () => {
-  try {
-    const dataBuffer = fs.readFileSync("notes.json");
-    return JSON.parse(dataBuffer.toString());
-  } catch (e) {
-    return [];
-  }
-};
-
-const saveNotes = (notes) => {
-  fs.writeFileSync("notes.json", JSON.stringify(notes, null, 2));
-};
-
+// Add a new note
 const addNote = (title, body) => {
-  const notes = loadNotes();
-  const duplicate = notes.find((note) => note.title === title);
+    const notes = loadNotes();
+    const duplicateNote = _.find(notes, { title });
 
-  if (duplicate) {
-    console.log("Note already exists");
-    return;
-  }
+    if (duplicateNote) {
+        console.log('Note already exists');
+        return;
+    }
 
-  notes.push({ title, body });
-  saveNotes(notes);
-  console.log("Note added");
+    notes.push({ title, body });
+    saveNotes(notes);
+    console.log('Note added successfully');
 };
 
-const listNotes = () => {
-  const notes = loadNotes();
-  console.log("Your Notes:");
-  notes.forEach((note) => console.log("- " + note.title));
-};
-
-const readNote = (title) => {
-  const notes = loadNotes();
-  const note = notes.find((n) => n.title === title);
-
-  if (!note) {
-    console.log("Note not found");
-    return;
-  }
-
-  console.log("Title:", note.title);
-  console.log("Body:", note.body);
-};
-
+// Remove a note
 const removeNote = (title) => {
-  const notes = loadNotes();
-  const filtered = notes.filter((n) => n.title !== title);
+    const notes = loadNotes();
+    const filteredNotes = notes.filter(note => note.title !== title);
 
-  if (filtered.length === notes.length) {
-    console.log("Note not found");
-    return;
-  }
-
-  saveNotes(filtered);
-  console.log("Note removed");
+    if (notes.length === filteredNotes.length) {
+        console.log('Note not found');
+    } else {
+        saveNotes(filteredNotes);
+        console.log('Note removed');
+    }
 };
 
-module.exports = {
-  addNote,
-  listNotes,
-  readNote,
-  removeNote,
+// List all notes
+const listNotes = () => {
+    const notes = loadNotes();
+    console.log(`Printing ${notes.length} note(s):`);
+    notes.forEach(note => console.log(`- ${note.title}`));
 };
+
+// Read a note
+const readNote = (title) => {
+    const notes = loadNotes();
+    const note = _.find(notes, { title });
+
+    if (!note) {
+        console.log('Note not found');
+    } else {
+        console.log('Title:', note.title);
+        console.log('Body:', note.body);
+    }
+};
+
+// Load notes from JSON
+const loadNotes = () => {
+    try {
+        const dataBuffer = fs.readFileSync('notes.json');
+        const dataJSON = dataBuffer.toString();
+        return JSON.parse(dataJSON);
+    } catch (err) {
+        return [];
+    }
+};
+
+// Save notes to JSON
+const saveNotes = (notes) => {
+    const dataJSON = JSON.stringify(notes, null, 2);
+    fs.writeFileSync('notes.json', dataJSON);
+};
+
+module.exports = { addNote, removeNote, listNotes, readNote };

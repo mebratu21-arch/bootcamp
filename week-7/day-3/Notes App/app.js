@@ -1,56 +1,54 @@
-const yargs = require("yargs");
-const _ = require("lodash");
-const notes = require("./notes");
+const yargs = require('yargs');
+const notes = require('./notes');
 
-// ADD
+// Customize yargs version
+yargs.version('1.0.0');
+
+// Add command
 yargs.command({
-  command: "add",
-  describe: "Add a new note",
-  builder: {
-    title: { demandOption: true, type: "string" },
-    body: { demandOption: true, type: "string" },
-  },
-  handler(argv) {
-    notes.addNote(argv.title, argv.body);
-  },
+    command: 'add',
+    describe: 'Add a new note',
+    builder: {
+        title: { describe: 'Note title', demandOption: true, type: 'string' },
+        body: { describe: 'Note body', demandOption: true, type: 'string' }
+    },
+    handler(argv) {
+        notes.addNote(argv.title, argv.body);
+    }
 });
 
-// LIST
+// Remove command
 yargs.command({
-  command: "list",
-  describe: "List all notes",
-  handler() {
-    notes.listNotes();
-  },
+    command: 'remove',
+    describe: 'Remove a note',
+    builder: {
+        title: { describe: 'Note title', demandOption: true, type: 'string' }
+    },
+    handler(argv) {
+        notes.removeNote(argv.title);
+    }
 });
 
-// READ
+// List command
 yargs.command({
-  command: "read",
-  describe: "Read a note",
-  builder: {
-    title: { demandOption: true, type: "string" },
-  },
-  handler(argv) {
-    notes.readNote(argv.title);
-  },
+    command: 'list',
+    describe: 'List all notes',
+    handler() {
+        notes.listNotes();
+    }
 });
 
-// REMOVE
+// Read command
 yargs.command({
-  command: "remove",
-  describe: "Remove a note",
-  builder: {
-    title: { demandOption: true, type: "string" },
-  },
-  handler(argv) {
-    notes.removeNote(argv.title);
-  },
+    command: 'read',
+    describe: 'Read a note',
+    builder: {
+        title: { describe: 'Note title', demandOption: true, type: 'string' }
+    },
+    handler(argv) {
+        notes.readNote(argv.title);
+    }
 });
 
-// Handle unknown commands
-yargs.strict().fail((msg, err, yargs) => {
-  console.log("command not recognized");
-});
-
+// Parse the arguments
 yargs.parse();

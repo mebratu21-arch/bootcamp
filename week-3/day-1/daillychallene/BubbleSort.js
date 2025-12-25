@@ -6,11 +6,10 @@ const stringWithCommas = numbers.toString();
 console.log(stringWithCommas); // Output: 5,0,9,1,7,4,2,6,3,8
 
 // Part 2: Convert array to string using .join() with different separators
-console.log("\n=== Using .join() ===");
-console.log("Join with +: " + numbers.join("+")); // Output: 5+0+9+1+7+4+2+6+3+8
-console.log("Join with space: " + numbers.join(" ")); // Output: 5 0 9 1 7 4 2 6 3 8
-console.log("Join with empty string: " + numbers.join("")); // Output: 5091742638
-console.log("Join with comma and space: " + numbers.join(", ")); // Output: 5, 0, 9, 1, 7, 4, 2, 6, 3, 8
+console.log ("Join with +: " + numbers.join("+")); // Output: 5+0+9+1+7+4+2+6+3+8
+console.log ("Join with space: " + numbers.join(" ")); // Output: 5 0 9 1 7 4 2 6 3 8
+console.log ("Join with empty string: " + numbers.join("")); // Output: 5091742638
+console.log ("Join with comma and space: " + numbers.join(", ")); // Output: 5, 0, 9, 1, 7, 4, 2, 6, 3, 8
 
 // Part 3: Sort in descending order using Bubble Sort with nested loops
 console.log("\n=== Bubble Sort (Descending) ===");

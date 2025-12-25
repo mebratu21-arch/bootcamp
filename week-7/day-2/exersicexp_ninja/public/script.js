@@ -1,57 +1,45 @@
 let currentQuestion = 1;
 let score = 0;
 
-async function loadQuestion() {
-    const res = await fetch(`/api/quiz/${currentQuestion}`);
-    const data = await res.json();
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const nextBtn = document.getElementById("next");
+const scoreEl = document.getElementById("score");
 
-    document.getElementById("question").innerText = data.question.question;
-
-    const optionsDiv = document.getElementById("options");
-    optionsDiv.innerHTML = "";
-
-    data.options.forEach(opt => {
-        optionsDiv.innerHTML += `
-            <label>
-                <input type="radio" name="option" value="${opt.id}">
-                ${opt.option_text}
-            </label><br>
-        `;
-    });
+async function loadQuestion(id) {
+  const res = await fetch(`http://localhost:3000/api/questions/${id}`);
+  if (!res.ok) {
+    questionEl.textContent = "Quiz finished!";
+    optionsEl.innerHTML = "";
+    scoreEl.textContent = `Your final score: ${score}`;
+    nextBtn.style.display = "none";
+    return;
+  }
+  const question = await res.json();
+  questionEl.textContent = question.question;
+  optionsEl.innerHTML = "";
+  question.options.forEach(opt => {
+    const li = document.createElement("li");
+    li.textContent = opt.option_text;
+    li.onclick = () => submitAnswer(opt.id);
+    optionsEl.appendChild(li);
+  });
 }
 
-document.getElementById("submit").addEventListener("click", async () => {
-    const selected = document.querySelector("input[name='option']:checked");
+async function submitAnswer(answer_id) {
+  const res = await fetch(`http://localhost:3000/api/questions/${currentQuestion}/answer`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ answer_id })
+  });
+  const data = await res.json();
+  if (data.correct) score++;
+  scoreEl.textContent = `Score: ${score}`;
+}
 
-    if (!selected) {
-        alert("Please select an answer");
-        return;
-    }
+nextBtn.onclick = () => {
+  currentQuestion++;
+  loadQuestion(currentQuestion);
+};
 
-    const res = await fetch("/api/quiz/check", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            questionId: currentQuestion,
-            selectedOption: selected.value
-        })
-    });
-
-    const result = await res.json();
-
-    if (result.correct) {
-        score++;
-        document.getElementById("feedback").innerText = "Correct!";
-    } else {
-        document.getElementById("feedback").innerText = "Wrong!";
-    }
-
-    currentQuestion++;
-
-    setTimeout(() => {
-        document.getElementById("feedback").innerText = "";
-        loadQuestion();
-    }, 1000);
-});
-
-loadQuestion();
+loadQuestion(currentQuestion);

@@ -1,0 +1,4 @@
+mkdir blog-api
+cd blog-api
+npm init -y
+npm install express pg
