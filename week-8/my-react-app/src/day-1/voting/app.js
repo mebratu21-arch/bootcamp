@@ -1,38 +1,34 @@
-// App.js
-import React, { useState } from "react";
+import { useState } from "react";
 
 function App() {
-  // Step 1: Create state with languages and votes
+
   const [languages, setLanguages] = useState([
     { name: "Php", votes: 0 },
     { name: "Python", votes: 0 },
     { name: "JavaScript", votes: 0 },
-    { name: "Java", votes: 0 },
+    { name: "Java", votes: 0 }
   ]);
 
-  // Step 2: Function to handle voting
-  const handleVote = (languageName) => {
-    // Map through the languages array and increment the vote for the clicked language
-    const updatedLanguages = languages.map((lang) => {
-      if (lang.name === languageName) {
-        return { ...lang, votes: lang.votes + 1 }; // Increase vote by 1
-      }
-      return lang;
-    });
-
-    // Update the state with the new array
+  // Function to increase vote count
+  const handleVote = (index) => {
+    const updatedLanguages = [...languages];
+    updatedLanguages[index].votes += 1;
     setLanguages(updatedLanguages);
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Vote for Your Favorite Language</h1>
-      {languages.map((lang) => (
-        <div key={lang.name} style={{ margin: "10px" }}>
-          <button onClick={() => handleVote(lang.name)}>
-            {lang.name}
+    <div style={{ textAlign: "center" }}>
+      <h1>Voting App</h1>
+
+      {languages.map((lang, index) => (
+        <div key={index} style={{ margin: "10px" }}>
+          <span style={{ fontSize: "18px", marginRight: "10px" }}>
+            {lang.name} — Votes: {lang.votes}
+          </span>
+
+          <button onClick={() => handleVote(index)}>
+            Vote
           </button>
-          <span style={{ marginLeft: "10px" }}>Votes: {lang.votes}</span>
         </div>
       ))}
     </div>

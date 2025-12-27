@@ -2,49 +2,49 @@
 <html>
 <head>
   <title>Register</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h2>Register</h2>
   <form id="registerForm">
-    <input type="text" id="name" placeholder="First Name">
-    <input type="text" id="lastName" placeholder="Last Name">
-    <input type="email" id="email" placeholder="Email">
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button type="submit" disabled>Register</button>
+    <input type="text" id="firstName" placeholder="First Name" required><br>
+    <input type="text" id="lastName" placeholder="Last Name" required><br>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit" id="submitBtn" disabled>Register</button>
+    <p id="message"></p>
   </form>
-  <p id="message"></p>
 
   <script>
-    const form = document.getElementById("registerForm");
-    const inputs = form.querySelectorAll("input");
-    const button = form.querySelector("button");
+    const form = document.getElementById('registerForm');
+    const btn = document.getElementById('submitBtn');
+    const inputs = form.querySelectorAll('input');
+    const message = document.getElementById('message');
 
     inputs.forEach(input => {
-      input.addEventListener("input", () => {
-        button.disabled = [...inputs].some(i => !i.value.trim());
+      input.addEventListener('input', () => {
+        btn.disabled = [...inputs].some(i => !i.value);
       });
     });
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = {
-        name: name.value,
+        firstName: firstName.value,
         lastName: lastName.value,
         email: email.value,
         username: username.value,
         password: password.value
       };
 
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
 
       const result = await res.json();
-      document.getElementById("message").innerText = result.message;
+      message.textContent = result.message;
     });
   </script>
 </body>
