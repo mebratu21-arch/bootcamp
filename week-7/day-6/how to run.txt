@@ -1,0 +1,12 @@
+Bashmkdir rss-facts-feed
+cd rss-facts-feed
+npm init -y
+
+npm install express ejs axios rss-parser body-parser cors
+
+
+
+Bashnode server.js
+Open browser:
+Home: http://localhost:3000
+Search: http://localhost:3000/search

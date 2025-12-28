@@ -1,9 +1,8 @@
-const express = require('express');
-const app = express();
-const taskRoutes = require('./routes/taskRoutes');
+const app = require('./app');
 
-app.use(express.json());
-app.use('/api', taskRoutes);
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(` Task Management API running on http://localhost:${PORT}`);
+  console.log(` Data stored in: data/tasks.json`);
+});

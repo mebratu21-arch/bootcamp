@@ -1,0 +1,12 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<div class="container">
+  <h1 class="display-4 text-center my-5">The Fact Site</h1>
+  <p class="lead text-center mb-5">Welcome to The Fact Site</p>
+
+  <h2 class="mb-4">Posts</h2>
+  <%- include('../partials/posts', { posts: posts }) %>
+</div>
+
+<%- include('../partials/footer') %>

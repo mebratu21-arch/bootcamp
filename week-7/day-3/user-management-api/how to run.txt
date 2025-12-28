@@ -25,4 +25,10 @@ Get User
 GET http://localhost:3000/api/auth/me
 Authorization: Bearer <token>
 
+mkdir user-management-api
+cd user-management-api
+npm init -y
+npm install express bcrypt
+npm install --save-dev nodemon
 
+Bashnpm run dev

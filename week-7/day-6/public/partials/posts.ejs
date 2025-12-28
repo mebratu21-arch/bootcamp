@@ -1,0 +1,26 @@
+<% if (posts && posts.length > 0) { %>
+  <% posts.forEach(post => { %>
+    <div class="post-card">
+      <h3 class="post-title">
+        <a href="<%= post.link %>" target="_blank"><%= post.title %></a>
+      </h3>
+      <div class="post-meta">
+        <%= new Date(post.pubDate).toDateString() %> | 
+        <%= post.creator || 'Unknown' %> | 
+        Categories: 
+        <% if (post.categories && post.categories.length > 0) { %>
+          <% post.categories.forEach(cat => { %>
+            <span class="badge category-badge"><%= cat.trim() %></span>
+          <% }) %>
+        <% } else { %>
+          <em>None</em>
+        <% } %>
+      </div>
+      <div class="post-content">
+        <%- post.contentSnippet || post.content || 'No preview available.' %>
+      </div>
+    </div>
+  <% }) %>
+<% } else { %>
+  <p class="text-center text-muted">No posts found.</p>
+<% } %>

@@ -1,50 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 400px; margin: 50px auto; }
+    input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
+    button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:disabled { background: #cccccc; cursor: not-allowed; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
 </head>
 <body>
-  <h2>Register</h2>
+  <h1>Register :</h1>
   <form id="registerForm">
-    <input type="text" id="firstName" placeholder="First Name" required><br>
-    <input type="text" id="lastName" placeholder="Last Name" required><br>
-    <input type="email" id="email" placeholder="Email" required><br>
-    <input type="text" id="username" placeholder="Username" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <button type="submit" id="submitBtn" disabled>Register</button>
-    <p id="message"></p>
+    <input type="text" id="firstName" placeholder="First name" required />
+    <input type="text" id="lastName" placeholder="Last name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="text" id="username" placeholder="username" required />
+    <input type="password" id="password" placeholder="password" required minlength="6" />
+    <button type="submit" disabled>Register</button>
   </form>
+  <p id="message"></p>
 
   <script>
     const form = document.getElementById('registerForm');
-    const btn = document.getElementById('submitBtn');
-    const inputs = form.querySelectorAll('input');
+    const inputs = form.querySelectorAll('input[required]');
+    const button = form.querySelector('button');
     const message = document.getElementById('message');
 
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        btn.disabled = [...inputs].some(i => !i.value);
-      });
+    // Enable button only when all fields are filled
+    form.addEventListener('input', () => {
+      const allFilled = [...inputs].every(input => input.value.trim() !== '');
+      button.disabled = !allFilled;
     });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = {
-        firstName: firstName.value,
-        lastName: lastName.value,
-        email: email.value,
-        username: username.value,
-        password: password.value
+      message.textContent = '';
+      message.className = '';
+
+      const user = {
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        username: document.getElementById('username').value.trim(),
+        password: document.getElementById('password').value
       };
 
-      const res = await fetch('/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      try {
+        const res = await fetch('/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(user)
+        });
 
-      const result = await res.json();
-      message.textContent = result.message;
+        const data = await res.json();
+
+        if (res.ok) {
+          message.textContent = `User registered successfully with username: ${data.user.username}`;
+          message.className = 'success';
+          form.reset();
+          button.disabled = true;
+        } else {
+          message.textContent = data.error;
+          message.className = 'error';
+        }
+      } catch (err) {
+        message.textContent = 'Network error';
+        message.className = 'error';
+      }
     });
   </script>
 </body>

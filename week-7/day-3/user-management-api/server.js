@@ -1,11 +1,9 @@
-const express = require('express');
-const path = require('path');
-const userRoutes = require('./routes/userRoutes');
+const app = require('./app');
 
-const app = express();
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', userRoutes);
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(` User Management API running on http://localhost:${PORT}`);
+  console.log(` Register: http://localhost:${PORT}/register.html`);
+  console.log(` Login:    http://localhost:${PORT}/login.html`);
+});

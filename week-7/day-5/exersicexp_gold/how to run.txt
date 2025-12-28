@@ -1,0 +1,4 @@
+bash
+npx create-react-app xp-gold-app
+cd xp-gold-app
+npm install bootstrap

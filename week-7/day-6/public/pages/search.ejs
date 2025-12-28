@@ -1,0 +1,49 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<div class="container my-5">
+  <h1 class="display-5 text-center mb-5">Search Facts</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- Search by Title -->
+      <form action="/search/title" method="POST" class="mb-4">
+        <div class="input-group">
+          <input type="text" name="title" class="form-control" placeholder="Search by title..." required>
+          <button class="btn btn-primary" type="submit">Search Title</button>
+        </div>
+      </form>
+
+      <!-- Search by Category -->
+      <form action="/search/category" method="POST">
+        <div class="input-group">
+          <select name="category" class="form-select" required>
+            <option value="" disabled selected>Choose a category...</option>
+            <% 
+              // Extract unique categories from all posts
+              const allCategories = [...new Set(
+                (await getFeed()).items.flatMap(item => item.categories || [])
+              )].sort();
+            %>
+            <% allCategories.forEach(cat => { %>
+              <option value="<%= cat.trim() %>"><%= cat.trim() %></option>
+            <% }) %>
+          </select>
+          <button class="btn btn-success" type="submit">Search Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <h2 class="mb-4">
+    <% if (searchResults === 'title') { %>Results by Title<% } %>
+    <% if (searchResults === 'category') { %>Results by Category<% } %>
+    <% if (!searchResults) { %>Search Results<% } %>
+  </h2>
+
+  <%- include('../partials/posts', { posts: posts }) %>
+</div>
+
+<%- include('../partials/footer') %>

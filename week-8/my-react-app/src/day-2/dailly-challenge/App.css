@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-title {
+  background: #5d4037;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.form-section, .results-section {
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 0 0 5px 5px;
+}
+
+.beige-bg {
+  background: #d7ccc8;
+}
+
+.teal-bg {
+  background: #00695c;
+  color: white;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.radio-group, .checkbox-group {
+  margin: 20px 0;
+}
+
+.radio-group label, .checkbox-label {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"], .checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+.submit-btn {
+  background: #a1887f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background: #8d6e63;
+}
+
+.results-section p {
+  margin: 8px 0;
+}
+
+.results-section h2 {
+  margin-bottom: 20px;
+  color: #e0f2e9;
+}

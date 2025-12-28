@@ -1,0 +1,160 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background-color: #e74c3c;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.company-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.company-tagline {
+  font-size: 1.2rem;
+}
+
+/* Cards Section */
+.cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.card {
+  background-color: #f0efeb;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.card-text {
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.contact-info {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contact-details p {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+.contact-details svg {
+  margin-right: 10px;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 40px auto 0;
+  text-align: left;
+}
+
+.contact-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.send-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .company-title {
+    font-size: 2.5rem;
+  }
+  
+  .cards-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card {
+    max-width: 90%;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+  }
+}
