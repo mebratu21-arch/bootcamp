@@ -1,0 +1,23 @@
+Setup Instructions
+1. Backend Setup
+bash
+# Navigate to server folder
+cd server
+
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+# or for development with auto-restart
+npm run dev
+2. Frontend Setup
+bash
+# Navigate to client folder (from project root)
+cd client
+
+# Install dependencies (if not already done by create-react-app)
+npm install
+
+# Start React app
+npm start

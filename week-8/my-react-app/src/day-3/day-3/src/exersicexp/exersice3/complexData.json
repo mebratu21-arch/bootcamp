@@ -1,0 +1,8 @@
+{
+  "SocialMedias": ["Facebook", "Twitter", "LinkedIn"],
+  "Skills": { "Frontend": ["HTML", "CSS"], "Backend": ["Node.js", "Express"] },
+  "Experiences": [
+    { "company": "Demo1 Technologies", "role": "Full Stack Developer", "location": "New York", "date": "2017-01-01" },
+    { "company": "Demo2 Technologies", "role": "UI Designer", "location": "Beijing", "date": "2016-05-01" }
+  ]
+}

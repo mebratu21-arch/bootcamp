@@ -1,0 +1,11 @@
+Installation and Running
+Make sure you have React installed, then run:
+
+bash
+# If you haven't created the React app yet
+npx create-react-app autocomplete-demo
+cd autocomplete-demo
+
+# Create the files as described above
+# Then start the application
+npm start

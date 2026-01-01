@@ -1,69 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 400px; margin: 50px auto; }
-    input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
-    button { background: #2196F3; color: white; border: none; cursor: pointer; }
-    button:disabled { background: #cccccc; cursor: not-allowed; }
-    .error { color: red; }
-    .success { color: green; }
-  </style>
+    <title>Login</title>
 </head>
+
 <body>
-  <h1>Login :</h1>
-  <form id="loginForm">
-    <input type="text" id="username" placeholder="Username" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button type="submit" disabled>Login</button>
-  </form>
-  <p id="message"></p>
+    <h1>Login :</h1>
+    <form id="loginForm">
+        <label>Username</label>
+        <input type="text" id="username"><br>
 
-  <script>
-    const form = document.getElementById('loginForm');
-    const inputs = form.querySelectorAll('input[required]');
-    const button = form.querySelector('button');
-    const message = document.getElementById('message');
+        <label>Password</label>
+        <input type="password" id="password"><br>
 
-    form.addEventListener('input', () => {
-      const allFilled = [...inputs].every(input => input.value.trim() !== '');
-      button.disabled = !allFilled;
-    });
+        <button type="submit" id="loginBtn" disabled>Login</button>
+    </form>
+    <p id="message"></p>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      message.textContent = '';
-      message.className = '';
+    <script>
+        const form = document.getElementById('loginForm');
+        const btn = document.getElementById('loginBtn');
+        const inputs = form.querySelectorAll('input');
+        const message = document.getElementById('message');
 
-      const credentials = {
-        username: document.getElementById('username').value.trim(),
-        password: document.getElementById('password').value
-      };
-
-      try {
-        const res = await fetch('/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(credentials)
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                btn.disabled = [...inputs].some(i => i.value.trim() === '');
+            });
         });
 
-        const data = await res.json();
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                username: form.username.value,
+                password: form.password.value
+            };
 
-        if (res.ok) {
-          message.textContent = `Login successful! Welcome ${data.user.username}`;
-          message.className = 'success';
-        } else {
-          message.textContent = data.error;
-          message.className = 'error';
-        }
-      } catch (err) {
-        message.textContent = 'Network error';
-        message.className = 'error';
-      }
-    });
-  </script>
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            message.textContent = result.message || result.error;
+        });
+    </script>
 </body>
+
 </html>

@@ -1,44 +1,52 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { readUsers, writeUsers } = require('../utils/fileHandler');
-
+const fs = require('fs-extra');
+const { v4: uuidv4 } = require('uuid');
 const router = express.Router();
-const SALT_ROUNDS = 10;
 
-// Helper: Find user index by username or ID
-const findUserByUsername = (users, username) => users.findIndex(u => u.username === username);
-const findUserById = (users, id) => users.findIndex(u => u.id === parseInt(id));
+const USERS_FILE = './users.json';
+
+// Helper functions
+async function readUsers() {
+  try {
+    const data = await fs.readFile(USERS_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    throw new Error('Could not read users file');
+  }
+}
+
+async function writeUsers(users) {
+  try {
+    await fs.writeFile(USERS_FILE, JSON.stringify(users, null, 2));
+  } catch (err) {
+    throw new Error('Could not write users file');
+  }
+}
 
 // POST /register
 router.post('/register', async (req, res) => {
   try {
     const { firstName, lastName, email, username, password } = req.body;
 
-    // Validation
     if (!firstName || !lastName || !email || !username || !password) {
       return res.status(400).json({ error: 'All fields are required' });
-    }
-    if (password.length < 6) {
-      return res.status(400).json({ error: 'Password must be at least 6 characters' });
     }
 
     const users = await readUsers();
 
-    // Check if username already exists
-    if (findUserByUsername(users, username) !== -1) {
-      return res.status(400).json({ error: 'Username already exists' });
+    // Check if username or email exists
+    if (users.some(u => u.username === username || u.email === email)) {
+      return res.status(400).json({ error: 'Username or email already exists' });
     }
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-
-    // Create new user
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = {
-      id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1,
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
-      email: email.trim(),
-      username: username.trim(),
+      id: uuidv4(),
+      firstName,
+      lastName,
+      email,
+      username,
       password: hashedPassword,
       createdAt: new Date().toISOString()
     };
@@ -46,12 +54,9 @@ router.post('/register', async (req, res) => {
     users.push(newUser);
     await writeUsers(users);
 
-    res.status(201).json({
-      message: 'User registered successfully',
-      user: { id: newUser.id, username: newUser.username, firstName: newUser.firstName }
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -59,82 +64,63 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-
-    if (!username || !password) {
-      return res.status(400).json({ error: 'Username and password are required' });
-    }
+    if (!username || !password) return res.status(400).json({ error: 'All fields are required' });
 
     const users = await readUsers();
-    const userIndex = findUserByUsername(users, username);
+    const user = users.find(u => u.username === username);
 
-    if (userIndex === -1) {
-      return res.status(401).json({ error: 'Username is not registered' });
-    }
+    if (!user) return res.status(404).json({ error: 'Username is not registered' });
 
-    const user = users[userIndex];
-    const isMatch = await bcrypt.compare(password, user.password);
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) return res.status(400).json({ error: 'Incorrect password' });
 
-    if (!isMatch) {
-      return res.status(401).json({ error: 'Incorrect password' });
-    }
-
-    res.json({
-      message: 'Login successful',
-      user: { id: user.id, username: user.username, firstName: user.firstName }
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json({ message: 'Login successful' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
-// GET all users (demo only)
-router.get('/', async (req, res) => {
+// GET /users
+router.get('/users', async (req, res) => {
   try {
     const users = await readUsers();
-    // Hide password in response
-    const safeUsers = users.map(({ password, ...user }) => user);
-    res.json(safeUsers);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
-// GET user by ID
-router.get('/:id', async (req, res) => {
+// GET /users/:id
+router.get('/users/:id', async (req, res) => {
   try {
     const users = await readUsers();
-    const user = users.find(u => u.id === parseInt(req.params.id));
+    const user = users.find(u => u.id === req.params.id);
     if (!user) return res.status(404).json({ error: 'User not found' });
-    const { password, ...safeUser } = user;
-    res.json(safeUser);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
-// PUT update user by ID
-router.put('/:id', async (req, res) => {
+// PUT /users/:id
+router.put('/users/:id', async (req, res) => {
   try {
-    const updates = req.body;
-    const id = parseInt(req.params.id);
-
     const users = await readUsers();
-    const index = findUserById(users, id);
+    const userIndex = users.findIndex(u => u.id === req.params.id);
+    if (userIndex === -1) return res.status(404).json({ error: 'User not found' });
 
-    if (index === -1) return res.status(404).json({ error: 'User not found' });
+    const { firstName, lastName, email, username, password } = req.body;
 
-    // If updating password, hash it
-    if (updates.password) {
-      updates.password = await bcrypt.hash(updates.password, SALT_ROUNDS);
-    }
+    if (firstName) users[userIndex].firstName = firstName;
+    if (lastName) users[userIndex].lastName = lastName;
+    if (email) users[userIndex].email = email;
+    if (username) users[userIndex].username = username;
+    if (password) users[userIndex].password = await bcrypt.hash(password, 10);
 
-    users[index] = { ...users[index], ...updates, updatedAt: new Date().toISOString() };
     await writeUsers(users);
-
-    const { password, ...safeUser } = users[index];
-    res.json(safeUser);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json({ message: 'User updated successfully', user: users[userIndex] });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 

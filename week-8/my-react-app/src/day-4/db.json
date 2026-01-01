@@ -1,0 +1,68 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "age": 28
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "age": 32
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "email": "mike@example.com",
+      "age": 25
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 999,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 699,
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "name": "Headphones",
+      "price": 199,
+      "category": "Electronics",
+      "inStock": false
+    },
+    {
+      "id": 4,
+      "name": "Coffee Maker",
+      "price": 89,
+      "category": "Home Appliances",
+      "inStock": true
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Getting Started with React Router",
+      "author": "John Doe",
+      "content": "React Router is a powerful library for handling navigation in React applications.",
+      "date": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "title": "Understanding JSON Server",
+      "author": "Jane Smith",
+      "content": "JSON Server provides a full fake REST API with zero coding in less than 30 seconds.",
+      "date": "2024-01-20"
+    }
+  ]
+}

@@ -1,126 +1,105 @@
 const express = require('express');
+const fs = require('fs-extra');
+const { v4: uuidv4 } = require('uuid');
 const router = express.Router();
-const { readTasks, writeTasks } = require('../utils/fileHandler');
 
-// Helper: Find task by ID
-const findTaskIndex = (tasks, id) => tasks.findIndex(task => task.id === parseInt(id));
+const TASKS_FILE = './tasks.json';
 
-// GET all tasks
-router.get('/', async (req, res) => {
+// Helper function to read tasks
+async function readTasks() {
+  try {
+    const data = await fs.readFile(TASKS_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    throw new Error('Could not read tasks file');
+  }
+}
+
+// Helper function to write tasks
+async function writeTasks(tasks) {
+  try {
+    await fs.writeFile(TASKS_FILE, JSON.stringify(tasks, null, 2));
+  } catch (err) {
+    throw new Error('Could not write to tasks file');
+  }
+}
+
+// GET /tasks
+router.get('/', async (req, res, next) => {
   try {
     const tasks = await readTasks();
     res.json(tasks);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    next(err);
   }
 });
 
-// GET task by ID
-router.get('/:id', async (req, res) => {
+// GET /tasks/:id
+router.get('/:id', async (req, res, next) => {
   try {
     const tasks = await readTasks();
-    const task = tasks.find(t => t.id === parseInt(req.params.id));
-    
-    if (!task) {
-      return res.status(404).json({ error: 'Task not found' });
-    }
-    
+    const task = tasks.find(t => t.id === req.params.id);
+    if (!task) return res.status(404).json({ error: 'Task not found' });
     res.json(task);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    next(err);
   }
 });
 
-// POST create new task
-router.post('/', async (req, res) => {
+// POST /tasks
+router.post('/', async (req, res, next) => {
   try {
-    const { title, description, completed = false } = req.body;
-
-    if (!title || typeof title !== 'string' || title.trim() === '') {
-      return res.status(400).json({ error: 'Title is required and must be a non-empty string' });
+    const { title, description } = req.body;
+    if (!title || !description) {
+      return res.status(400).json({ error: 'Title and description are required' });
     }
-
     const tasks = await readTasks();
-    
     const newTask = {
-      id: tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1,
-      title: title.trim(),
-      description: description?.trim() || '',
-      completed: Boolean(completed),
-      createdAt: new Date().toISOString()
+      id: uuidv4(),
+      title,
+      description,
+      completed: false,
+      createdAt: new Date().toISOString(),
     };
-
     tasks.push(newTask);
     await writeTasks(tasks);
-
     res.status(201).json(newTask);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    next(err);
   }
 });
 
-// PUT update task by ID
-router.put('/:id', async (req, res) => {
+// PUT /tasks/:id
+router.put('/:id', async (req, res, next) => {
   try {
     const { title, description, completed } = req.body;
-    const id = parseInt(req.params.id);
-
-    if (isNaN(id)) {
-      return res.status(400).json({ error: 'Invalid task ID' });
-    }
-
-    // At least one field should be provided for update
-    if (!title && !description && completed === undefined) {
-      return res.status(400).json({ error: 'At least one field (title, description, or completed) is required' });
-    }
-
-    if (title !== undefined && (typeof title !== 'string' || title.trim() === '')) {
-      return res.status(400).json({ error: 'Title must be a non-empty string' });
-    }
-
     const tasks = await readTasks();
-    const index = findTaskIndex(tasks, id);
+    const taskIndex = tasks.findIndex(t => t.id === req.params.id);
+    if (taskIndex === -1) return res.status(404).json({ error: 'Task not found' });
 
-    if (index === -1) {
-      return res.status(404).json({ error: 'Task not found' });
-    }
-
-    tasks[index] = {
-      ...tasks[index],
-      title: title?.trim() ?? tasks[index].title,
-      description: description?.trim() ?? tasks[index].description,
-      completed: completed !== undefined ? Boolean(completed) : tasks[index].completed,
-      updatedAt: new Date().toISOString()
-    };
+    if (title !== undefined) tasks[taskIndex].title = title;
+    if (description !== undefined) tasks[taskIndex].description = description;
+    if (completed !== undefined) tasks[taskIndex].completed = completed;
 
     await writeTasks(tasks);
-    res.json(tasks[index]);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json(tasks[taskIndex]);
+  } catch (err) {
+    next(err);
   }
 });
 
-// DELETE task by ID
-router.delete('/:id', async (req, res) => {
+// DELETE /tasks/:id
+router.delete('/:id', async (req, res, next) => {
   try {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      return res.status(400).json({ error: 'Invalid task ID' });
-    }
-
     const tasks = await readTasks();
-    const index = findTaskIndex(tasks, id);
-
-    if (index === -1) {
+    const filteredTasks = tasks.filter(t => t.id !== req.params.id);
+    if (filteredTasks.length === tasks.length) {
       return res.status(404).json({ error: 'Task not found' });
     }
-
-    const deletedTask = tasks.splice(index, 1)[0];
-    await writeTasks(tasks);
-
-    res.json({ message: 'Task deleted successfully', task: deletedTask });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    await writeTasks(filteredTasks);
+    res.json({ message: 'Task deleted successfully' });
+  } catch (err) {
+    next(err);
   }
 });
 

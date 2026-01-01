@@ -1,0 +1,25 @@
+ Install Font Awesome (Optional)
+To get the Twitter icon and quote icons working, you can either:
+
+Option A: Use CDN (already included in App.css)
+
+css
+/* Already added in App.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+Option B: Install via npm
+
+bash
+npm install @fortawesome/fontawesome-free
+Then add to src/index.js:
+
+javascript
+import '@fortawesome/fontawesome-free/css/all.min.css';
+9. Install and Run
+bash
+# Create React App if you haven't already
+npx create-react-app quote-generator
+cd quote-generator
+
+# Create the files as described above
+# Then start the application
+npm start

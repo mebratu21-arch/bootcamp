@@ -1,0 +1,38 @@
+import { createRoot } from 'react-dom/client';
+import {  Router, Routes, Route } from 'react-router-dom';
+
+
+
+import { Navigation } from './Components/Navigation';
+import { Home } from './Components/HomeScreen';
+import { Products } from './Components/ShopScreen';
+import { Cart } from './Components/CartContext';
+import { ProductDetails } from './Components/ProductDetails';
+import { NotFound } from './Components/NotFound';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <Router>
+    <Navigation />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/products/:id" element={<ProductDetails />} />
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </Router>
+);
+
+// import { createRoot } from 'react-dom/client';
+// import { Navigation } from './Components/Navigation';
+// import { Home } from './Components/HomeScreen';
+// import { Products } from './Components/ShopScreen';
+// import { Cart } from './Components/CartContext';
+// import { ProductDetails } from './Components/ProductDetails';
+// import { NotFound } from './Components/NotFound';
+
+// const root = createRoot(document.getElementById('root'));
+// root.render(
+//   <Router>

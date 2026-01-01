@@ -7,6 +7,7 @@
     "body-parser": "^2.2.1",
     "bootstrap": "^5.3.8",
     "express": "^5.2.1",
+    "init": "^0.1.2",
     "jquery": "^3.7.1",
     "knex": "^3.1.0",
     "mssql": "^12.2.0",
@@ -14,6 +15,7 @@
     "mysql2": "^3.16.0",
     "oracledb": "^6.10.0",
     "pg": "^8.16.3",
+    "react-router-dom": "^7.11.0",
     "socket.io": "^4.8.2",
     "sqlite3": "^5.1.7",
     "tedious": "^19.2.0"
