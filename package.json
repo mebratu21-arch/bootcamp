@@ -15,6 +15,7 @@
     "mysql2": "^3.16.0",
     "oracledb": "^6.10.0",
     "pg": "^8.16.3",
+    "react": "^19.2.3",
     "react-router-dom": "^7.11.0",
     "socket.io": "^4.8.2",
     "sqlite3": "^5.1.7",

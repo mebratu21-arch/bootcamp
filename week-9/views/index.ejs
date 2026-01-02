@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized To-Do Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-grid">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+            
+            <div class="search-bar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-input" placeholder="Search">
+                <button type="button" class="search-btn" onclick="performSearch()" title="Search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+
+            <!-- TASKS SECTION -->
+            <div class="nav-section">
+                <h3>Tasks</h3>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <div style="display:flex;align-items:center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            Upcoming
+                        </div>
+                        <span class="count-badge">12</span>
+                    </li>
+                    <li class="nav-item active">
+                        <div style="display:flex;align-items:center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            Today
+                        </div>
+                        <span class="count-badge"><%= tasks.length %></span>
+                    </li>
+                    <li class="nav-item">
+                        <div style="display:flex;align-items:center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            Calendar
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- LISTS SECTION -->
+            <div class="nav-section">
+                <h3>Lists</h3>
+                <ul class="nav-list" id="lists-container">
+                    <% lists.forEach(list => { %>
+                        <li class="nav-item" onclick="filterByList('<%= list.id %>', '<%= list.name %>')">
+                            <div style="display:flex;align-items:center;">
+                                <div class="color-box" style="background-color: <%= list.color || '#ff6b6b' %>"></div>
+                                <%= list.name %>
+                            </div>
+                            <span class="count-badge">3</span>
+                        </li>
+                    <% }) %>
+                </ul>
+                <form action="/lists/add" method="POST">
+                    <button class="add-btn-text" type="button" onclick="const name=prompt('New List Name:'); if(name) { this.form.querySelector('input').value=name; this.form.submit(); }">
+                        <input type="hidden" name="name">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Add New List
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAGS SECTION -->
+            <div class="nav-section" style="margin-top:auto;">
+                <h3>Tags</h3>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <% tags.forEach(tag => { %>
+                        <span class="tag-badge" style="background-color: <%= tag.color %>33; color: <%= tag.color %>; border: 1px solid <%= tag.color %>; cursor: pointer;" onclick="filterByTag('<%= tag.id %>', '<%= tag.name %>')"><%= tag.name %></span>
+                    <% }) %>
+                    <form action="/tags/add" method="POST" style="display:inline;">
+                        <input type="hidden" name="name">
+                        <input type="hidden" name="color" value="#6366f1">
+                        <button type="button" class="tag-badge" style="background:#e5e5e5;border:none;cursor:pointer;" onclick="const name=prompt('New Tag Name:'); if(name) { this.form.querySelector('input').value=name; this.form.submit(); }">
+                            + Add Tag
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+             <div class="nav-section" style="margin-top: 30px;">
+                <ul class="nav-list">
+                    <li class="dark-mode-toggle" onclick="toggleDarkMode()">
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            Dark Mode
+                        </div>
+                        <div class="toggle-switch"></div>
+                    </li>
+                    <li class="nav-item">
+                         <div style="display:flex;align-items:center;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            Settings
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" style="text-decoration:none; color:inherit; display:flex; align-items:center; width:100%;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT (MIDDLE) -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Today</h1>
+                <span class="total-count"><%= tasks.length %></span>
+            </header>
+
+            <!-- Filter and Sort Controls -->
+            <div class="controls-bar">
+                <button class="filter-btn active" onclick="filterTasks('all')" data-filter="all">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+                    All
+                </button>
+                <button class="filter-btn" onclick="filterTasks('active')" data-filter="active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                    Active
+                </button>
+                <button class="filter-btn" onclick="filterTasks('completed')" data-filter="completed">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Completed
+                </button>
+                <select class="sort-select" onchange="sortTasks(this.value)">
+                    <option value="date">Sort by Date</option>
+                    <option value="title">Sort by Title</option>
+                    <option value="priority">Sort by Priority</option>
+                </select>
+            </div>
+
+            <form class="add-task-row" action="/add" method="POST">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <input type="text" name="title" placeholder="Add New Task" required>
+                <button type="submit" style="display:none;"></button> <!-- Implicit submit -->
+            </form>
+
+            <div class="task-list">
+                <% tasks.forEach(task => { %>
+                    <div class="task-card task-item <%= task.completed ? 'completed' : '' %>" data-task-id="<%= task.id %>" onclick="selectTask('<%= task.id %>', '<%= task.title %>', '<%= task.description || '' %>', '<%= task.due_date || '' %>', '<%= task.list_id || '' %>')">
+                        <div class="task-left">
+                            <form action="/toggle/<%= task.id %>" method="POST" onclick="event.stopPropagation();">
+                                <button class="custom-checkbox" type="submit"></button>
+                            </form>
+                            <div class="task-content">
+                                <h4><%= task.title %></h4>
+                                <div class="task-meta">
+                                    <% if (task.due_date) { %>
+                                        <span class="meta-item">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                            <%= new Date(task.due_date).toLocaleDateString() %>
+                                        </span>
+                                    <% } %>
+                                    <% if (task.list_name) { %>
+                                        <span class="meta-item">
+                                            <div class="color-box" style="width:12px;height:12px;background-color:#ffd43b;"></div> <!-- Default yellow for now -->
+                                            <%= task.list_name %>
+                                        </span>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button class="edit-btn" onclick="event.stopPropagation(); selectTask('<%= task.id %>', '<%= task.title %>', '<%= task.description || '' %>', '<%= task.due_date || '' %>', '<%= task.list_id || '' %>')" title="Edit task">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            </button>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </main>
+
+        <!-- RIGHT DETAILS PANEL -->
+        <aside class="details-panel" id="task-details">
+            <div class="details-header">
+                <h2>Task:</h2>
+                <div class="color-box" style="background-color:#3b82f6; width:40px;height:40px;"></div> <!-- Dynamic placeholder -->
+            </div>
+
+            <form class="details-form" id="update-form" method="POST" action="">
+                <div class="form-field">
+                    <input type="text" id="detail-title" name="title" value="Select a task to edit" disabled style="font-size:1.2rem; border:none; padding:0; font-weight:600;">
+                </div>
+
+                <div class="form-field">
+                    <label>Description</label>
+                    <textarea id="detail-desc" name="description" rows="4" placeholder="Description"></textarea>
+                </div>
+
+                <div class="form-field">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--text-secondary); font-size:0.9rem;">List</span>
+                        <select name="list_id" style="width:auto; border:none;">
+                            <option value="">Personal</option>
+                            <% lists.forEach(list => { %>
+                                <option value="<%= list.id %>"><%= list.name %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                     <div style="display:flex; justify-content:space-between;">
+                        <span style="color:var(--text-secondary); font-size:0.9rem;">Due date</span>
+                        <input type="date" name="due_date" style="width:auto; border:none;">
+                     </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Tags</label>
+                    <div class="tag-selector">
+                        <span class="tag-option" style="background:#ccfbf1; color:#0f766e;">Tag 1</span>
+                        <span class="tag-option">+ Add Tag</span>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Subtasks:</label>
+                    <div class="subtasks-list">
+                        <button type="button" style="text-align:left; background:none; border:none; color:var(--text-secondary); cursor:pointer; display:flex; align-items:center; gap:10px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Add New Subtask
+                        </button>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-delete" onclick="document.forms['delete-form'].submit()">Delete Task</button>
+                    <button type="submit" class="btn btn-save">Save changes</button>
+                </div>
+            </form>
+            
+            <!-- Hidden delete form for current task -->
+            <form id="delete-form" method="POST" action="" style="display:none;"></form>
+        </aside>
+    </div>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Task Selection
+        function selectTask(id, title, description, dueDate, listId) {
+            const panel = document.getElementById('task-details');
+            const titleInput = document.getElementById('detail-title');
+            const descInput = document.getElementById('detail-desc');
+            const dueDateInput = document.querySelector('input[name="due_date"]');
+            const listSelect = document.querySelector('select[name="list_id"]');
+            const updateForm = document.getElementById('update-form');
+            const deleteForm = document.getElementById('delete-form');
+            
+            // Populate form fields
+            titleInput.value = title;
+            titleInput.disabled = false;
+            descInput.value = description;
+            
+            // Set due date if available
+            if (dueDate) {
+                dueDateInput.value = dueDate.split('T')[0];
+            } else {
+                dueDateInput.value = '';
+            }
+            
+            // Set list if available
+            if (listId) {
+                listSelect.value = listId;
+            } else {
+                listSelect.value = '';
+            }
+            
+            // Set actions
+            updateForm.action = '/tasks/update/' + id;
+            deleteForm.action = '/delete/' + id;
+            
+            // Highlight selected task
+            document.querySelectorAll('.task-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            const selectedCard = document.querySelector(`[data-task-id="${id}"]`);
+            if (selectedCard) {
+                selectedCard.classList.add('selected');
+            }
+        }
+
+        // Filter Tasks
+        function filterTasks(filter) {
+            const tasks = document.querySelectorAll('.task-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Filter tasks
+            tasks.forEach(task => {
+                const isCompleted = task.classList.contains('completed');
+                
+                if (filter === 'all') {
+                    task.style.display = 'flex';
+                } else if (filter === 'active' && !isCompleted) {
+                    task.style.display = 'flex';
+                } else if (filter === 'completed' && isCompleted) {
+                    task.style.display = 'flex';
+                } else {
+                    task.style.display = 'none';
+                }
+            });
+        }
+
+        // Sort Tasks
+        function sortTasks(criteria) {
+            const taskList = document.querySelector('.task-list');
+            const tasks = Array.from(taskList.querySelectorAll('.task-card'));
+            
+            tasks.sort((a, b) => {
+                if (criteria === 'title') {
+                    const titleA = a.querySelector('h4').textContent.toLowerCase();
+                    const titleB = b.querySelector('h4').textContent.toLowerCase();
+                    return titleA.localeCompare(titleB);
+                } else if (criteria === 'date') {
+                    // Default order (by creation date)
+                    return 0;
+                } else if (criteria === 'priority') {
+                    // You can implement priority sorting if you have priority data
+                    return 0;
+                }
+            });
+            
+            // Re-append sorted tasks
+            tasks.forEach(task => taskList.appendChild(task));
+        }
+
+        // Search Functionality
+        const searchInput = document.getElementById('search-input');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const tasks = document.querySelectorAll('.task-card');
+            
+            tasks.forEach(task => {
+                const title = task.querySelector('h4').textContent.toLowerCase();
+                const description = task.querySelector('.task-content').textContent.toLowerCase();
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    task.style.display = 'flex';
+                } else {
+                    task.style.display = 'none';
+                }
+            });
+        }
+        
+        if (searchInput) {
+            searchInput.addEventListener('input', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+        
+        // Filter by List
+        function filterByList(listId, listName) {
+            const tasks = document.querySelectorAll('.task-card');
+            const mainHeader = document.querySelector('.main-header h1');
+            mainHeader.textContent = listName;
+            
+            tasks.forEach(task => {
+                // You would need to add data-list-id to task cards for this to work perfectly
+                task.style.display = 'flex';
+            });
+        }
+        
+        // Filter by Tag
+        function filterByTag(tagId, tagName) {
+            const tasks = document.querySelectorAll('.task-card');
+            const mainHeader = document.querySelector('.main-header h1');
+            mainHeader.textContent = tagName;
+            
+            tasks.forEach(task => {
+                // You would need to add data-tag-id to task cards for this to work perfectly
+                task.style.display = 'flex';
+            });
+        }
+    </script>
+    
+    <footer class="app-footer">
+        <p>Mebratu Mengstu - 2026</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.env.example
+.env
+node_modules
+coverage
+dist
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+*.log
