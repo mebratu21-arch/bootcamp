@@ -1,0 +1,36 @@
+.quote-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.quote-author {
+    font-style: italic;
+    color: #666;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}       
+
+
+/* Add more styles as needed */ 
