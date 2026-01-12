@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Menu with Services List</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #232f3e; /* Amazon dark blue */
+      padding: 10px 20px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    li {
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      background-color: #37475a;
+      border-radius: 5px;
+    }
+
+    /* Dropdown style */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      top: 40px;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px 15px;
+      font-weight: 500;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* Show dropdown on hover */
+    li:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 600px) {
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: #fff;
+      }
+
+      li:hover .dropdown-content {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+
+      <!-- Categories dropdown -->
+      <li>
+        <a href="#">Categories ▼</a>
+        <div class="dropdown-content">
+          <a href="#">Electronics</a>
+          <a href="#">Books</a>
+          <a href="#">Fashion</a>
+          <a href="#">Furniture</a>
+        </div>
+      </li>
+
+      <!-- Services dropdown -->
+      <li>
+        <a href="#">Services ▼</a>
+        <div class="dropdown-content">
+          <a href="#">Customer Support</a>
+          <a href="#">Order Tracking</a>
+          <a href="#">Gift Cards</a>
+          <a href="#">Returns & Refunds</a>
+          <a href="#">Product Installation</a>
+          <a href="#">Shipping & Delivery</a>
+          <a href="#">Warranty & Repairs</a>
+          <a href="#">Membership Plans</a>
+        </div>
+      </li>
+
+      <!-- Account dropdown -->
+      <li>
+        <a href="#">Account ▼</a>
+        <div class="dropdown-content">
+          <a href="#">Profile</a>
+          <a href="#">Orders</a>
+          <a href="#">Wishlist</a>
+          <a href="#">Settings</a>
+          <a href="#">Sign Out</a>
+        </div>
+      </li>
+
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  overflow: hidden; /* Prevent scrollbars during transitions if not needed */
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+#quote-box {
+  background-color: #fff;
+  border-radius: 3px;
+  position: relative;
+  width: 450px;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.quote-text {
+  text-align: center;
+  font-size: 1.75em;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.quote-author {
+  text-align: right;
+  font-style: italic;
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+}
+
+.button {
+  height: 38px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  padding: 0 18px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  outline: none;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Optional: Add transition to the quote text if desired, though React update might be instant */
+#text, #author {
+  transition: color 1s ease;
+}
+
+@media screen and (max-width: 500px) {
+  #quote-box {
+      width: 100%;
+      margin: 10px;
+  }
+}
