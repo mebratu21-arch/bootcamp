@@ -3,83 +3,89 @@ import { quotes } from './quotes';
 import './App.css';
 
 function App() {
-  // State for current quote and previous index to prevent duplicates
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
   const [previousIndex, setPreviousIndex] = useState(0);
   const [colors, setColors] = useState({
-    background: 'hsl(195, 53%, 39%)',
-    text: 'hsl(220, 25%, 30%)',
-    button: 'hsl(220, 25%, 30%)'
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    button: '#ffffff',
+    text: '#ffffff'
   });
 
-  // Generate random color with good contrast
-  const generateRandomColor = () => {
-    const hue = Math.floor(Math.random() * 360);
-    const saturation = Math.floor(Math.random() * 30) + 40; // 40-70%
-    const lightness = Math.floor(Math.random() * 20) + 35; // 35-55%
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  const generateRandomGradient = () => {
+    const h1 = Math.floor(Math.random() * 360);
+    const h2 = (h1 + 60) % 360;
+    const s = '70%';
+    const l = '45%';
+    return `linear-gradient(135deg, hsl(${h1}, ${s}, ${l}) 0%, hsl(${h2}, ${s}, ${l}) 100%)`;
   };
 
-  // Generate a new random quote (avoiding consecutive duplicates)
   const getNewQuote = () => {
     let randomIndex;
-    
-    // If there's only one quote, just use it
-    if (quotes.length === 1) {
-      randomIndex = 0;
-    } else {
-      // Keep generating until we get a different index
+    if (quotes.length > 1) {
       do {
         randomIndex = Math.floor(Math.random() * quotes.length);
       } while (randomIndex === previousIndex);
+    } else {
+      randomIndex = 0;
     }
 
     setCurrentQuote(quotes[randomIndex]);
     setPreviousIndex(randomIndex);
 
-    // Generate new colors
-    const newBackgroundColor = generateRandomColor();
-    const newTextColor = generateRandomColor();
-    const newButtonColor = generateRandomColor();
-
     setColors({
-      background: newBackgroundColor,
-      text: newTextColor,
-      button: newButtonColor
+      gradient: generateRandomGradient(),
+      button: '#ffffff',
+      text: '#ffffff'
     });
   };
 
-  // Set initial random colors on mount
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(`"${currentQuote.quote}" - ${currentQuote.author}`);
+    alert("Copied directly to clipboard! ✨");
+  };
+
+  const shareOnX = () => {
+    const text = encodeURIComponent(`"${currentQuote.quote}" - ${currentQuote.author} #Quotes #Inspiration`);
+    window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+  };
+
   useEffect(() => {
     getNewQuote();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
   return (
     <div 
       style={{ 
-        backgroundColor: colors.background,
+        background: colors.gradient,
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        transition: 'background-color 0.6s ease'
+        transition: 'background 1.5s ease'
       }}
     >
       <div className="quote-container">
-        <h1 
-          className="quote-text"
-          style={{ color: colors.text }}
-        >
+        <h1 className="quote-text" style={{ color: colors.text }}>
           {currentQuote.quote}
         </h1>
-        <p className="quote-author">-{currentQuote.author}-</p>
+        <p className="quote-author" style={{ color: colors.text }}>
+          — {currentQuote.author} —
+        </p>
         <div className="button-container">
+          <div className="social-buttons">
+            <button className="action-btn" onClick={shareOnX} title="Share on X">
+              𝕏
+            </button>
+            <button className="action-btn" onClick={copyToClipboard} title="Copy to Clipboard">
+              📋
+            </button>
+          </div>
           <button 
             className="new-quote-btn"
             onClick={getNewQuote}
-            style={{ backgroundColor: colors.button }}
+            style={{ color: '#333' }}
           >
-            New quote
+            New Quote
           </button>
         </div>
       </div>

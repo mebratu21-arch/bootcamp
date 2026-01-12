@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskMaster - Modern Task Management</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Task<span>Master</span></h1>
+        <p>Organize your work with elegance</p>
+      </header>
+
+      <section class="task-form-container glass">
+        <form id="taskForm">
+          <input
+            type="text"
+            id="taskTitle"
+            placeholder="What needs to be done?"
+            required
+          />
+          <textarea
+            id="taskDescription"
+            placeholder="Add some details... (optional)"
+          ></textarea>
+          <div class="form-row">
+            <div class="input-group">
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="taskDueDate">Due Date</label>
+              <input type="date" id="taskDueDate" />
+            </div>
+          </div>
+          <button type="submit" id="addBtn">Add Task</button>
+        </form>
+      </section>
+
+      <section class="tasks-container">
+        <div class="search-filter-bar glass">
+          <div class="search-group">
+            <input type="text" id="searchInput" placeholder="Search tasks..." />
+            <span class="search-icon">🔍</span>
+          </div>
+          <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">
+              Completed
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <h2>Your Tasks</h2>
+          <div class="stats">Total: <span id="totalCount">0</span></div>
+        </div>
+        <div id="taskList" class="task-list">
+          <!-- Tasks will be injected here -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Notification system -->
+    <div id="notification" class="notification"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
