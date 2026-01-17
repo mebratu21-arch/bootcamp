@@ -1,0 +1,8 @@
+faiss-cpu
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+transformers>=4.30.0
+pandas>=2.0.0
+numpy<2.0.0
+torch>=2.0.0
+datasets>=2.14.0

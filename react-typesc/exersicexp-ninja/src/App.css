@@ -1,0 +1,85 @@
+.ninja-app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #050505;
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+}
+
+.ninja-header {
+  text-align: center;
+  border-bottom: 2px solid #00ff41;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.ninja-header h1 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.exercise-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.exercise-tabs button {
+  background: transparent;
+  border: 1px solid #00ff41;
+  color: #00ff41;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.exercise-tabs button.active {
+  background: #00ff41;
+  color: #000;
+}
+
+.exercise-display {
+  background: #111;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #222;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+}
+
+.ninja-footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Common Exercise Styles */
+.card {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+button {
+  background: #00ff41;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input, textarea {
+  background: #222;
+  border: 1px solid #444;
+  color: #00ff41;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}

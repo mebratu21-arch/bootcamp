@@ -1,0 +1,99 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.exercises-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.card {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.card h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #646cff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  margin: 0.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.counter-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.user-cards-container {
+  max-width: 800px;
+}
+
+.user-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.user-card {
+  background-color: #3a3a3a;
+  padding: 1rem;
+}
+
+.user-card h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #888;
+}
+
+.user-item {
+  background-color: #3a3a3a;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.user-item h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.user-item p {
+  margin: 0.25rem 0;
+  color: #bbb;
+}
+
+.error {
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+@media (prefers-color-scheme: light) {
+  .card, .user-card, .user-item {
+    background-color: #f9f9f9;
+    color: #213547;
+  }
+}

@@ -1,0 +1,98 @@
+STEP 1: INITIAL SUMMARY PROMPT OUTPUT
+=====================================
+
+REASONING PROCESS:
+------------------
+1. Identify parties:
+   - Provider: BrightLine Technologies Ltd.
+   - Client: NovaWare Systems Inc.
+
+2. Extract key terms and responsibilities:
+   - Provider must deliver cloud infrastructure management services
+   - Services include: monitoring, incident response, monthly reporting
+   - Details in Exhibit A (referenced but not provided)
+
+3. Payment structure:
+   - Fixed monthly fee: $12,000
+   - Payment timeline: Within 30 days of invoice receipt
+   - Late payment consequences: 2% penalty per month
+
+4. Contract duration and termination:
+   - Start date: March 1, 2025
+   - Duration: 12 months (ends March 1, 2026)
+   - Termination option: Either party with 30 days written notice
+
+5. Liability and risk allocation:
+   - Provider's liability capped at fees paid in prior 3 months
+   - Maximum exposure: $36,000 (3 × $12,000)
+   - Excluded: Indirect or consequential damages
+
+6. Additional important clauses:
+   - Confidentiality obligations for both parties
+   - Proprietary/sensitive information protection required
+   - Governing law: State of California
+
+STRUCTURED SUMMARY:
+-------------------
+
+**Parties:**
+- Provider: BrightLine Technologies Ltd.
+- Client: NovaWare Systems Inc.
+
+**Key Responsibilities:**
+
+*Provider's Obligations:*
+- Deliver cloud infrastructure management services
+- Provide monitoring services
+- Handle incident response
+- Submit monthly reporting
+- Follow specifications in Exhibit A
+
+*Client's Obligations:*
+- Pay monthly fees on time
+- Provide necessary access/information for service delivery
+- Protect Provider's confidential information
+
+**Payment Terms:**
+- Monthly Fee: $12,000 (fixed)
+- Payment Due: Within 30 days of invoice receipt
+- Late Payment Penalty: 2% per month on overdue amounts
+- Total Annual Cost: $144,000 (12 months × $12,000)
+
+**Termination Clauses:**
+- Contract Term: 12 months
+- Start Date: March 1, 2025
+- End Date: March 1, 2026 (unless terminated earlier)
+- Termination Notice: Either party may terminate with 30 days written notice
+- No early termination penalty mentioned
+
+**Liability Limitations:**
+- Maximum Liability: Fees paid by Client in the 3 months prior to claim
+- Practical Cap: $36,000 maximum exposure
+- Excluded Damages: Indirect or consequential damages (e.g., lost profits, business interruption)
+- Important Note: This significantly limits Client's recovery options
+
+**Other Important Terms:**
+
+*Confidentiality:*
+- Both parties must protect proprietary information
+- Applies to sensitive information shared during engagement
+- Duration and scope not specified in excerpt
+
+*Governing Law:*
+- State of California laws apply
+- Dispute resolution method not specified in excerpt
+- Venue for legal proceedings not specified
+
+*Missing Information:*
+- Exhibit A details (scope of work specifics)
+- Insurance requirements
+- Service level agreements (SLAs)
+- Dispute resolution procedures
+- Intellectual property ownership
+
+**Risk Assessment:**
+- Provider's liability is heavily limited
+- Client bears most operational and consequential risk
+- No mention of performance guarantees or SLAs
+- Confidentiality terms are mutual but vague

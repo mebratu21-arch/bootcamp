@@ -1,0 +1,19 @@
+{
+  "name": "task-management-api",
+  "version": "1.0.0",
+  "description": "A RESTful Task Management API with Express.js and JSON file storage",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["express", "api", "task-management", "rest"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

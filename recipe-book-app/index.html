@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book App</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="recipe-app">
+        <h1>Recipe Book</h1>
+        <form id="recipeEntryForm">
+          <input
+            type="text"
+            id="recipeTitle"
+            placeholder="Recipe Title"
+            required
+          />
+          <textarea
+            id="ingredients"
+            placeholder="Enter ingredients (one per line)"
+            required
+          ></textarea>
+          <textarea
+            id="instructions"
+            placeholder="Enter cooking instructions"
+            required
+          ></textarea>
+          <button type="submit">Add Recipe</button>
+        </form>
+
+        <hr />
+
+        <div id="recipeContainer"></div>
+
+        <hr />
+
+        <button
+          id="clearRecipesButton"
+          style="background-color: #ff4d4d; margin-top: 20px"
+        >
+          Clear All Recipes
+        </button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

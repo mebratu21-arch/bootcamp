@@ -1,0 +1,74 @@
+:root {
+  --primary: #6366f1;
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --text: #f8fafc;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  background: linear-gradient(to right, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #334155;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.user-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #818cf8;
+}
+
+.user-card p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 5rem;
+}
+
+.error {
+  color: #fb7185;
+  text-align: center;
+  padding: 1rem;
+  background: #4c1d23;
+  border-radius: 0.5rem;
+}

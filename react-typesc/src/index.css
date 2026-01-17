@@ -1,0 +1,309 @@
+/* Google Material Design 3 - Design Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Google+Sans:wght@400;500;700&display=swap');
+
+:root {
+  /* Material Design 3 Typography - Google Scale */
+  --md-sys-typescale-display-large: 57px;
+  --md-sys-typescale-display-medium: 45px;
+  --md-sys-typescale-headline-large: 32px;
+  --md-sys-typescale-headline-medium: 28px;
+  --md-sys-typescale-title-large: 22px;
+  --md-sys-typescale-body-large: 16px;
+  --md-sys-typescale-body-medium: 14px;
+  --md-sys-typescale-label-large: 14px;
+
+  /* Material Design 3 - Dark Theme Color Tokens */
+  --md-sys-color-primary: #A8C7FA;
+  --md-sys-color-on-primary: #0A2E5C;
+  --md-sys-color-primary-container: #174078;
+  --md-sys-color-on-primary-container: #D6E3FF;
+  
+  --md-sys-color-secondary: #BCC7DC;
+  --md-sys-color-on-secondary: #263141;
+  --md-sys-color-secondary-container: #3C4758;
+  --md-sys-color-on-secondary-container: #D8E3F8;
+  
+  --md-sys-color-surface: #1A1C1E;
+  --md-sys-color-surface-dim: #111316;
+  --md-sys-color-surface-bright: #37393C;
+  --md-sys-color-surface-container-lowest: #0C0E11;
+  --md-sys-color-surface-container-low: #1A1C1E;
+  --md-sys-color-surface-container: #1E2022;
+  --md-sys-color-surface-container-high: #282A2D;
+  --md-sys-color-surface-container-highest: #333538;
+  
+  --md-sys-color-on-surface: #E2E2E5;
+  --md-sys-color-on-surface-variant: #C4C6D0;
+  --md-sys-color-outline: #8E9099;
+  --md-sys-color-outline-variant: #44464F;
+  
+  --md-sys-color-error: #FFB4AB;
+  --md-sys-color-on-error: #690005;
+  
+  /* Material Design 3 - Elevation Shadows */
+  --md-sys-elevation-0: none;
+  --md-sys-elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
+  
+  /* Material Design 3 - State Layers (for hover/focus/press) */
+  --md-sys-state-hover-opacity: 0.08;
+  --md-sys-state-focus-opacity: 0.12;
+  --md-sys-state-pressed-opacity: 0.12;
+  
+  /* Material Design 3 - Shape */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  
+  /* Material Motion - Durations */
+  --md-sys-motion-duration-short1: 50ms;
+  --md-sys-motion-duration-short2: 100ms;
+  --md-sys-motion-duration-short3: 150ms;
+  --md-sys-motion-duration-short4: 200ms;
+  --md-sys-motion-duration-medium1: 250ms;
+  --md-sys-motion-duration-medium2: 300ms;
+  --md-sys-motion-duration-medium3: 350ms;
+  --md-sys-motion-duration-medium4: 400ms;
+  --md-sys-motion-duration-long1: 450ms;
+  --md-sys-motion-duration-long2: 500ms;
+  
+  /* Material Motion - Easing */
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  
+  /* Typography */
+  font-family: 'Roboto', 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+
+  /* Performance */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--md-sys-color-primary);
+  transition: width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+a:hover {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 4px;
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(135deg, var(--md-sys-color-surface-dim) 0%, var(--md-sys-color-surface) 100%);
+}
+
+/* Google-inspired animated background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(168, 199, 250, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(168, 199, 250, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(188, 199, 220, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, var(--md-sys-typescale-display-medium));
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, var(--md-sys-typescale-headline-large));
+}
+
+h3 {
+  font-size: var(--md-sys-typescale-title-large);
+  font-weight: 500;
+}
+
+p {
+  font-size: var(--md-sys-typescale-body-large);
+  line-height: 1.6;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  min-height: 48px; /* Material Design touch target */
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+button:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+button:focus-visible::before {
+  opacity: var(--md-sys-state-focus-opacity);
+}
+
+button:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Selection styles - Material You colors */
+::selection {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* Material Design 3 Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-container-low);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: 6px;
+  border: 2px solid var(--md-sys-color-surface-container-low);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Light mode - Material Design 3 Light Theme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --md-sys-color-primary: #0B57D0;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #D3E3FD;
+    --md-sys-color-on-primary-container: #001C38;
+    
+    --md-sys-color-secondary: #4D5E77;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #D5E3F7;
+    --md-sys-color-on-secondary-container: #0A1C30;
+    
+    --md-sys-color-surface: #F9F9FF;
+    --md-sys-color-surface-dim: #D9D9E0;
+    --md-sys-color-surface-bright: #F9F9FF;
+    --md-sys-color-surface-container-lowest: #FFFFFF;
+    --md-sys-color-surface-container-low: #F3F3FA;
+    --md-sys-color-surface-container: #EDEDF4;
+    --md-sys-color-surface-container-high: #E8E7EE;
+    --md-sys-color-surface-container-highest: #E2E2E9;
+    
+    --md-sys-color-on-surface: #1A1C1E;
+    --md-sys-color-on-surface-variant: #43474E;
+    --md-sys-color-outline: #73777F;
+    --md-sys-color-outline-variant: #C3C6CF;
+    
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  body {
+    background: linear-gradient(135deg, var(--md-sys-color-surface-bright) 0%, var(--md-sys-color-surface-container) 100%);
+  }
+
+  body::before {
+    background: 
+      radial-gradient(circle at 15% 20%, rgba(11, 87, 208, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(11, 87, 208, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(77, 94, 119, 0.02) 0%, transparent 50%);
+  }
+}
