@@ -1,0 +1,118 @@
+/* ==================== */
+/*     GLOBAL RESET      */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.3em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ==================== */
+/*  PATTERN 1 & 2: GRID  */
+/* ==================== */
+.pattern {
+  max-width: 500px;
+  margin: 0 auto 50px;
+  border: 2px solid #999;
+}
+
+/* Orange Pattern: 8 columns */
+.orange-pattern {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+  padding: 3px;
+  background: #fff;
+}
+
+/* Grey Pattern: 9 columns */
+.grey-pattern {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 3px;
+  padding: 3px;
+  background: #fff;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border-radius: 1px;
+}
+
+/* ==================== */
+/*  PATTERN 3: GINGHAM   */
+/*   (CSS3 gradients)    */
+/* ==================== */
+.gingham-pattern {
+  max-width: 500px;
+  height: 300px;
+  margin: 0 auto 50px;
+  border: 2px solid #999;
+
+  /* 
+   * Gingham / plaid pattern using layered CSS3 gradients
+   * Two sets of alternating semi-transparent stripes 
+   * that overlap to create the checkered effect.
+   */
+  background-color: #fff;
+  background-image:
+    /* Horizontal stripes */
+    linear-gradient(
+      0deg,
+      transparent 0%,
+      transparent 25%,
+      rgba(210, 40, 50, 0.35) 25%,
+      rgba(210, 40, 50, 0.35) 50%,
+      transparent 50%,
+      transparent 75%,
+      rgba(210, 40, 50, 0.35) 75%,
+      rgba(210, 40, 50, 0.35) 100%
+    ),
+    /* Vertical stripes */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 25%,
+      rgba(210, 40, 50, 0.35) 25%,
+      rgba(210, 40, 50, 0.35) 50%,
+      transparent 50%,
+      transparent 75%,
+      rgba(210, 40, 50, 0.35) 75%,
+      rgba(210, 40, 50, 0.35) 100%
+    );
+  background-size: 80px 80px;
+}
+
+/* ==================== */
+/*     RESPONSIVE        */
+/* ==================== */
+@media screen and (max-width: 600px) {
+  .pattern,
+  .gingham-pattern {
+    max-width: 95%;
+  }
+
+  body {
+    padding: 15px;
+  }
+}

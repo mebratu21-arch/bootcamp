@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login-signup.css" />
+    <title>Sign Up — ShopStyle</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="index.html">
+          <i class="fa-solid fa-store"></i> ShopStyle
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="products.html">Products</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+      </div>
+    </nav>
+
+    <!-- Sign Up Form -->
+    <div class="form-container">
+      <h2><i class="fa-solid fa-user-plus"></i> Sign Up</h2>
+      <form action="#" method="POST">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required />
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required />
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required />
+
+        <button type="submit" class="form-btn">Create Account</button>
+      </form>
+      <p class="form-link">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 ShopStyle — Designed by Mebratu</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+:root {
+  --primary: #4f46e5;
+  --secondary: #64748b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: #1e293b;
+}
+
+.app {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.planner-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.date-picker input {
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.add-task-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.add-task-form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.add-task-form button {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #f1f5f9;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  transition: transform 0.1s;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--secondary);
+}
+
+.task-view {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+.task-edit {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.task-edit input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.25rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.task-view button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.task-view button:first-of-type {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.task-view button:last-of-type {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.no-tasks {
+  text-align: center;
+  color: var(--secondary);
+  font-style: italic;
+  margin-top: 2rem;
+}

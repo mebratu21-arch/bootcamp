@@ -1,0 +1,10 @@
+[
+  {
+    "username": "audit_user",
+    "password": "$2b$10$MCKV6mNuRode6Q.Gh6/gL.mXgWxmNPv5qM4jw9pGiIVAtarMm8WGy",
+    "email": "audit@example.com",
+    "bio": "",
+    "isConfirmed": true,
+    "confirmationToken": null
+  }
+]

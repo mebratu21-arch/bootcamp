@@ -1,0 +1,77 @@
+/* ==================== */
+/*     GLOBAL RESET      */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ==================== */
+/*      CONTAINER        */
+/* ==================== */
+.container {
+  width: 900px;
+  height: 320px;
+  border: 2px solid #333;
+  background-color: #fff;
+  position: relative;
+
+  /* Flexbox: space the 3 groups across the width */
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+/* ==================== */
+/*      YELLOW BOX       */
+/* ==================== */
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: yellow;
+  border: 2px solid #333;
+}
+
+/* ==================== */
+/*    LEFT COLUMN        */
+/*  (flex column, start) */
+/* ==================== */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+/* ==================== */
+/*    CENTER ROW         */
+/*  (flex row, centered) */
+/* ==================== */
+.center-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ==================== */
+/*    RIGHT COLUMN       */
+/*  (flex column, end)   */
+/* ==================== */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "56269582-9b6c-4fc2-89dc-aa1e31852cbd",
+    "title": "Buy Groceries",
+    "description": "Milk, Eggs, Bread",
+    "status": "completed",
+    "createdAt": "2026-01-12T11:49:51.862Z",
+    "updatedAt": "2026-01-12T11:51:23.352Z"
+  },
+  {
+    "id": "8b785adf-c8fd-4d14-8251-cc822bc65af5",
+    "title": "Finish Project",
+    "description": "",
+    "status": "pending",
+    "createdAt": "2026-01-12T11:50:37.909Z"
+  }
+]

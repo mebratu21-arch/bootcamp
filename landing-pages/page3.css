@@ -1,0 +1,321 @@
+/* ==================== */
+/*     GLOBAL RESET      */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background: #f8f9fa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==================== */
+/*       NAVBAR          */
+/* ==================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.logo {
+  font-size: 1.2em;
+  font-weight: 900;
+  color: #2c8c99;
+  margin-right: 15px;
+}
+
+.logo i {
+  margin-right: 4px;
+}
+
+.nav-left a {
+  font-size: 0.9em;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.nav-left a.active {
+  font-weight: 700;
+  color: #333;
+}
+
+.nav-left a:hover {
+  color: #2c8c99;
+}
+
+.nav-right a {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.signin-btn {
+  padding: 6px 16px;
+  border: 2px solid #2c8c99;
+  border-radius: 3px;
+  color: #2c8c99 !important;
+  font-weight: 700;
+  transition: background 0.3s, color 0.3s;
+}
+
+.signin-btn:hover {
+  background: #2c8c99;
+  color: #fff !important;
+}
+
+/* ==================== */
+/*    PRICING HERO       */
+/* ==================== */
+.pricing-hero {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: #fff;
+}
+
+.pricing-hero h1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto 10px;
+}
+
+.pricing-hero > p {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.pricing-for {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.pricing-for span {
+  font-size: 0.85em;
+  color: #888;
+  font-style: italic;
+}
+
+.pricing-for select {
+  padding: 6px 14px;
+  border: 2px solid #2c8c99;
+  border-radius: 3px;
+  color: #2c8c99;
+  font-weight: 600;
+  font-size: 0.85em;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ==================== */
+/*    PRICING CARDS      */
+/* ==================== */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  max-width: 960px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+  align-items: start;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Most Popular badge */
+.popular-badge {
+  background: #2c8c99;
+  color: #fff;
+  text-align: center;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 8px;
+}
+
+.card-top {
+  text-align: center;
+  padding: 30px 20px 25px;
+}
+
+.icon-plan {
+  font-size: 2.8em;
+  color: #2c8c99;
+  margin-bottom: 15px;
+}
+
+.card-top h3 {
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.card-top .subtitle {
+  font-size: 0.8em;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 3em;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.price span {
+  font-size: 0.35em;
+  color: #999;
+}
+
+.price-text {
+  font-size: 1.8em;
+  font-style: italic;
+  font-weight: 400;
+  color: #666;
+}
+
+/* CTA Buttons */
+.cta-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background: #2c8c99;
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 700;
+  border-radius: 3px;
+  margin: 10px 0;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #237a85;
+}
+
+.cta-alt {
+  background: #6b7280;
+}
+
+.cta-alt:hover {
+  background: #555c66;
+}
+
+.no-cc {
+  font-size: 0.75em;
+  color: #999;
+  font-style: italic;
+}
+
+/* Features section */
+.card-features {
+  padding: 20px 25px 30px;
+  border-top: 3px solid;
+  min-height: 280px;
+}
+
+.starter .card-features {
+  border-color: #fbbf24;
+  background: #fffbeb;
+}
+
+.pro .card-features {
+  border-color: #818cf8;
+  background: #f0f0ff;
+}
+
+.elite .card-features {
+  border-color: #2dd4bf;
+  background: #f0fdfa;
+}
+
+.card-features h4 {
+  font-size: 0.85em;
+  color: #333;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+.card-features h4:first-child {
+  margin-top: 0;
+}
+
+.card-features ul {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.card-features li {
+  font-size: 0.82em;
+  color: #555;
+  padding: 3px 0;
+}
+
+.card-features li a {
+  color: #2c8c99;
+}
+
+.card-features li a:hover {
+  text-decoration: underline;
+}
+
+.custom-note {
+  font-size: 0.82em;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* ==================== */
+/*     RESPONSIVE        */
+/* ==================== */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pricing-hero h1 {
+    font-size: 1.4em;
+  }
+
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .pricing-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}

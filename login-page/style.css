@@ -1,0 +1,253 @@
+/* ==================== */
+/*     GLOBAL RESET      */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==================== */
+/*      CONTAINER        */
+/* ==================== */
+.container {
+  width: 900px;
+  min-height: 520px;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==================== */
+/*     LEFT PANEL        */
+/* ==================== */
+.left-panel {
+  float: left;
+  width: 55%;
+  padding: 50px 45px 30px;
+}
+
+.left-panel h1 {
+  font-size: 2.2em;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Form Inputs */
+.left-panel input[type="email"],
+.left-panel input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 15px 14px;
+  margin-bottom: 15px;
+  border: none;
+  background-color: #eee;
+  font-size: 0.95em;
+  color: #555;
+  outline: none;
+}
+
+.left-panel input[type="email"]::placeholder,
+.left-panel input[type="password"]::placeholder {
+  color: #999;
+}
+
+.left-panel input[type="email"]:focus,
+.left-panel input[type="password"]:focus {
+  background-color: #e4e4e4;
+}
+
+/* Remember me + Forgot password */
+.form-options {
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-size: 0.85em;
+}
+
+.remember {
+  float: left;
+  color: #666;
+  cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.forgot {
+  float: right;
+  color: #666;
+}
+
+.forgot:hover {
+  color: #9b30ff;
+}
+
+/* LOG IN Button */
+.login-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: linear-gradient(135deg, #9b30ff, #c850c0);
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: opacity 0.3s;
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==================== */
+/*       DIVIDER         */
+/* ==================== */
+.divider {
+  text-align: center;
+  margin: 25px 0 20px;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  font-size: 0.9em;
+  color: #888;
+  padding: 0 10px;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================== */
+/*    SOCIAL ICONS       */
+/* ==================== */
+.social-icons {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #555;
+  font-size: 1.3em;
+  margin: 0 8px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #9b30ff;
+  transform: scale(1.2);
+}
+
+/* Copyright */
+.copyright {
+  text-align: center;
+  font-size: 0.8em;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* ==================== */
+/*     RIGHT PANEL       */
+/* ==================== */
+.right-panel {
+  float: right;
+  width: 45%;
+  min-height: 520px;
+  background: linear-gradient(135deg, #4a0e78, #7b1fa2, #6a1b9a, #9c27b0);
+  color: #fff;
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.welcome-icon {
+  font-size: 4em;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.right-panel h2 {
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.right-panel p {
+  font-size: 0.95em;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* REGISTER Button */
+.register-btn {
+  display: inline-block;
+  padding: 12px 35px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.register-btn i {
+  margin-left: 6px;
+}
+
+.register-btn:hover {
+  background: #fff;
+  color: #7b1fa2;
+}
+
+/* ==================== */
+/*   CLEAR FLOAT FIX     */
+/* ==================== */
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}

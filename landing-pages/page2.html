@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="page2.css" />
+    <title>Landing Page 2 — Download</title>
+  </head>
+  <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <p>UNBURDEN YOURSELF FROM THE WEIGHT OF EMAIL OVERLOAD!</p>
+      <a href="#" class="learn-btn">LEARN HOW</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>DOWNLOAD NOW</h1>
+
+      <form class="download-form" action="#" method="POST">
+        <!-- Row 1: 3 columns -->
+        <div class="form-row three-col">
+          <div class="form-group">
+            <label>FIRST NAME*</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>LAST NAME*</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>EMAIL (<a href="#" class="privacy-link">PRIVACY POLICY</a>)*</label>
+            <input type="email" required />
+          </div>
+        </div>
+
+        <!-- Row 2: 3 columns -->
+        <div class="form-row three-col">
+          <div class="form-group">
+            <label>PHONE NUMBER*</label>
+            <input type="tel" required />
+          </div>
+          <div class="form-group">
+            <label>WEBSITE URL*</label>
+            <input type="url" required />
+          </div>
+          <div class="form-group">
+            <label>COMPANY NAME*</label>
+            <input type="text" required />
+          </div>
+        </div>
+
+        <!-- Row 3: Full width select -->
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>HOW MANY EMPLOYEES WORK THERE?*</label>
+            <select required>
+              <option>- Please Select -</option>
+              <option>1-10</option>
+              <option>11-50</option>
+              <option>51-200</option>
+              <option>201-500</option>
+              <option>500+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Services list -->
+        <div class="services-info">
+          <p>DOES YOUR COMPANY SELL ANY OF THE FOLLOWING SERVICES:</p>
+          <ul>
+            <li>- WEB DESIGN</li>
+            <li>- ONLINE MARKETING</li>
+            <li>- SEO/SEM</li>
+            <li>- ADVERTISING AGENCY SERVICES*</li>
+          </ul>
+        </div>
+
+        <!-- Row 4: Full width select -->
+        <div class="form-row">
+          <div class="form-group full-width">
+            <select>
+              <option>- Please Select -</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="checkbox-row">
+          <label>
+            <input type="checkbox" /> SUBSCRIBE TO HUBSPOT'S MARKETING BLOG
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-row">
+          <button type="submit" class="download-btn">DOWNLOAD NOW</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "task_1",
+    "title": "Learn Express.js",
+    "description": "Build a REST API with Express",
+    "status": "pending",
+    "createdAt": "2026-01-14T18:30:31.710Z",
+    "updatedAt": "2026-01-14T18:30:31.710Z"
+  },
+  {
+    "id": "task_2",
+    "title": "Master Node.js",
+    "description": "Learn async/await and promises",
+    "status": "completed",
+    "createdAt": "2026-01-14T18:30:35.067Z",
+    "updatedAt": "2026-01-14T18:31:26.668Z"
+  },
+  {
+    "id": "task_4",
+    "title": "Learn Express.js",
+    "description": "Build a REST API with Express",
+    "status": "pending",
+    "createdAt": "2026-01-14T18:30:56.147Z",
+    "updatedAt": "2026-01-14T18:30:56.147Z"
+  },
+  {
+    "id": "task_5",
+    "title": "Master Node.js",
+    "description": "Learn async/await and promises",
+    "status": "in-progress",
+    "createdAt": "2026-01-14T18:30:59.782Z",
+    "updatedAt": "2026-01-14T18:30:59.782Z"
+  },
+  {
+    "id": "task_6",
+    "title": "Build Portfolio Site",
+    "description": "Create a personal portfolio website",
+    "status": "pending",
+    "createdAt": "2026-01-14T18:31:04.737Z",
+    "updatedAt": "2026-01-14T18:31:04.737Z"
+  }
+]

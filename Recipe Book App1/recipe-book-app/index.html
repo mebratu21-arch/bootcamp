@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book App</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="recipe-app">
+        <header class="app-header">
+          <h1>🍳 Recipe Book</h1>
+          <p class="subtitle">Save and organize your favorite recipes</p>
+        </header>
+
+        <form id="recipeEntryForm" class="recipe-form">
+          <div class="form-group">
+            <label for="recipeTitle">Recipe Title</label>
+            <input type="text" id="recipeTitle" placeholder="e.g., Chocolate Chip Cookies" required />
+          </div>
+
+          <div class="form-group">
+            <label for="ingredients">Ingredients (one per line)</label>
+            <textarea
+              id="ingredients"
+              placeholder="2 cups all-purpose flour
+1 cup butter
+1 cup sugar
+2 eggs
+..."
+              required
+              rows="6"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="instructions">Cooking Instructions</label>
+            <textarea
+              id="instructions"
+              placeholder="1. Preheat oven to 350°F
+2. Mix dry ingredients...
+3. ..."
+              required
+              rows="6"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Recipe</button>
+        </form>
+
+        <div id="recipeContainer" class="recipe-container"></div>
+
+        <div class="footer-actions">
+          <button id="clearRecipesButton" class="btn btn-danger">Clear All Recipes</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

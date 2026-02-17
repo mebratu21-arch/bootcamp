@@ -1,0 +1,70 @@
+STEP 2: ROLE-BASED Q&A OUTPUT
+==============================
+
+QUESTION: "Can you explain the limitation of liability clause?"
+
+LAWYER'S RESPONSE:
+------------------
+
+Thank you for asking about this - it's one of the most critical clauses in the agreement, and I want to make sure you fully understand what it means for NovaWare.
+
+Let me walk you through this step by step:
+
+**What the Clause Says:**
+The agreement states: "Provider's total liability shall not exceed the fees paid by Client in the 3 months prior to a claim. Provider is not liable for indirect or consequential damages."
+
+**Breaking Down the Legal Meaning:**
+
+First, let's talk about the liability cap. This clause limits BrightLine's financial responsibility to you to a maximum of the fees you've paid them in the three months before any claim arises. 
+
+Since you're paying $12,000 per month, this means the absolute maximum you could recover from BrightLine for ANY breach of contract or service failure is $36,000 (3 months × $12,000).
+
+Now, here's what's particularly important: the second part of this clause excludes "indirect or consequential damages." In plain English, this means BrightLine is NOT responsible for:
+
+- Lost profits if their service failure causes your business to lose money
+- Lost business opportunities
+- Damage to your reputation
+- Costs of finding alternative services
+- Business interruption costs
+- Data loss impacts on your operations
+
+**Real-World Example:**
+Let me give you a concrete scenario to illustrate the risk:
+
+Imagine BrightLine's monitoring service fails, and as a result, your cloud infrastructure goes down for 48 hours. During this time:
+- You lose $500,000 in sales
+- You have to pay $50,000 in emergency IT consulting to fix the problem
+- Three major clients cancel contracts worth $200,000/year
+- Your company's reputation suffers
+
+Under this limitation of liability clause, you could only recover a maximum of $36,000 from BrightLine - and that's ONLY for their direct breach of contract (like not providing the monitoring service they promised). You CANNOT recover any of the $500,000 in lost sales, the client cancellations, or reputation damage because those are "consequential damages."
+
+**The Risk to NovaWare:**
+This is a heavily provider-favorable clause. You're paying $144,000 per year for this service, but your maximum recovery is capped at just $36,000 - only 25% of the annual contract value. Meanwhile, the potential business impact to you could be far greater.
+
+**My Recommendations:**
+
+1. **Negotiate a Higher Cap:** Try to negotiate the liability cap to at least 12 months of fees ($144,000) or even the full annual contract value. This is more reasonable given your dependency on these services.
+
+2. **Consider Consequential Damages:** While providers typically resist unlimited consequential damages, you might negotiate a separate, smaller cap for consequential damages (e.g., 2-3x the monthly fee) for critical failures.
+
+3. **Require Insurance:** Ask BrightLine to carry Errors & Omissions (E&O) insurance and Professional Liability insurance with minimum coverage amounts. Get yourself named as an additional insured.
+
+4. **Define Service Levels:** Since liability is limited, make sure you have strong Service Level Agreements (SLAs) with specific uptime guarantees and response times. The agreement mentions "Exhibit A" - make sure this includes detailed SLAs.
+
+5. **Evaluate Your Risk:** Consider whether $36,000 maximum recovery is acceptable given:
+   - How critical these services are to your operations
+   - What your potential losses could be from service failures
+   - Whether you have backup systems or providers
+
+**Questions to Ask BrightLine:**
+Before signing, I'd recommend asking them:
+- What insurance coverage do they carry?
+- Have they had any service failures with other clients?
+- What's their average response time for critical incidents?
+- Can they provide references from similar clients?
+
+**Bottom Line:**
+This clause significantly limits your legal remedies if something goes wrong. It's standard for IT service providers to include such limitations, but this one is particularly restrictive. I'd strongly recommend negotiating for better terms before signing, especially if these cloud infrastructure services are mission-critical to your business.
+
+Would you like me to draft some alternative language you could propose to BrightLine, or do you have other questions about this clause?

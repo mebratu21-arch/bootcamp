@@ -1,0 +1,209 @@
+/* ==================== */
+/*     GLOBAL RESET      */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ==================== */
+/*     TOP BANNER        */
+/* ==================== */
+.top-banner {
+  background-color: #00bcd4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
+
+.top-banner p {
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.learn-btn {
+  display: inline-block;
+  padding: 8px 22px;
+  background-color: #fff;
+  color: #00bcd4;
+  font-size: 0.8em;
+  font-weight: 700;
+  border-radius: 3px;
+  transition: opacity 0.3s;
+}
+
+.learn-btn:hover {
+  opacity: 0.85;
+}
+
+/* ==================== */
+/*     MAIN CONTENT      */
+/* ==================== */
+.main-content {
+  background: linear-gradient(180deg, #80cbc4 0%, #89b8b5 50%, #80cbc4 100%);
+  min-height: 100vh;
+  padding: 50px 20px 60px;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 2.2em;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 35px;
+  letter-spacing: 2px;
+}
+
+/* ==================== */
+/*    DOWNLOAD FORM      */
+/* ==================== */
+.download-form {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Grid rows — 3 columns */
+.form-row {
+  margin-bottom: 18px;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72em;
+  font-weight: 700;
+  color: #3a6a6a;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.privacy-link {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 0.9em;
+  background: #fff;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #00bcd4;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Services info */
+.services-info {
+  margin-bottom: 15px;
+  padding: 0 2px;
+}
+
+.services-info p {
+  font-size: 0.72em;
+  font-weight: 700;
+  color: #3a6a6a;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.services-info ul {
+  list-style: none;
+  font-size: 0.78em;
+  color: #3a6a6a;
+  font-weight: 600;
+}
+
+.services-info li {
+  margin-bottom: 2px;
+}
+
+/* Checkbox */
+.checkbox-row {
+  margin: 18px 0;
+}
+
+.checkbox-row label {
+  font-size: 0.78em;
+  color: #3a6a6a;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"] {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Submit */
+.submit-row {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.download-btn {
+  padding: 14px 40px;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #00a5bb;
+}
+
+/* ==================== */
+/*     RESPONSIVE        */
+/* ==================== */
+@media screen and (max-width: 768px) {
+  .three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .top-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-content h1 {
+    font-size: 1.6em;
+  }
+}
