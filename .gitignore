@@ -58,3 +58,5 @@ temp/
 # API Keys & Credentials
 credentials.json
 api-keys.json
+
+!.allai/a TypeScript and React Todo/
